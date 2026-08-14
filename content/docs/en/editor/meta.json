@@ -1,0 +1,9 @@
+{
+  "title": "Online Editor",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "editor-panels",
+    "project-actions"
+  ]
+}

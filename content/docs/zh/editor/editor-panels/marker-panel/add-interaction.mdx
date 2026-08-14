@@ -1,0 +1,48 @@
+---
+title: 添加交互
+description: 为标记附加动作，使点击时打开链接、将相机飞行至指定视角，或显示界面页面。
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+标记交互把注释变成了操作入口。标记不再只是为某个对象贴上标签，点击它还可以打开相关内容、移动相机或显示界面面板。
+
+这也是引导式漫游的实现机制：与其让观看者自由导航、寄望于他们能找到关键内容，不如通过交互把他们引导至预先规划的顺序中。
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-marker-panel-add-interaction-1.jpg']} />
+
+## 交互的配置方式
+
+每个标记的编辑视图中都有一个**交互面板**。使用**添加交互**附加动作，然后从下拉菜单中选择动作类型。一个标记可以承载多个交互，依次列为「交互 1」「交互 2」等，并可分别删除。
+
+| 动作 | 点击后的效果 | 适用场景 |
+| --- | --- | --- |
+| 打开链接 | 打开外部页面、业务系统或文档 | 规格说明、报告、外部看板、辅助资料 |
+| 飞行到视角 | 在设定时长内将相机移动到预设位置 | 引导观看者到达查看模型或区域的最佳角度 |
+| 显示界面面板 | 显示或隐藏指定的界面页面 | 仅在需要时展示语境信息或控制项 |
+
+**飞行到视角**动作需要设置目标位姿的相机参数，以及控制移动耗时的时长。较长的时长呈现为平滑过渡，有助于观看者保持方位感；时长过短则更像硬切，在空间场景中容易让人迷失方向。
+
+## 打开链接
+
+添加打开链接动作，将标记与外部页面、业务系统或辅助文档关联起来。
+
+这样既能保证详细信息可随时访问，又不会让三维场景变得拥挤，尤其适用于标记需要引用无法就地展示的大体量资料时：完整规格书、维护履历、实时看板。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-1.mp4" poster="/demos/project-center/3.3.1标记面板-添加交互打开链接.poster.jpg" />
+
+## 飞行到指定视角
+
+添加飞行到视角动作，使点击标记时相机移动到预设位置。
+
+这可以引导观看者到达查看模型、位置或区域的最佳角度，也免去了漫游过程中手动操作相机的麻烦。这正是「告诉别人该看哪里」与「直接带他们过去」之间的差别。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-2.mp4" poster="/demos/project-center/3.3.2标记面板-飞行到指定视角.poster.jpg" />
+
+## 显示界面面板
+
+添加显示或隐藏指定界面页面的动作，让场景元素能够驱动界面内容。
+
+标记仅在相关时才展示语境信息、控制项或辅助面板，从而将三维空间语境与二维信息展示结合起来，同时避免视口过载。目标界面页面需先行创建，因此请先在[页面与组件管理](/zh/docs/editor/editor-panels/ui-panel/page-and-component-management)中建好页面，再配置此交互。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-3.mp4" poster="/demos/project-center/3.3.2标记面板-显示UI面板.poster.jpg" />

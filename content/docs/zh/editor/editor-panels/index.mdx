@@ -1,0 +1,71 @@
+---
+title: 概述
+description: 四个功能面板把场景创作拆分为独立的工作区域，让复杂项目保持清晰，也让不同角色各司其职、互不干扰。
+---
+
+import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
+
+功能面板把场景创作划分为四个专属工作区域。全局场景设置、模型资产、标记与界面图层各有独立面板，你可以按任务切换，同时始终处于同一个工作区内。
+
+这种划分并非表面功夫。它对应的正是数字孪生实际构成的四个层次，也正是项目能够不断扩展而不失控的原因。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-1.mp4" poster="/demos/project-center/3.1.0功能面板-概述.poster.jpg" />
+
+## 面板参考
+
+| 面板 | 配置内容 | 何时使用 |
+| --- | --- | --- |
+| 场景面板 | 项目标题、封面、背景、类型、相机控制器、灯光、后处理 | 确定项目的标识方式，以及场景的打开与呈现效果 |
+| 模型面板 | 资产上传与加载、位置、旋转、缩放、可见性、调试工具 | 搭建构成场景基础的三维内容 |
+| 标记面板 | 文本、图片、视频与数据标记及其交互 | 为位置与对象附加业务语境 |
+| 界面面板 | 画布行为、页面、组件及组件交互 | 在场景之上构建二维控制与展示层 |
+
+## 场景面板
+
+配置整体三维场景的呈现与观看体验：项目基础信息、相机控制、灯光与后处理。
+
+该面板决定了项目在项目组合中如何被标识、观看者在场景打开瞬间看到什么、光照如何呈现资产，以及最终画面在预览与分享时的观感。其中大部分设置会在项目早期配置，并在资产就位后进一步调整。
+
+| 模块 | 配置内容 |
+| --- | --- |
+| [项目设置](/zh/docs/editor/editor-panels/scene-panel/project-settings) | 标题、封面图、背景色、项目类型 |
+| [相机控制器](/zh/docs/editor/editor-panels/scene-panel/camera-controller) | 控制器类型、初始视角、视场角 |
+| [灯光](/zh/docs/editor/editor-panels/scene-panel/lighting) | 渲染模式、环境光、天空光、主光源 |
+| [后处理](/zh/docs/editor/editor-panels/scene-panel/post-processing) | 画面级视觉优化 |
+
+## 模型面板
+
+管理三维模型资产：上传与加载、参数调整，以及用于定位与排查的调试工具。
+
+这是基础层。其上的一切——无论标记还是界面交互——都附着在这里确定的位置之上，这正是资产摆放值得先行定稿的原因。
+
+| 模块 | 配置内容 |
+| --- | --- |
+| [资产管理](/zh/docs/editor/editor-panels/model-panel/asset-management) | 上传、加载、删除、批量操作 |
+| [模型设置](/zh/docs/editor/editor-panels/model-panel/model-settings) | 位置、旋转、缩放、可见性 |
+| [调试工具](/zh/docs/editor/editor-panels/model-panel/debug-tools) | 地面网格、相机重置 |
+
+## 标记面板
+
+添加标记与交互，用于信息展示、导航逻辑，或与三维环境关联的业务语境。
+
+标记是把「准确的场景」变成「会讲解的场景」的关键。重建成果呈现的是空间的样貌；标记则说明观看者正在看什么、它为何重要，以及下一步该做什么。
+
+| 模块 | 配置内容 |
+| --- | --- |
+| [添加标记](/zh/docs/editor/editor-panels/marker-panel/add-marker) | 文本、图片、视频与数据标记 |
+| [添加交互](/zh/docs/editor/editor-panels/marker-panel/add-interaction) | 打开链接、飞行到视角、显示界面面板 |
+
+## 界面面板
+
+在三维场景之上构建二维界面图层：画布尺寸与缩放、页面与组件布局，以及交互设置。
+
+正是这一层让场景成为「应用」而非「模型」。页面、按钮、媒体与交互，让观看者沿着既定路线浏览内容，而不必自由导航、寄望于恰好发现关键之处。
+
+| 模块 | 配置内容 |
+| --- | --- |
+| [画布设置](/zh/docs/editor/editor-panels/ui-panel/canvas-settings) | 场景交互锁定、场景渲染、画布缩放 |
+| [页面与组件管理](/zh/docs/editor/editor-panels/ui-panel/page-and-component-management) | 页面、按钮、文本、图片、音频、对齐 |
+| [添加交互](/zh/docs/editor/editor-panels/ui-panel/add-interaction) | 飞行到视角、界面显隐、模型显隐 |
+
+<Callouts title="注意事项" cautions={['各面板彼此独立，但场景的搭建遵循固定顺序：先场景设置，再资产，然后标记，最后界面。每一层都会引用上一层已确定的位置。', '逆序操作很少会直接卡住工作，但它意味着之后要重做已完成的部分。']} />

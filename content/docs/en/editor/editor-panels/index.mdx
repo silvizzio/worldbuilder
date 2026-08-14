@@ -1,0 +1,71 @@
+---
+title: Overview
+description: Four feature panels split scene authoring into separate work areas, so complex projects stay navigable and different roles can work without colliding.
+---
+
+import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
+
+Feature panels divide scene authoring into four dedicated work areas. Global scene settings, model assets, markers, and UI layers each get their own panel, so you switch by task while staying inside one workspace.
+
+The division is not cosmetic. It reflects the four layers a digital twin is actually built from, and it is what allows a project to grow without becoming unmanageable.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-1.mp4" poster="/demos/project-center/3.1.0功能面板-概述.poster.jpg" />
+
+## Panel reference
+
+| Panel | What it configures | When you reach for it |
+| --- | --- | --- |
+| Scene Panel | Project title, cover, background, type, camera controller, lighting, post-processing | Establishing how the project is identified, and how the scene opens and reads |
+| Model Panel | Asset upload and loading, position, rotation, scale, visibility, debug tools | Building the 3D content that forms the foundation of the scene |
+| Marker Panel | Text, image, video, and data markers, plus their interactions | Attaching business context to positions and objects |
+| UI Panel | Canvas behaviour, pages, components, and component interactions | Building the 2D control and presentation layer over the scene |
+
+## Scene Panel
+
+Configures the overall 3D scene presentation and viewing experience: project basics, camera controls, lighting, and post-processing.
+
+This panel decides how the project is identified in the portfolio, what a viewer sees the moment the scene opens, how illumination presents the assets, and how the final image reads during preview and sharing. Most of its settings are configured early and refined once assets are in place.
+
+| Module | Configures |
+| --- | --- |
+| [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings) | Title, cover image, background colour, project type |
+| [Camera Controller](/en/docs/editor/editor-panels/scene-panel/camera-controller) | Controller type, initial view, field of view |
+| [Lighting](/en/docs/editor/editor-panels/scene-panel/lighting) | Render mode, ambient, sky light, key light |
+| [Post Processing](/en/docs/editor/editor-panels/scene-panel/post-processing) | Image-level visual refinement |
+
+## Model Panel
+
+Manages 3D model assets: upload and loading, parameter adjustment, and debug tools for positioning and troubleshooting.
+
+This is the foundation layer. Everything above it, markers and UI interactions alike, attaches to positions established here, which is why asset placement is worth settling before moving on.
+
+| Module | Configures |
+| --- | --- |
+| [Asset Management](/en/docs/editor/editor-panels/model-panel/asset-management) | Upload, load, delete, batch operations |
+| [Model Settings](/en/docs/editor/editor-panels/model-panel/model-settings) | Position, rotation, scale, visibility |
+| [Debug Tools](/en/docs/editor/editor-panels/model-panel/debug-tools) | Ground grid, camera reset |
+
+## Marker Panel
+
+Adds markers and interactions for information display, navigation logic, or business context tied to the 3D environment.
+
+Markers are what turn an accurate scene into an explanatory one. A reconstruction shows what a space looks like; a marker explains what a viewer is looking at, why it matters, and what to do next.
+
+| Module | Configures |
+| --- | --- |
+| [Add Marker](/en/docs/editor/editor-panels/marker-panel/add-marker) | Text, image, video, and data markers |
+| [Add Interaction](/en/docs/editor/editor-panels/marker-panel/add-interaction) | Open link, fly to viewpoint, show UI panel |
+
+## UI Panel
+
+Builds 2D UI layers on top of the 3D scene: canvas size and scaling, page and component layout, and interaction settings.
+
+This is the layer that makes a scene an application rather than a model. Pages, buttons, media, and interactions let a viewer follow a defined route through the content instead of navigating freely and hoping to find what matters.
+
+| Module | Configures |
+| --- | --- |
+| [Canvas Settings](/en/docs/editor/editor-panels/ui-panel/canvas-settings) | Scene interaction lock, scene rendering, canvas zoom |
+| [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) | Pages, buttons, text, images, audio, alignment |
+| [Add Interaction](/en/docs/editor/editor-panels/ui-panel/add-interaction) | Fly to viewpoint, UI visibility, model visibility |
+
+<Callouts title="Notes" cautions={['Panels are independent, but scenes come together in order: scene settings, then assets, then markers, then UI. Each layer references positions established by the one before it.', 'Working against that order rarely blocks you outright. It just means revisiting finished work later.']} />

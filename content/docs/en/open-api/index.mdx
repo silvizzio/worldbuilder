@@ -1,0 +1,641 @@
+---
+title: WebUI Open API Reference
+description: Open API reference for external WebUI, debugging tools, and business integration scenarios, covering scene control, camera, model, POI, and UI Layer capabilities.
+---
+
+> **Version**: `1.0` (channel `twinscape-open`)
+> **Last updated**: 2026-06-30
+> **Maintenance convention**: When open methods, events, protocol fields, or SDK behavior are added, changed, or removed, **update this document in the same release**.
+> **Reference implementation (source code takes precedence)**: `open-bridge.js` (Host bridge), `sdk/twinscape-client.js` (Guest SDK), `main-lod.js` (`initTwinScapeOpenBridgeHost`)
+
+This document defines the open communication capabilities between WORLD BUILDER Viewer and external WebUI experiences. It is intended for enterprise teams integrating custom business panels, debugging consoles, or upper-layer applications into digital twin scenes. The current version covers shipped V1 capabilities for standardized control of scenes, cameras, models, POIs, and UI Layers.
+
+---
+
+## 1. Use Cases
+
+| Scenario | Caller Page | `targetWindow` | Typical Usage |
+|----------|-------------|----------------|---------------|
+| **Guest WebUI** | Custom page embedded in Viewer (iframe) | `window.parent` | Business panels controlling cameras, models, POIs, and UI Layers |
+| **Host Debug Page** | Playground and other outer pages | `iframe.contentWindow` (Viewer) | Integration testing, delivery validation, and sample code generation |
+
+Integration constraints:
+
+- Communication is handled through browser `window.postMessage` only. **Never** set `targetOrigin` to `*`.
+- Guest calls are **session-level runtime effects**: runtime changes such as model/POI visibility are **not persisted** to the project database; refreshing the Viewer restores the configured project state.
+- Except for `handshake`, all methods return `NOT_READY` when the scene is not ready.
+
+---
+
+## 2. Quick Start (SDK)
+
+Integrators are encouraged to use the official SDK first. The SDK encapsulates handshake, request/response handling, event listening, and timeout behavior, reducing the complexity of working directly with the `postMessage` protocol.
+
+### 2.1 Include
+
+```html
+<script src="https://worldbuilder.space/sdk/twinscape-client.js"></script>
+```
+
+### 2.2 Create Client
+
+```javascript
+const client = createTwinScapeClient({
+  targetWindow,           // Guest: window.parent; Playground: viewerIframe.contentWindow
+  targetOrigin: window.location.origin,  // Must match Host page origin
+  timeoutMs: 8000,        // Optional, default 8000
+  appName: 'MyWebUI',     // Optional, reported during handshake
+});
+
+// Handshake (internally calls 'handshake')
+await client.ready();
+
+// Recommended to wait for scene to load before calling business APIs
+await new Promise((resolve) => {
+  const off = client.onEvent((name) => {
+    if (name === 'scene.loaded') { off(); resolve(); }
+  });
+});
+
+const info = await client.call('scene.getInfo', {});
+console.log(info);
+```
+
+### 2.3 SDK API
+
+| Method | Description |
+|--------|-------------|
+| `createTwinScapeClient(options)` | Create a client instance |
+| `client.ready(): Promise<void>` | Execute `handshake`, idempotent |
+| `client.call(method, params?): Promise<object>` | Call an open method, `params` defaults to `{}` |
+| `client.onEvent(handler): () => void` | Listen for Host-pushed events; returns an unsubscribe function |
+| `client.dispose()` | Remove listeners and reject pending requests |
+| `client.CHANNEL` / `client.VERSION` | Constants `'twinscape-open'` / `'1.0'` |
+
+Timeout: SDK rejects with `error.code === 'TIMEOUT'` if no response within `timeoutMs`.
+
+---
+
+## 3. Communication Protocol
+
+### 3.1 Message Envelope
+
+All messages use a unified JSON envelope so Host and Guest can distinguish requests, responses, and events within the same protocol channel:
+
+```json
+{
+  "channel": "twinscape-open",
+  "version": "1.0",
+  "type": "request | response | event"
+}
+```
+
+**Request (Guest → Host)**
+
+```json
+{
+  "channel": "twinscape-open",
+  "version": "1.0",
+  "type": "request",
+  "requestId": "uuid",
+  "method": "camera.flyTo",
+  "params": {}
+}
+```
+
+**Response (Host → Guest)**
+
+Success:
+
+```json
+{
+  "channel": "twinscape-open",
+  "version": "1.0",
+  "type": "response",
+  "requestId": "uuid",
+  "ok": true,
+  "result": {}
+}
+```
+
+Error:
+
+```json
+{
+  "channel": "twinscape-open",
+  "version": "1.0",
+  "type": "response",
+  "requestId": "uuid",
+  "ok": false,
+  "error": { "code": "INVALID_PARAMS", "message": "..." }
+}
+```
+
+**Event (Host → Guest, one-way)**
+
+```json
+{
+  "channel": "twinscape-open",
+  "version": "1.0",
+  "type": "event",
+  "event": "scene.loaded",
+  "payload": {}
+}
+```
+
+### 3.2 Naming Conventions
+
+- Method names: `domain.action` (e.g., `camera.flyTo`).
+- All business IDs (`modelId`, `poiId`, `layerId`) are **strings** at the protocol level.
+- `params` must be an object; use `{}` for no parameters.
+
+---
+
+## 4. Lifecycle
+
+The Open API follows an explicit session lifecycle. Guest pages should complete the handshake and wait for the scene loaded event before calling business APIs to avoid `NOT_READY` responses while the Viewer is still initializing.
+
+1. Guest page loads, creates SDK and calls `ready()` (sends `handshake`).
+2. Host validates origin, registers session, returns `allowedMethods`.
+3. Host pushes `scene.loaded` when the Viewer scene is ready.
+4. Guest calls APIs via `call()`; Host pushes events via `onEvent`.
+5. Cleanup on page unload or `dispose()`.
+
+Playground debug entry: `/playground.html?projectId=<id>&status=draft` (`draft` is the default during development; add `status=published` to validate published snapshots).
+
+---
+
+## 5. Method Overview (V1 Implemented)
+
+| Method | Description |
+|--------|-------------|
+| `handshake` | Handshake, get allowed method list |
+| `scene.getInfo` | Current scene and project info |
+| `camera.getState` | Camera pose and FOV |
+| `camera.getControllerMode` | Current controller mode |
+| `camera.setControllerMode` | Switch between orbit / firstPerson |
+| `camera.reset` | Reset to scene initial camera |
+| `camera.flyTo` | Fly to target pose |
+| `model.list` | List scene models |
+| `model.show` | Show model(s), optionally exclusive |
+| `model.hide` | Hide model(s) |
+| `model.setVisibility` | Batch set visibility |
+| `model.getVisibility` | Query visibility state |
+| `poi.list` | List POIs |
+| `poi.setVisible` | Set POI visibility (session-only) |
+| `poi.flyTo` | Fly to POI-associated camera |
+| `ui.list` | List UI Layers |
+| `ui.show` | Show UI Layer |
+| `ui.hide` | Hide UI Layer |
+
+---
+
+## 6. API Details
+
+### 6.1 handshake
+
+Establishes an Open API session. **This is the only method that can complete normally before the scene is loaded, excluding error cases.**
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `appName` | `string` | No | Application name, filled by SDK by default |
+| `appVersion` | `string` | No | Application version (reserved) |
+
+**result**
+
+```json
+{
+  "accepted": true,
+  "allowedMethods": ["handshake", "scene.getInfo", "..."],
+  "version": "1.0"
+}
+```
+
+---
+
+### 6.2 scene.getInfo
+
+**params**: `{}`
+
+**result**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `sceneId` | `string \| null` | Current scene ID |
+| `ready` | `boolean` | Whether the scene is ready |
+| `projectId` | `string \| null` | projectId from URL |
+
+**errors**: `NOT_READY`
+
+---
+
+### 6.3 camera.getState
+
+**params**: `{}`
+
+**result**
+
+```json
+{
+  "position": { "x": 0, "y": 2, "z": 5 },
+  "target": { "x": 0, "y": 0, "z": 0 },
+  "lookAt": { "x": 0, "y": 0, "z": 0 },
+  "fov": 60,
+  "controller": "firstPerson"
+}
+```
+
+- `target` and `lookAt` are synonymous (both returned in the current implementation).
+- `controller`: `"orbit"` or `"firstPerson"`.
+
+**errors**: `NOT_READY`
+
+---
+
+### 6.4 camera.getControllerMode
+
+**params**: `{}`
+
+**result**
+
+```json
+{ "mode": "firstPerson" }
+```
+
+`mode` values: `orbit` | `firstPerson`.
+
+---
+
+### 6.5 camera.setControllerMode
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `mode` | `string` | Yes | `orbit` or `firstPerson` (case-insensitive; `firstperson` is normalized) |
+
+**result**
+
+```json
+{ "mode": "orbit" }
+```
+
+---
+
+### 6.6 camera.reset
+
+Reset the camera to the scene's configured initial pose.
+
+**params**: `{}`
+**result**: `{}`
+
+---
+
+### 6.7 camera.flyTo
+
+Smoothly move the camera to a target pose.
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `position` | `{x,y,z}` | Yes | Camera world position |
+| `target` | `{x,y,z}` | Yes* | Look-at point; can use `lookAt` instead |
+| `durationMs` | `number` | No | Animation duration in ms, default ~1200; also accepts `duration` (ms); internally clamped to 100–30000 ms |
+
+**result**: `{}`
+
+**errors**: `INVALID_PARAMS` (missing position/target), `NOT_READY`
+
+**Example**
+
+```javascript
+await client.call('camera.flyTo', {
+  position: { x: 10, y: 5, z: 20 },
+  target: { x: 0, y: 0, z: 0 },
+  durationMs: 1500,
+});
+```
+
+---
+
+### 6.8 model.list
+
+**params**: `{}`
+
+**result**
+
+```json
+{
+  "models": [
+    {
+      "id": "model-uuid",
+      "name": "Building A",
+      "visible": true,
+      "type": "gsplat"
+    }
+  ]
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `type` | `gsplat` (default) or `mesh` (determined by resource path containing `.glb`/`.gltf`) |
+| `visible` | Effective state combining configuration and **session-level** runtime visibility |
+
+---
+
+### 6.9 model.show
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `ids` | `string[]` | Yes* | Model ID list; also accepts single `id` |
+| `onlyCurrent` | `boolean` | No | If `true`: show models in `ids` and **hide all other models in the scene** |
+
+**result**
+
+```json
+{ "ids": ["model-a", "model-b"] }
+```
+
+**errors**: `INVALID_PARAMS`
+
+> Affects only the current Viewer session; does not modify persisted project configuration.
+
+---
+
+### 6.10 model.hide
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `ids` | `string[]` | Yes* | Also accepts single `id` |
+
+**result**
+
+```json
+{ "ids": ["model-a"] }
+```
+
+---
+
+### 6.11 model.setVisibility
+
+Batch set visibility for multiple models.
+
+**params**
+
+```json
+{
+  "items": [
+    { "id": "model-a", "visible": true },
+    { "id": "model-b", "visible": false }
+  ]
+}
+```
+
+**result**: `{}`
+**errors**: `INVALID_PARAMS` (`items` is empty)
+
+---
+
+### 6.12 model.getVisibility
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `ids` | `string[]` | No | If omitted, returns visibility for **all** models in the current scene |
+
+**result**
+
+```json
+{
+  "items": [
+    { "id": "model-a", "visible": true },
+    { "id": "model-b", "visible": false }
+  ]
+}
+```
+
+---
+
+### 6.13 poi.list
+
+**params**: `{}`
+
+**result**
+
+```json
+{
+  "pois": [
+    {
+      "id": "poi-1",
+      "name": "Entrance",
+      "visible": true,
+      "parentId": null,
+      "position": { "x": 1, "y": 0, "z": 2 }
+    }
+  ]
+}
+```
+
+- Includes root POIs and child POIs; child items have `parentId` set to the parent ID.
+- `visible` includes session-level temporary hidden state.
+
+---
+
+### 6.14 poi.setVisible
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `poiId` | `string` | Yes | POI ID |
+| `visible` | `boolean` | No | Default `true` |
+
+**result**
+
+```json
+{ "poiId": "poi-1", "visible": true }
+```
+
+> Session-level hiding; restored on refresh.
+
+---
+
+### 6.15 poi.flyTo
+
+Fly to the camera pose configured for the POI in the editor.
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `poiId` | `string` | Yes | POI ID |
+| `durationMs` | `number` | No | Override default flight duration (ms) |
+
+**result**
+
+```json
+{ "poiId": "poi-1" }
+```
+
+**errors**: `NOT_FOUND` (POI does not exist or has no camera configuration)
+
+---
+
+### 6.16 ui.list
+
+List the controllable **UI Layers** (custom page layers) for the current scene.
+
+**params**: `{}`
+
+**result**
+
+```json
+{
+  "layers": [
+    { "id": "layer-home", "name": "Home", "visible": true }
+  ]
+}
+```
+
+---
+
+### 6.17 ui.show / ui.hide
+
+**params**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | `string` | Yes* | Layer ID; also accepts `layerId` or `id` |
+
+**result**
+
+```json
+{ "name": "layer-home" }
+```
+
+Visibility affects the runtime UI Layer list, consistent with page management in the editor's "UI" tab.
+
+---
+
+## 7. Events (Host → Guest)
+
+V1 currently implements the following one-way Host-to-Guest event:
+
+| Event | Trigger | payload |
+|-------|---------|---------|
+| `scene.loaded` | Viewer scene loaded | `{ "sceneId": "<current scene ID>" }` |
+
+Listening example:
+
+```javascript
+client.onEvent((eventName, payload) => {
+  if (eventName === 'scene.loaded') {
+    console.log('scene ready', payload.sceneId);
+  }
+});
+```
+
+**Planned, not yet pushed** (see `OPEN_PLATFORM_SDK_PLAN.md`): `model.click`, `poi.click`, `camera.changed`, `measure.finished`.
+
+---
+
+## 8. Error Codes
+
+| code | Meaning |
+|------|---------|
+| `FORBIDDEN` | Origin not allowed, or method not in whitelist |
+| `NOT_READY` | Scene/camera not ready |
+| `INVALID_PARAMS` | Missing or malformed parameters |
+| `NOT_FOUND` | Resource not found (e.g., POI) |
+| `INTERNAL_ERROR` | Host internal error |
+| `TIMEOUT` | SDK-side timeout (not a Host response field) |
+
+The `error.code` property is available on `Error` objects thrown by the SDK.
+
+---
+
+## 9. Security & Limitations
+
+- **Origin validation**: The current Host only allows `event.origin` values that are **same-origin** with the Viewer; cross-origin Guests require Host-side extension of `isOriginAllowed` (see `open-bridge.js` / `initTwinScapeOpenBridgeHost`).
+- **Method whitelist**: `ALLOWED_METHODS` in `open-bridge.js` defines the currently callable methods; unknown methods return `FORBIDDEN`.
+- **Event receiving model**: The current version does not provide a separate subscription API; events are received through `onEvent` and filtered by the Guest by event name.
+- **No persistent write API**: Guests cannot modify the project database through the Open API. Runtime control is limited to the current Viewer session.
+
+---
+
+## 10. Complete Example (Guest WebUI)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/sdk/twinscape-client.js"></script>
+</head>
+<body>
+  <button id="btn-fly">Fly to Origin</button>
+  <script>
+    const client = createTwinScapeClient({
+      targetWindow: window.parent,
+      targetOrigin: window.location.origin,
+      appName: 'DemoPanel',
+    });
+
+    async function init() {
+      await client.ready();
+      await new Promise((resolve) => {
+        const off = client.onEvent((name) => {
+          if (name === 'scene.loaded') { off(); resolve(); }
+        });
+      });
+
+      const { models } = await client.call('model.list', {});
+      console.log('models', models);
+
+      document.getElementById('btn-fly').onclick = () => {
+        client.call('camera.flyTo', {
+          position: { x: 0, y: 5, z: 10 },
+          target: { x: 0, y: 0, z: 0 },
+          durationMs: 2000,
+        });
+      };
+    }
+
+    init().catch(console.error);
+  </script>
+</body>
+</html>
+```
+
+---
+
+## 11. Related Files & Debugging
+
+The following files support API implementation, capability injection, and debugging validation. When troubleshooting an integration, first confirm that the Host bridge, SDK version, and Playground API catalog are aligned.
+
+| File | Description |
+|------|-------------|
+| `open-bridge.js` | Host message routing, method dispatch, and event broadcasting |
+| `sdk/twinscape-client.js` | Guest / outer page SDK |
+| `main-lod.js` | Viewer capability injection (`initTwinScapeOpenBridgeHost`) |
+| `playground.html` | Visual debug console (API list, parameter editing, logging) |
+| `viewer.html` | Loads `open-bridge.js` |
+| `OPEN_PLATFORM_SDK_PLAN.md` | Long-term roadmap (including unimplemented APIs) |
+
+---
+
+## 12. Change History
+
+| Date | Version | Description |
+|------|---------|-------------|
+| 2026-06-30 | 1.0 | Initial release: aligned with `ALLOWED_METHODS` (18 methods); only `scene.loaded` event; added SDK, protocol, session-level semantics |
+
+**When the Open API changes, update this table and verify that `API_CATALOG` in `playground.html` remains consistent with this document.**

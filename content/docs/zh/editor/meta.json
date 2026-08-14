@@ -1,0 +1,9 @@
+{
+  "title": "在线编辑器",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "editor-panels",
+    "project-actions"
+  ]
+}

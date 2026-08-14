@@ -1,0 +1,52 @@
+---
+title: Overview
+description: The online editor is where a reconstructed asset becomes an interactive scene, with scene configuration, model management, markers, and UI in one browser workspace.
+---
+
+import { ShotGrid } from '@/components/docs';
+
+The online editor is where a project stops being a 3D file and becomes something a customer can use. It brings the 3D viewport, four feature panels, model assets, markers, UI layers, and publishing controls into a single browser-based workspace.
+
+Nothing here requires a local install, a game engine, or a build step. That is the point: the person configuring the scene can be the person who understands what the scene needs to communicate.
+
+<ShotGrid images={['/demos/project-center/Editor Workspace Overview.png']} />
+
+## Why the editor is panel-based
+
+A digital twin scene has four distinct concerns, and they belong to different people at different moments. Mixing them into one interface is how 3D tools become specialist software.
+
+The panel split keeps each concern separate and reachable. A 3D content operator can place assets without touching interaction logic. A solution engineer can build the UI layer without needing to understand asset alignment. Both work in the same project without stepping on each other.
+
+| Panel | Owns | Typically operated by | Documentation |
+| --- | --- | --- | --- |
+| Scene Panel | Project identity, camera behaviour, lighting, post-processing | Project owner, 3D operator | [Scene Panel](/en/docs/editor/editor-panels/scene-panel/project-settings) |
+| Model Panel | Asset upload, placement, and debugging | 3D content operator | [Model Panel](/en/docs/editor/editor-panels/model-panel/asset-management) |
+| Marker Panel | Spatial annotations and their interactions | Solution engineer | [Marker Panel](/en/docs/editor/editor-panels/marker-panel/add-marker) |
+| UI Panel | 2D pages, components, and component interactions | Solution engineer | [UI Panel](/en/docs/editor/editor-panels/ui-panel/canvas-settings) |
+
+Alongside the panels, project actions handle save, preview, publish, and undo. See [Publish Project](/en/docs/editor/project-actions).
+
+## Working order
+
+Panels are independent, but scenes come together in a predictable sequence: configure the scene, load and place assets, attach markers, then build the UI on top.
+
+Each layer references positions established by the one before it. Move a model after markers are attached and every marker on it needs revisiting. Build UI interactions before their target pages and models exist and you build them twice. [End-to-End Workflow](/en/docs/end-to-end-workflow) sets out the full ten-step path and where teams usually lose time by working against it.
+
+## What the editor replaces
+
+For most teams, the current process for turning a 3D asset into something presentable involves three tools and at least one handoff.
+
+| Conventional approach | In the editor |
+| --- | --- |
+| A 3D application for placement and layout | Model Panel, with gizmo and parameter control |
+| A document or spreadsheet holding annotations | Markers attached to the positions they describe |
+| A developer building a front end around the asset | UI Panel, with pages, components, and interactions |
+| A deployment step to make changes visible | Save, preview, share, inside the same workspace |
+
+The cost of the conventional approach is not any single step. It is the round trip: every change to the scene means re-exporting, re-annotating, and re-deploying, which is why 3D deliverables tend to be finished once and never updated.
+
+## Why it matters commercially
+
+Bringing authoring and publishing into one place changes what is practical during a review cycle. Feedback from a stakeholder can be addressed and reshared in minutes rather than scheduled into the next iteration, which means reviews converge instead of accumulating.
+
+It also changes who can do the work. Scene configuration, annotation, and interface design become tasks for a solution engineer rather than a 3D specialist, so the reconstruction team is not the bottleneck for every customer variant and every presentation.

@@ -1,0 +1,11 @@
+.git
+.next
+node_modules
+out
+*.log
+*.tsbuildinfo
+
+# Media files are kept in the GitHub repository and loaded through
+# NEXT_PUBLIC_ASSETS_URL in production to avoid uploading the full demo library
+# with every Vercel deployment.
+public/demos

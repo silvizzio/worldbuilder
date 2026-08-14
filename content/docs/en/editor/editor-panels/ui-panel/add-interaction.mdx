@@ -1,0 +1,52 @@
+---
+title: Add Interaction
+description: Attach actions to UI components so they can move the camera, switch UI pages, or control model visibility.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+UI interactions turn interface components into controls that drive the 3D scene. A component can move the camera, show or hide UI pages, and control model visibility.
+
+Together these let the UI layer act as a navigation and control system, so guided demonstrations and scenario steps do not depend on viewers navigating manually.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-ui-panel-add-interaction-1.jpg']} />
+
+## How interactions are configured
+
+Each component has an **Interaction Panel** in its properties. Use **Add Interaction** to attach an action and select its type from the dropdown. Components can carry multiple interactions, listed as Interaction 1, Interaction 2, and so on.
+
+| Action | What happens on click | Use it for |
+| --- | --- | --- |
+| Fly to view | Moves the camera to a predefined viewpoint over a set duration | Guided tours, product demonstrations, planned spatial sequences |
+| Show or hide UI | Shows or hides a specified UI page | Multi-step presentations, contextual information display |
+| Show or hide model | Shows or hides a specified model | Staged explanations, before-and-after comparisons, simplifying complex scenes |
+
+The **Fly to view** action takes camera parameters for the destination pose and a duration value controlling the transition. Keeping durations consistent across a sequence of buttons makes a walkthrough feel deliberate rather than uneven.
+
+## Fly to specified viewpoint
+
+Add a fly-to-viewpoint action so clicking a component moves the camera to a predefined viewpoint.
+
+This lets viewers jump directly to important assets, areas, or review angles, which suits guided tours, product demonstrations, and any workflow where the viewer should follow a planned sequence rather than explore freely.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-1.mp4" poster="/demos/project-center/4.1.3页面组件-飞行到指定视角.poster.jpg" />
+
+## Show or hide UI
+
+Add an action to show or hide a specified UI page, controlling which content is visible at each step.
+
+Showing only the relevant page reduces interface clutter and makes each stage easier to follow. This is the mechanism behind multi-step presentations: a button advances the sequence by hiding the current page and revealing the next.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-2.mp4" poster="/demos/project-center/4.1.3页面组件-显示或隐藏界面.poster.jpg" />
+
+## Show or hide model
+
+Add an action to show or hide a specified model based on the process, scenario state, or presentation step.
+
+This focuses attention on the assets that matter at a given moment. It supports staged explanations, before-and-after comparisons, and revealing internal components by hiding the outer shell, which is often the clearest way to explain how something is assembled.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-3.mp4" poster="/demos/project-center/4.1.3页面组件-显示或隐藏模型.poster.jpg" />
+
+## Related
+
+Markers can carry interactions too, with a slightly different action set. See [Marker Interactions](/en/docs/editor/editor-panels/marker-panel/add-interaction).

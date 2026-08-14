@@ -1,0 +1,71 @@
+---
+title: End-to-End Workflow
+description: The ten-step path from an empty project to a published digital twin, why the order matters, and what to confirm before anyone outside the team sees it.
+---
+
+Every WORLD BUILDER project follows the same sequence. The order is not a convention, it is a dependency chain: each step is placed against something the previous step settled. Working out of order rarely blocks you outright, it just means revisiting finished work later, which is where project time quietly disappears.
+
+## Recommended workflow
+
+| Step | Objective | Related documentation |
+| --- | --- | --- |
+| 1. Create a project | Start from a template or blank project. Default scene and camera settings are generated automatically. | [Create Project](/en/docs/project-center/create-project) |
+| 2. Configure project settings | Set title, cover image, background colour, and project type. | [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings) |
+| 3. Upload or load model assets | Bring 3D assets into the project and keep the structure organised. | [Asset Management](/en/docs/editor/editor-panels/model-panel/asset-management) |
+| 4. Adjust model layout | Set position, rotation, scale, and visibility. | [Model Settings](/en/docs/editor/editor-panels/model-panel/model-settings) |
+| 5. Configure camera behaviour | Choose controller type, initial view, and FOV. | [Camera Controller](/en/docs/editor/editor-panels/scene-panel/camera-controller) |
+| 6. Configure lighting | Set render mode, ambient, sky, and key light. | [Lighting](/en/docs/editor/editor-panels/scene-panel/lighting) |
+| 7. Add scene markers | Attach text, image, video, or data to positions and models. | [Add Marker](/en/docs/editor/editor-panels/marker-panel/add-marker) |
+| 8. Add UI pages and interactions | Build pages, add components, configure interactions. | [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) |
+| 9. Save and preview | Save the latest edits and review the output before publishing. | [Publish Project](/en/docs/editor/project-actions) |
+| 10. Publish and share | Generate a shareable entry with the intended access setting. | [Project Actions](/en/docs/project-center/project-actions) |
+
+## The three phases
+
+The ten steps group into three phases, and it helps to think of them as separate sittings rather than one continuous run.
+
+**Foundation, steps 1 to 2.** Decisions that are cheap now and expensive later. Project type sets the camera controller, which changes how every subsequent placement decision reads. Getting this wrong is not fatal, but it means judging asset layout through the wrong navigation model.
+
+**Construction, steps 3 to 8.** The bulk of the work, and where the dependency chain is tightest. Assets are placed, then annotated, then wrapped in an interface. Each layer attaches to positions the previous layer established.
+
+**Delivery, steps 9 to 10.** Two separate decisions that are often collapsed into one. Save and preview confirm the work is correct; publishing decides who can see it and under what access setting. Keeping them distinct is what prevents a half-finished scene reaching a customer.
+
+## Why this order
+
+**Settings before assets.** Project type sets the default camera controller, and controller type changes how you judge model placement. A layout that reads well from an orbit camera can read badly from a first-person one. Choosing type after positioning everything means re-checking the whole scene.
+
+**Assets before markers.** Markers attach to positions and models. Moving a model after markers are attached means revisiting each marker individually, and there is no warning that a marker has been orphaned.
+
+**Markers before UI.** UI interactions target markers, models, and camera viewpoints. Those targets must exist before a component can point at them, so building the interface first means building it twice.
+
+**Preview as a checkpoint, not a final step.** Preview reflects the saved state, which makes it the only reliable view of what a reviewer will actually see. Preview after any significant change rather than only at the end, because a problem found at step 5 costs minutes and the same problem found at step 10 costs a review cycle.
+
+## Where time is usually lost
+
+| Symptom | Underlying cause | Avoid it by |
+| --- | --- | --- |
+| Markers appear misplaced after a layout change | Models were repositioned after markers were attached | Settling asset placement before adding markers |
+| The scene reads well in the editor but poorly to reviewers | The initial camera view was never set deliberately | Configuring the initial view before sharing, not after feedback |
+| UI components point at pages or models that no longer exist | Targets were renamed or deleted after interactions were configured | Treating UI as the last layer, built on settled targets |
+| A reviewer sees an older version than expected | Changes were made but not saved before sharing | Saving and previewing immediately before generating a link |
+
+## Delivery checklist
+
+Run through this before generating a share link for anyone outside the team. It takes a couple of minutes and it is the difference between a review that produces useful feedback and one that produces a list of things you already knew were unfinished.
+
+| Checkpoint | Confirm that |
+| --- | --- |
+| Project identity | Title, cover image, and project type describe the project accurately |
+| Scene entry view | The initial camera view opens on the most relevant area or asset |
+| Lighting presentation | Assets read clearly, with no overexposure or distracting shadows |
+| Asset placement | Models are positioned, rotated, scaled, and shown or hidden as intended |
+| Marker content | Text, image, video, and data markers carry the right context |
+| UI experience | Pages and components are readable and interaction states are clear |
+| Publishing state | The project is saved, previewed, and set to the intended access level |
+
+## Related topics
+
+- [Platform Concepts](/en/docs/platform-concepts)
+- [Project Center Overview](/en/docs/project-center/)
+- [Online Editor Overview](/en/docs/editor/)
+- [Feature Panels](/en/docs/editor/editor-panels/)

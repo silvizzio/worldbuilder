@@ -1,0 +1,59 @@
+---
+title: Project Settings
+description: Configure project title, background colour, cover thumbnail, and project type in the Scene Panel, the settings that decide how a project is found and recognised.
+---
+
+import { FeatureHero, VideoDemo } from '@/components/docs'
+
+Project Settings define how a project is identified and presented. Title, cover image, background colour, and project type are controlled here, and they carry through to the project list, the preview, and every shared entry point.
+
+These are the least glamorous settings in the editor and among the most consequential. They are what a stakeholder sees before they see anything else, and what determines whether a colleague can find the project three months from now.
+
+## Field reference
+
+| Field | Description | Recommended usage |
+| --- | --- | --- |
+| Project Title | The project display name. | Use a clear scene, asset, or customer-facing name so teams identify the project quickly. |
+| Project Cover | The thumbnail shown in the project list and shared entry points. | Use a representative view that communicates the main scene or asset at a glance. |
+| Scene Background | The background colour of the 3D scene. | Choose a colour that improves contrast against the main asset and suits the presentation context. |
+| Project Type | The project category: object, space, or map. | Match the type to the primary asset level so editing and review expectations stay consistent. |
+
+## Set project title
+
+Use the **Project Title** field to update the display name.
+
+Search in the [Project List](/en/docs/project-center/project-list) matches against the title, so naming is what makes a project findable later. Titles that name the site, asset, or customer return the right project on the first attempt. Titles like "Test 2" or "New Project" do not, and the cost lands on whoever needs it next.
+
+This matters more as a portfolio grows. Consistent naming across a batch also means related projects group together when the list is sorted.
+
+## Set environment background colour
+
+Use the background colour control to adjust the 3D scene background so it suits the content and review context.
+
+Background colour is a presentation decision, not a decorative one. It governs contrast against the asset, and contrast is what determines whether a viewer can read form and detail. A dark asset against a dark background loses its silhouette regardless of how good the reconstruction is.
+
+Object-level, space-level, and map-level scenes typically need different framing here. Object presentation often benefits from a neutral backdrop that isolates the subject; map scenes usually need a background that does not compete with the terrain.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-project-settings-1.mp4" poster="/demos/project-center/3.1.1场景面板-设置环境背景色.poster.jpg" />
+
+## Set project cover image
+
+Use **Project Cover** to capture and update the thumbnail shown in the project list and shared entry points.
+
+The cover is the project's identity at a glance. In a portfolio of similar-looking scenes, a representative cover lets a reviewer recognise the right project before opening it, which is the difference between browsing and opening things one by one to check.
+
+Capture the cover from a view that communicates what the project contains, not simply whatever the camera happened to be showing.
+
+## Set project type
+
+Use the **Project Type** selector to change the project category.
+
+Type should align with the primary content, object-level, space-level, or map-level. It was set at creation and drove the default camera controller, but it remains meaningful afterwards: it signals to everyone opening the project what kind of scene to expect and how they will be navigating it.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-project-settings-2.mp4" poster="/demos/project-center/3.1.1场景面板-项目类型设置.poster.jpg" />
+
+## Why these settings matter
+
+Project identity is the layer that makes a portfolio work as a portfolio rather than a folder of files. Accurate titles, recognisable covers, and correct types are what let teams find, reuse, and duplicate past work instead of rebuilding it.
+
+The investment is a couple of minutes per project. The return arrives later, when someone who was not involved needs to locate the right scene quickly.

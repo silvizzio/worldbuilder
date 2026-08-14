@@ -1,0 +1,37 @@
+---
+title: Debug Tools
+description: Ground grid visualization and camera reset, two controls that make model positioning and scale review reliable rather than subjective.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+Debug Tools contains two controls. Both exist to make judgements about placement checkable rather than a matter of opinion.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-debug-tools-1.jpg']} />
+
+## Control reference
+
+| Control | What it does | Use it when |
+| --- | --- | --- |
+| Show Ground Grid | Toggles a reference grid in the 3D viewport | Checking whether a model is floating, offset, or placed at an unexpected height |
+| Reset Camera | Restores the view to the initial camera configured in the Scene Panel | The camera has moved far from the intended review angle |
+
+## Show Ground Grid
+
+Toggle a ground reference grid to evaluate model position, rotation, and spatial scale.
+
+The grid turns a subjective judgement into a checkable one. Floating models, vertical offsets, and inconsistent scale are all difficult to see against an empty background and immediately obvious against a regular grid. Rotation errors show up the same way, since an off-axis model reads as misaligned relative to the grid lines.
+
+Most useful for object-level and space-level projects, where layout review needs to be reliable before preview or sharing.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-1.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-地面网格.poster.jpg" />
+
+## Reset Camera
+
+Restore the current view to the initial camera configured in the [Scene Panel](/en/docs/editor/editor-panels/scene-panel/camera-controller).
+
+This removes the navigation friction of manually finding your way back after inspecting an asset up close. More usefully, it gives every check the same reference view, so comparisons between iterations are made from an identical angle rather than from wherever the camera happened to end up.
+
+Useful for repeated checks during model placement, marker setup, and interaction testing.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-2.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-重置相机位置.poster.jpg" />

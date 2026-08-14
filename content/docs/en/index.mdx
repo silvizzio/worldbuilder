@@ -1,0 +1,113 @@
+---
+title: Product Overview
+description: WORLD BUILDER turns reconstructed 3D assets into interactive, shareable digital twin applications, without a 3D engineering team, a game engine, or a software release cycle.
+---
+
+import { ShotGrid } from '@/components/docs';
+
+Most organisations that commission a 3D scan of a building, a site, or a product end up with a file nobody outside the technical team can use. The reconstruction is accurate and expensive, and it sits in a format that requires specialist software to open, specialist skills to modify, and a developer to put in front of a customer. The value stays locked in the asset.
+
+WORLD BUILDER is the layer that unlocks it. Built on VIZZIO's 3D reconstruction pipeline, it takes map-level, space-level, and object-level assets and turns them into interactive applications that open in a browser, on any device, from a link. No engine licence, no build step, no release cycle.
+
+<ShotGrid images={['/demos/project-center/Overview.png']} />
+
+## The problem this solves
+
+The gap between a reconstructed asset and something a business can use is usually measured in weeks and specialist headcount.
+
+| Without WORLD BUILDER | With WORLD BUILDER |
+| --- | --- |
+| A 3D file that needs specialist software to open | A URL that opens in any browser |
+| A developer to build a viewer around it | A visual editor a non-engineer can operate |
+| A release cycle to change anything | Edit, save, preview, reshare in minutes |
+| Annotations and context held in a separate document | Information attached to the position it describes |
+| One asset, one use, rebuilt each time | A project structure that duplicates and adapts |
+
+The shift is from treating a 3D scan as a deliverable to treating it as a reusable foundation. Once a project exists, alternate versions, customer-specific variants, and updated captures all start from a duplicate rather than a rebuild.
+
+## Who this is for
+
+WORLD BUILDER assumes a team, not a single operator, and the platform's structure reflects that. Each role works in a different area and hands off cleanly to the next.
+
+| Role | What they do here | Where they work |
+| --- | --- | --- |
+| Project owner | Owns project identity, type, lifecycle, and who can see what | Project Center, Project Settings |
+| 3D content operator | Brings assets in, places them, checks scale and alignment | Model Panel, Debug Tools |
+| Solution engineer | Attaches business context and builds the interactive layer | Marker Panel, UI Panel |
+| Reviewer or customer | Opens a link, explores, gives feedback | Preview and share links |
+| Developer | Embeds the published Viewer into an existing product | WebUI Open API |
+
+The practical consequence is that the person who understands the business problem does not need to be the person who can operate 3D software. A solution engineer can add markers, build a guided walkthrough, and publish it without touching the reconstruction itself.
+
+## Where it gets used
+
+The same platform serves quite different outcomes depending on which asset level you start from.
+
+**Map-level: planning, infrastructure, and urban context.** A reconstructed district or campus becomes a shared reference for planning review, infrastructure assessment, and stakeholder presentation. Markers carry survey data, planning constraints, or asset condition against the exact location they describe, rather than in a report that has to be cross-referenced to a map.
+
+**Space-level: facilities, inspection, and walkthroughs.** A scanned building becomes a walkthrough that a facilities team, a prospective tenant, or a remote contractor can explore without a site visit. Video markers explain how equipment operates, image markers carry inspection evidence the model itself cannot show, and UI pages step a viewer through a defined route.
+
+**Object-level: products, equipment, and training.** A scanned object becomes an interactive product experience. Fly-to interactions guide a viewer to each feature in a planned sequence, model visibility toggles reveal internal components, and audio narration turns the scene into a self-serve demonstration that works without a salesperson present.
+
+Across all three, the common outcome is the same: fewer site visits, fewer scheduled demonstrations, and less context lost between the people who captured the space and the people who need to act on it.
+
+## What makes the platform coherent
+
+Four capabilities do the work, and each addresses a specific failure mode in how 3D assets normally get used.
+
+**One reconstruction pipeline, end to end.** VIZZIO handles capture, reconstruction, and digital asset generation as a single workflow. Assets arrive in WORLD BUILDER already in a usable state, rather than requiring a conversion and cleanup step that typically consumes more time than the capture itself.
+
+**Multi-level assets in one framework.** Map, space, and object assets are organised under the same structure. A campus, a building inside it, and a piece of equipment inside that are the same kind of object to the platform, so teams working at different scales share one set of conventions instead of three toolchains.
+
+**Visual authoring without fragmentation.** Scene configuration, asset placement, annotation, and interface design all happen in one editor. The alternative, which is what most teams do today, is a 3D tool for placement, a document for annotations, and a developer for the front end, with every change requiring a round trip through all three.
+
+**Publishing as a first-class step, not an export.** Preview, share, and access control are part of the authoring workflow rather than a separate deployment. A project moves from edit to reviewable link without leaving the platform, which is what makes iteration during a review cycle practical rather than theoretical.
+
+## How the platform is structured
+
+WORLD BUILDER has two workspaces, and nearly everything in this documentation belongs to one of them.
+
+| Workspace | What it handles | Documentation |
+| --- | --- | --- |
+| Project Center | The portfolio layer. Creating, finding, duplicating, sharing, and controlling access to projects. | [Project Center](/en/docs/project-center/) |
+| Online Editor | The authoring layer. Configuring a project's scene, models, markers, and UI across four feature panels. | [Online Editor](/en/docs/editor/) |
+
+A third area, the WebUI Open API, sits outside both. It exposes scene, camera, model, marker, and UI control to an external application, for teams embedding a published Viewer into a product they already own.
+
+### Online Editor
+
+The editor is where a project becomes a scene. It brings the 3D viewport, four feature panels, and publishing controls into one browser-based workspace. The panel split is deliberate: scene configuration, model management, marker interaction, and UI design each own one layer of the experience, which is what keeps a complex project navigable as it grows.
+
+<ShotGrid images={['/demos/project-center/0.2在线编辑器.jpg']} />
+
+[View Editor documentation](/en/docs/editor/)
+
+### Project Center
+
+The Project Center manages projects as objects rather than as contents. Every project carries its own identity, type, cover image, scene configuration, and publishing state, so a growing portfolio stays navigable when several scenarios are in progress at once.
+
+<ShotGrid images={['/demos/project-center/0.1项目管理.jpg']} />
+
+[View Project Center documentation](/en/docs/project-center/)
+
+## Asset levels
+
+Asset level describes the scale of the 3D content. It is the first decision in any project, because it sets the project type, which sets the default camera controller, which determines how a viewer moves through the scene.
+
+| Level | What it covers | Default controller | Typical outcome |
+| --- | --- | --- | --- |
+| Map | Reconstructed geography, city blocks, campuses, outdoor sites | Third person | Planning review, infrastructure assessment, spatial context |
+| Space | Interiors, rooms, buildings, facilities | First person | Walkthroughs, remote inspection, tenant and contractor briefing |
+| Object | Individual objects, equipment, products, vehicles, components | Third person | Product demonstration, equipment training, component explanation |
+
+The logic behind the defaults is about how a viewer should move. Map and object scenes are inspected from the outside, so they open with an orbit-style controller. Space scenes are entered and walked through, so they open first person. Both defaults can be changed, but starting from the right one means less to adjust later.
+
+## Where to start
+
+| If you are | Start at |
+| --- | --- |
+| New to the platform | [Platform Concepts](/en/docs/platform-concepts/) |
+| Building your first project | [End-to-End Workflow](/en/docs/end-to-end-workflow/) |
+| Configuring an existing scene | [Feature Panels](/en/docs/editor/editor-panels/) |
+| Preparing a project for a customer | [Publish Project](/en/docs/editor/project-actions/) |
+| Integrating the Viewer into your own product | [WebUI Open API Reference](/en/docs/open-api/) |

@@ -1,0 +1,52 @@
+---
+title: 添加交互
+description: 为界面组件附加动作，使其能够移动相机、切换界面页面或控制模型显隐。
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+界面交互让界面组件成为驱动三维场景的控制项。组件可以移动相机、显示或隐藏界面页面，以及控制模型的可见性。
+
+这些能力共同让界面图层成为一套导航与控制系统，使引导式演示与场景步骤不再依赖观看者手动导航。
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-ui-panel-add-interaction-1.jpg']} />
+
+## 交互的配置方式
+
+每个组件的属性中都有一个**交互面板**。使用**添加交互**附加动作，并从下拉菜单中选择类型。组件可以承载多个交互，依次列为「交互 1」「交互 2」等。
+
+| 动作 | 点击后的效果 | 适用场景 |
+| --- | --- | --- |
+| 飞行到视角 | 在设定时长内将相机移动到预设视角 | 引导式导览、产品演示、预先规划的空间顺序 |
+| 显示或隐藏界面 | 显示或隐藏指定的界面页面 | 多步骤演示、语境信息展示 |
+| 显示或隐藏模型 | 显示或隐藏指定模型 | 分阶段讲解、前后对比、简化复杂场景 |
+
+**飞行到视角**动作需要设置目标位姿的相机参数，以及控制过渡效果的时长数值。在一组按钮之间保持时长一致，能让漫游显得经过设计，而不是节奏参差。
+
+## 飞行到指定视角
+
+添加飞行到视角动作，使点击组件时相机移动到预设视角。
+
+这让观看者可以直接跳转到重要资产、区域或检查角度，适用于引导式导览、产品演示，以及任何需要观看者按既定顺序推进、而非自由探索的流程。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-1.mp4" poster="/demos/project-center/4.1.3页面组件-飞行到指定视角.poster.jpg" />
+
+## 显示或隐藏界面
+
+添加显示或隐藏指定界面页面的动作，控制每个步骤中可见的内容。
+
+只展示当前相关的页面，可以减少界面杂乱，让每个阶段更易于理解。这正是多步骤演示的实现机制：按钮通过隐藏当前页面、显示下一页面来推进流程。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-2.mp4" poster="/demos/project-center/4.1.3页面组件-显示或隐藏界面.poster.jpg" />
+
+## 显示或隐藏模型
+
+根据业务流程、场景状态或演示步骤，添加显示或隐藏指定模型的动作。
+
+这能把注意力集中在当下真正重要的资产上，可支撑分阶段讲解、前后对比，以及通过隐藏外壳来展示内部构件——后者往往是说明某物如何装配的最清晰方式。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-add-interaction-3.mp4" poster="/demos/project-center/4.1.3页面组件-显示或隐藏模型.poster.jpg" />
+
+## 相关内容
+
+标记同样可以承载交互，但动作集合略有不同，详见[标记交互](/zh/docs/editor/editor-panels/marker-panel/add-interaction)。

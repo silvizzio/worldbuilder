@@ -1,0 +1,5 @@
+{
+  "title": "产品文档",
+  "defaultOpen": true,
+  "pages": ["index", "platform-concepts", "end-to-end-workflow", "project-center", "editor", "open-api"]
+}

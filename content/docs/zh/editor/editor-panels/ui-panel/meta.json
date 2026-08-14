@@ -1,0 +1,9 @@
+{
+  "title": "UI 面板",
+  "defaultOpen": false,
+  "pages": [
+    "canvas-settings",
+    "page-and-component-management",
+    "add-interaction"
+  ]
+}

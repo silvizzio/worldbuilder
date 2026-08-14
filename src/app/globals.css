@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --color-fd-background: hsl(0 0% 100%);
+  --color-fd-popover: hsl(0 0% 100%);
+  --color-fd-card: hsl(0 0% 100%);
+  --color-fd-muted: hsl(210 20% 98%);
+  --color-fd-secondary: hsl(210 20% 97%);
+  --color-fd-accent: hsl(210 20% 96%);
+  --color-fd-border: hsla(220, 14%, 90%, 0.8);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.docs-content :where(p + p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: -0.45em;
+}
+
+.docs-content table th:first-child,
+.docs-content table td:first-child {
+  width: 9rem;
+  min-width: 9rem;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}

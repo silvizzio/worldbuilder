@@ -1,0 +1,44 @@
+---
+title: Canvas Settings
+description: Lock 3D scene interaction, hide scene rendering, and lock canvas zoom, three editing aids that keep UI layout work stable.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+Canvas settings control the relationship between the UI layer and the 3D scene beneath it.
+
+All three are editing aids rather than output settings. They change how the canvas behaves while you work, not how the published project appears to a viewer. The principle behind all of them is the same: lock what you are not currently editing.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-ui-panel-canvas-settings-1.jpg']} />
+
+## Field reference
+
+| Field | Description | Recommended usage |
+| --- | --- | --- |
+| 3D Scene Interaction | Whether the canvas allows mouse interaction with the underlying 3D scene. | Disable while editing UI layers to avoid accidental camera or scene changes. |
+| 3D Scene Rendering | Whether the 3D scene is visible behind the UI canvas. | Hide while refining layout, then show again for complete experience review. |
+| Canvas Zoom | Whether the UI canvas can be zoomed while editing. | Lock during detailed layout work to keep spacing and alignment stable. |
+
+## Enable or disable 3D scene interaction
+
+Lock mouse interaction with the 3D scene to avoid changing the view or model selection while editing UI layers.
+
+Without this, positioning a component near the edge of the canvas frequently ends in an accidental camera drag, which moves the scene and changes the visual context you were designing against. Locking interaction keeps that context fixed.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-canvas-settings-1.mp4" poster="/demos/project-center/4.1.1画布设置-锁定场景交互.poster.jpg" />
+
+## Show or hide 3D scene rendering
+
+Hide 3D scene rendering to focus on pages and component layout. This helps when scene content visually competes with UI elements during editing.
+
+Switch rendering back on before judging the result. Contrast against the actual scene is part of what makes a component legible, so UI reviewed against a blank canvas can look clear in the editor and unreadable in the published project. Hide it to position things, show it to evaluate them.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-canvas-settings-2.mp4" poster="/demos/project-center/4.1.1画布设置-隐藏3D场景渲染.poster.jpg" />
+
+## Lock or unlock canvas zoom
+
+Lock canvas zoom to prevent accidental scaling while editing components.
+
+A stable zoom level keeps the design view consistent and makes component spacing easier to judge accurately. This matters most when finalising composition or aligning multiple elements, because spacing judged at one zoom level and checked at another produces inconsistent results.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-canvas-settings-3.mp4" poster="/demos/project-center/4.1.1画布设置-锁定画布缩放.poster.jpg" />

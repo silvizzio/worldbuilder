@@ -1,0 +1,10 @@
+{
+  "title": "Project Center",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "create-project",
+    "project-list",
+    "project-actions"
+  ]
+}

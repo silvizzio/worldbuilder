@@ -1,0 +1,66 @@
+---
+title: Project Actions
+description: Edit, duplicate, share with access control, and delete a project from the Project Center.
+---
+
+import { FeatureHero, VideoDemo } from '@/components/docs'
+
+Project actions are the lifecycle operations available on a single project from the Project Center. They cover updating a project, copying it, opening it for review under a chosen access setting, and removing it.
+
+These are distinct from the save, preview, and publish actions available inside the editor, which are documented in [Publish Project](/en/docs/editor/project-actions). The split is worth holding onto: the editor controls what a project contains, the Project Center controls what happens to it.
+
+## Action reference
+
+| Action | What it does | Use it when |
+| --- | --- | --- |
+| Edit project | Updates project name, cover image, and basic information, or opens the project in the editor | Metadata is out of date, or you are returning to continue scene authoring |
+| Duplicate project | Creates a copy of the project, reusing its scene structure and configuration | Building a similar scenario, preparing an alternate version, or preserving a baseline before major edits |
+| Share project | Generates a share link or publishing entry, with access control | A reviewer or customer needs to see the project without opening the editor |
+| Delete project | Removes the project from the portfolio | The project is finished with and is cluttering the list |
+
+## Edit project
+
+Use **Edit project** to update the project name, cover image, or basic information, or to reopen the project in the editor.
+
+Accurate metadata is what makes a project findable in the list, and the cost of neglecting it lands on whoever needs the project next. Update it before sharing with reviewers, so the name and cover a stakeholder sees match what they are actually being shown.
+
+<VideoDemo src="/demos/project-center/edit-project.mp4" poster="/demos/project-center/edit-project.poster.jpg" />
+
+## Duplicate project
+
+Use **Duplicate project** to copy an existing project along with its scene structure and configuration.
+
+This is the capability that changes how a team's costs scale. A finished project is a working baseline: scene settings tuned, assets placed, markers written, UI built. Duplicating it and adapting for a new customer, a new site, or an updated capture starts from that baseline rather than an empty scene.
+
+It is also the safe way to explore a significant change. Duplicate first, edit the copy, and the original stays intact for comparison or rollback. That removes the hesitation that otherwise attaches to any large edit late in a project.
+
+| Use duplication for | Instead of |
+| --- | --- |
+| A new customer variant of the same scene | Rebuilding the scene and re-adding markers |
+| An updated capture of the same site | Starting a fresh project and reconfiguring everything |
+| A significant restructure you might reverse | Editing in place and hoping undo is enough |
+| Alternate versions for a review | Presenting one version and describing the other |
+
+<VideoDemo src="/demos/project-center/duplicate-project.mp4" poster="/demos/project-center/copy-project.poster.jpg" />
+
+## Share project
+
+Use **Share project** to generate a share link. Access can be disabled, opened for public access, or protected with a password, depending on who needs to see the project.
+
+| Access setting | Suits | Consider |
+| --- | --- | --- |
+| Disabled | Work in progress, internal only | The link exists but resolves to nothing for recipients |
+| Public | Open demonstrations, marketing, wide distribution | Anyone with the link can open the project |
+| Password protected | Customer reviews, commercially sensitive scenes | The password must reach the recipient through a separate channel |
+
+Save and preview before sharing externally. A share link serves the saved state, so whatever was last saved is what the reviewer opens, regardless of what the editor currently shows on your screen.
+
+<VideoDemo src="/demos/project-center/share-project.mp4" poster="/demos/project-center/share-project.poster.jpg" />
+
+## Delete project
+
+Use **Delete project** to remove a project that is no longer needed and keep the list focused.
+
+Before deleting, consider whether the project might still be wanted for historical reference, customer demonstration, or version comparison. Duplication is cheap and a superseded project is often the only record of how something looked at a point in time. If in doubt, an accurate title and a clear cover cost less than losing the project entirely.
+
+<VideoDemo src="/demos/project-center/delete-project.mp4" poster="/demos/project-center/delete-project.poster.jpg" />

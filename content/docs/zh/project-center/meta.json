@@ -1,0 +1,10 @@
+{
+  "title": "项目管理",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "create-project",
+    "project-list",
+    "project-actions"
+  ]
+}

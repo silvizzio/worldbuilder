@@ -1,0 +1,8 @@
+{
+  "title": "标记面板",
+  "defaultOpen": false,
+  "pages": [
+    "add-marker",
+    "add-interaction"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "模型面板",
+  "defaultOpen": false,
+  "pages": [
+    "asset-management",
+    "model-settings",
+    "debug-tools"
+  ]
+}

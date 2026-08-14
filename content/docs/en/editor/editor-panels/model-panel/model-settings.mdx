@@ -1,0 +1,55 @@
+---
+title: Model Settings
+description: Set model position, rotation, scale, and visibility through the visual gizmo or the parameter panel for precise 3D model layout.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+Model Settings control the spatial state of every model in the scene. Each property can be set two ways: dragging the visual gizmo in the viewport for speed, or entering values in the parameter panel for precision.
+
+Most layout work uses both. Gizmo first to get a model roughly where it belongs, parameters afterwards to make it exact, particularly when several assets need to align with each other.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-model-settings-1.jpg']} />
+
+## Field reference
+
+| Field | Description | Recommended usage |
+| --- | --- | --- |
+| Position | The model's location in the 3D scene. | Use the gizmo for quick placement, parameter values for precise alignment. |
+| Rotation | The model's orientation. | Align models with roads, rooms, equipment direction, or other scene references. |
+| Scale | The model's size in the scene. | Keep scale consistent across related assets so spatial relationships stay legible. |
+| Visibility | Whether the model is shown in the current scene. | Hide supporting or temporary assets during review without deleting them. |
+
+Models must be selected from the Model Layer in the Outline before their settings appear. With nothing selected, the panel prompts you to choose a model first.
+
+## Set model position
+
+Adjust position with the gizmo or the parameter panel so the model sits accurately in the scene. Correct positioning preserves spatial relationships between assets, which is what makes a scene readable rather than merely populated.
+
+Position is usually set immediately after a model is loaded, and settled before markers are attached, because moving a model afterwards means revisiting every marker on it.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-model-settings-1.mp4" poster="/demos/project-center/3.2.3模型面板-设置模型位置.poster.jpg" />
+
+## Set model rotation
+
+Adjust rotation so the model's orientation matches the scene context. This matters when imported assets do not face the intended direction, or need to align with roads, rooms, or equipment layouts.
+
+Rotation errors are easiest to spot against the ground grid, since a model that is subtly off-axis reads as wrong without it being obvious why.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-model-settings-2.mp4" poster="/demos/project-center/3.2.3模型面板-设置模型旋转.poster.jpg" />
+
+## Set model scale
+
+Adjust scale to match spatial proportion and presentation requirements. Consistency matters most when several assets share a scene, or when the project needs to communicate realistic spatial relationships.
+
+Review scale alongside the ground grid and camera view. A model that looks correct in isolation can read wrong once the grid gives it a reference, and scale errors are among the hardest problems to notice late because the eye adapts to whatever it has been looking at.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-model-settings-3.mp4" poster="/demos/project-center/3.2.3模型面板-设置模型缩放.poster.jpg" />
+
+## Set model visibility
+
+Adjust visibility for presentation, debugging, or interaction needs. Hiding lets you focus on specific assets without removing them from the project.
+
+This supports staged presentations, before-and-after comparisons, and temporarily clearing supporting assets during configuration. Visibility set here is the editing state; UI components can also drive model visibility at runtime, which is covered in [UI Interactions](/en/docs/editor/editor-panels/ui-panel/add-interaction).
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-model-settings-4.mp4" poster="/demos/project-center/3.2.3模型面板-设置模型可见性.poster.jpg" />

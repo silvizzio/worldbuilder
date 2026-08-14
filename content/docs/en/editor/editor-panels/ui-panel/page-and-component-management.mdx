@@ -1,0 +1,81 @@
+---
+title: Page & Component Management
+description: Create UI pages and add web, button, text, image, and audio components to build the 2D layer over a 3D scene.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+This is where the 2D layer over the 3D scene gets built. Create UI pages, add components to them, and configure alignment and responsive scaling.
+
+Pages are containers, components are contents. Separating presentation steps or content states into different pages is what keeps a scene from becoming a single crowded overlay, and it is what makes multi-step demonstrations possible.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-ui-panel-page-and-component-management-1.jpg']} />
+
+## Component reference
+
+| Component | Description | Recommended usage |
+| --- | --- | --- |
+| UI Page | An independent interface container for arranging components. | Use separate pages for different presentation steps, content states, or scenario panels. |
+| Web Page Component | Embeds URL-based web content with layout and transparency settings. | External dashboards, business pages, or supporting information panels. |
+| Text Button | A button with configurable button text, font size, colour, opacity, and alignment. | Clear interaction commands such as navigation, panel switching, or scenario control. |
+| Image Button | A button with a custom image background, plus label text and colour. | When icons, product imagery, or branded visuals communicate the action more clearly than text. |
+| Text Component | Static text for titles, descriptions, or business copy. | Keep concise and aligned with the current scene or UI state. |
+| Image Component | Static image content for visual references or supporting graphics. | Diagrams, reference images, icons, product visuals. |
+| Audio Component | Audio content with autoplay and loop options. | Narration, guided demonstrations, contextual prompts. |
+| Alignment | Controls component placement and responsive scaling. | Apply consistent rules so pages stay readable across screen sizes. |
+
+Components carry common properties including **Button text**, **Font size (px)**, **Color** as a hex value, an **Image picker** for image-based components, and **X(px)** and **Y(px)** position values.
+
+## Create UI page
+
+Set the page name and visibility to establish an independent container for component layout. Multiple pages separate different content states, scenario steps, or presentation sections.
+
+Visibility settings let you prepare interface content in advance and show it only when the workflow calls for it, which is how a page becomes something a marker or button can reveal on demand.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-1.mp4" poster="/demos/project-center/4.1.2页面组件-创建UI页面.poster.jpg" />
+
+## Add web page component
+
+Supports URL configuration, transparent background, and layout alignment. Suitable for embedding external pages or business information panels alongside the 3D scene.
+
+This is the component that connects a digital twin to systems it does not own. A live dashboard, a maintenance record, or a booking interface can sit inside the scene rather than beside it.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-2.mp4" poster="/demos/project-center/4.1.2页面组件-添加网页组件.poster.jpg" />
+
+## Add text button
+
+Supports button text, font size, text colour, background colour, opacity, and alignment. Suits step navigation, feature triggers, panel switching, and scenario controls where the action should be immediately understandable.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-3.mp4" poster="/demos/project-center/4.1.2页面组件-添加文本按钮.poster.jpg" />
+
+## Add image button
+
+Supports a custom image background through the image picker, plus label text and colour, and alignment. Useful when icons, product visuals, or branded graphics communicate the action more clearly than text alone.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-4.mp4" poster="/demos/project-center/4.1.2页面组件-添加图片按钮.poster.jpg" />
+
+## Add text component
+
+Supports font size, text colour, and alignment for titles, descriptions, or business copy. Use to explain the current scene, provide instructions, or present concise context inside the interface.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-5.mp4" poster="/demos/project-center/4.1.2页面组件-添加文本组件.poster.jpg" />
+
+## Add image component
+
+Supports custom image upload and alignment for visual assets, icons, or supporting illustrations. Use for reference materials, product visuals, diagrams, or supporting scene information without changing the 3D model.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-6.mp4" poster="/demos/project-center/4.1.2页面组件-添加图片组件.poster.jpg" />
+
+## Add audio component
+
+Supports custom audio upload, autoplay, and loop playback for scene narration or audio prompts. Useful for guided demonstrations and contextual narration when a project needs more immersive communication, or when a viewer's attention should stay on the scene rather than on reading.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-7.mp4" poster="/demos/project-center/4.1.2页面组件-添加音频组件.poster.jpg" />
+
+## Component alignment
+
+Alignment controls canvas placement and responsive scaling, keeping layouts consistent across display sizes.
+
+Apply the same rules across pages. Inconsistent alignment is what makes a project feel unfinished when reviewed on a device other than the one it was built on, and since published projects are opened on whatever the viewer happens to have, that is the normal case rather than the exception.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-8.mp4" poster="/demos/project-center/4.1.2页面组件-组件对齐方式.poster.jpg" />

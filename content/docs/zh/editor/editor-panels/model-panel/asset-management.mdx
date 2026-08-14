@@ -1,0 +1,52 @@
+---
+title: 资产管理
+description: 上传、加载、删除并批量管理构成数字孪生场景基础的三维模型资产。
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+资产管理是三维模型资源进入项目的入口。你可以在此上传并加载模型、移除不再需要的资产，并在场景包含大量相关模型时使用批量操作。
+
+这是基础层。标记依附于模型，界面交互也以模型为目标，若之后重新调整资产结构，两者都会失效，因此在继续下一步前把资产结构整理妥当很有价值。
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-asset-management-1.jpg']} />
+
+## 面板参考
+
+| 控件 | 作用 | 适用时机 |
+| --- | --- | --- |
+| 上传 | 向项目中添加模型文件 | 导入三维重建资产、物体模型或辅助资源 |
+| 多选 | 将资产网格切换为选择模式以执行批量操作 | 需要一次性添加或移除多个资产 |
+| 列表视图切换 | 在网格与列表两种资产展示方式之间切换 | 项目中的资产数量已多到「名称比缩略图更重要」 |
+
+资产在面板中以卡片形式显示，标注文件名与类型。重建生成的场景与物体资产采用 `.sog` 格式；封面图等辅助文件会与之并列显示。
+
+## 上传与加载模型
+
+通过资产管理面板上传，或将支持的模型格式拖放至面板中以添加并加载资产。
+
+模型加载完成后会出现在左侧大纲的模型图层中，并可被选中进行摆放。随后可在[模型设置](/zh/docs/editor/editor-panels/model-panel/model-settings)中继续调整位置、旋转、缩放与可见性。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-1.mp4" poster="/demos/project-center/3.2.2上传模型.poster.jpg" />
+
+## 删除资产
+
+删除特定资产可移除无用资源，保持项目结构清晰。这在迭代过程中尤为实用，例如测试资产或过时模型已被最终版本取代时。
+
+删除前请确认是否有标记或界面交互引用了该资产。标记附着在模型上的具体位置，界面组件也可能以某个模型为可见性控制目标，因此移除资产会让两者指向一个已不存在的对象。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-2.mp4" poster="/demos/project-center/3.2.3删除资产.poster.jpg" />
+
+## 批量资产操作
+
+使用**多选**一次性向场景添加多个资产，或一次性删除多个资产。
+
+批量处理可减少含大量相关模型场景中的重复操作，在复杂设施、地图级资产与物体集合场景中尤为重要——这类场景可能包含数十个独立构件。
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-3.mp4" poster="/demos/project-center/3.2.4批量删除模型.poster.jpg" />
+
+## 资产结构为何重要
+
+其上的每一层都会引用这里摆放的内容。资产结构清晰的项目可以被复制和改造；而一个连「哪个模型是哪个」都说不清的项目，只能推倒重建。
+
+实用的习惯是：按照后续讲解的顺序加载资产，在格式允许的范围内使用有意义的命名，并在附加任何内容之前先把摆放定下来。

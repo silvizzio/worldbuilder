@@ -1,0 +1,74 @@
+---
+title: Post Processing
+description: Enable post-processing and adjust image parameters to refine how the 3D scene presents during preview, sharing, and demonstration.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid, Callouts } from '@/components/docs'
+
+Post-processing refines the visual output of a project so the 3D scene presents consistently during preview, sharing, and demonstration. Once enabled, the image parameters for the current project are adjusted in one place.
+
+Where lighting works on the scene, post-processing works on the image. It is the final adjustment layer, applied after the scene itself is correct, and it changes how the project looks without changing the underlying model assets.
+
+Use this module after the scene, camera, and model placement have reached a stable state.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-scene-panel-post-processing-1.jpg']} />
+
+## Where it sits in the workflow
+
+| Layer | Works on | Fix problems here when |
+| --- | --- | --- |
+| [Lighting](/en/docs/editor/editor-panels/scene-panel/lighting) | The 3D scene itself | Assets read flat, dark, or shapeless |
+| Post-processing | The rendered image | The scene is correct but the output lacks polish |
+
+The order matters. Post-processing cannot rescue a badly lit scene, it can only refine a well-lit one. If assets are hard to read, the problem is almost always lighting, and reaching for post-processing first means adjusting the symptom rather than the cause.
+
+## When to use it
+
+| Situation | Why post-processing helps |
+| --- | --- |
+| Preparing a project for external review | Improves visual consistency across the scene before a reviewer sees it |
+| The scene reads flat after lighting is set correctly | Adjusts image-level contrast and balance that lighting alone does not address |
+| Presenting the same project across devices | Reduces variation in how the scene appears under different viewing conditions |
+| Producing a project for demonstration or marketing | Adds the finish that separates a working scene from a presentable one |
+
+## Field reference
+
+Post-processing is enabled by a toggle at the top of the section. Once on, the controls are grouped by effect.
+
+| Group | Field | What it controls |
+| --- | --- | --- |
+| — | Render Scale | The resolution the scene is rendered at before display. |
+| — | Tone Mapping | The tone mapping curve applied to the rendered image. |
+| Bloom | Bloom Intensity | The strength of the glow around bright areas. |
+| Bloom | Bloom Blur Level | How far the glow spreads from its source. |
+| Color Grading | Saturation | Colour intensity across the image. |
+| Color Grading | Brightness | Overall image brightness. |
+| Color Grading | Contrast | The difference between light and dark areas. |
+| Vignette | Vignette Intensity | The strength of the darkening at the frame edges. |
+| Vignette | Vignette Inner | Where the vignette begins from the centre outward. |
+| Vignette | Vignette Outer | Where the vignette reaches full strength. |
+| Fringing | Fringing Intensity | The strength of chromatic aberration at high-contrast edges. |
+| TAA | Enable TAA | Turns temporal anti-aliasing on or off. |
+| TAA | TAA Jitter | The sub-pixel offset amount used by temporal anti-aliasing. |
+
+<Callouts title="Notes" cautions={['Bloom, Vignette, and Fringing are stylistic. For inspection and review work they are usually better kept low, since they add visual effect at the cost of detail fidelity.', 'Render Scale affects performance as well as image quality. Raising it sharpens the output and increases the rendering cost.']} />
+
+## Configure post-processing effects
+
+Enable post-processing in the settings panel, then adjust the image parameters to suit the presentation and review context. The goal is better scene readability, visual balance, and presentation quality.
+
+Review post-processing under the same viewing conditions the audience will use. Image-level adjustments change how viewers perceive depth, contrast, and focus, and a scene tuned on a bright colour-accurate display can look very different on a laptop in a meeting room. If the project is destined for a customer presentation, check it on something close to what will be in the room.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-post-processing-1.mp4" poster="/demos/project-center/3.1.2场景面板-后处理.poster.jpg" />
+
+## A note on restraint
+
+Post-processing is the easiest place in the editor to overdo things. Adjustments that look striking during tuning often read as heavy-handed when a viewer sees the scene for the first time, and a scene that draws attention to its own processing distracts from the asset it exists to present.
+
+The test is whether a viewer notices the effect or notices the content. For digital twin work, where the purpose is usually inspection, review, or explanation, the content should win.
+
+## Why it matters
+
+Presentation quality affects how seriously a project is taken. The same reconstruction, at the same accuracy, lands differently depending on whether the output looks finished or provisional, and that judgement gets made in the first few seconds by people who are not evaluating the reconstruction on its technical merits.
+
+Post-processing is a small amount of effort at the end of the workflow that changes which of those two impressions a stakeholder forms.

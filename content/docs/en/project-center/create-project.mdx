@@ -1,0 +1,55 @@
+---
+title: Create Project
+description: Start a project from a template or from blank, and understand what the project type decides on your behalf.
+---
+
+import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
+
+Project creation is the entry point for a digital twin scene. Start from a template for a standardised structure, or start blank when the scene needs a custom one. Either way, WORLD BUILDER generates default scene and camera settings so the project opens directly into the editor without repeated baseline setup.
+
+The step takes under a minute, but one decision inside it, project type, shapes how the rest of the project is built.
+
+## Steps
+
+1. In the Project Center, start a new project.
+
+2. Choose a **template** or a **blank project**. A template provides a standardised scene structure; blank gives you an empty scene to build from.
+
+3. Select the **project type**. This is the decision that matters most, because it sets the default camera controller.
+
+4. Confirm creation. A default scene and camera configuration are generated, and the project opens in the editor.
+
+<VideoDemo src="/demos/project-center/web-videos/project-center-create-project-1.mp4" poster="/demos/project-center/1.1创建新项目.poster.jpg" />
+
+## Template or blank
+
+| Start from | When it fits | What you get |
+| --- | --- | --- |
+| Template | The scene follows a pattern your team builds regularly | A standardised structure, less repeated setup |
+| Blank | The scene structure is unusual or not yet decided | An empty scene, full control, more configuration |
+
+For a team producing similar deliverables repeatedly, templates are the higher-leverage choice. For a first project or an unfamiliar scenario, blank avoids inheriting structure you then have to unpick.
+
+## What project type decides
+
+| Project type | Default controller | Suits | Why |
+| --- | --- | --- | --- |
+| Object | Third person | External viewing, spatial inspection, object-level presentation | Objects are examined from outside, so orbit navigation matches the intent |
+| Map | Third person | Map-level presentation, urban context, infrastructure review | Wide scenes are read from above and around, not walked through |
+| Space | First person | Interior walkthroughs, room-scale navigation | Interiors are entered, so walkthrough navigation matches how people understand them |
+
+The logic is about how a viewer should move. Getting this right at creation is not critical, because it can be changed, but it does affect every placement judgement you make afterwards: a layout that reads well from an orbit camera can read badly from a first-person one.
+
+<Callouts title="Notes" cautions={['A default scene and camera configuration are generated after creation. Refine them in Project Settings and Camera Controller once assets are loaded.', 'Project type sets the default controller but does not lock it. Both the controller type and the generated camera values can be changed at any time.']} />
+
+## After creation
+
+The generated scene and camera settings are baseline defaults, not tuned values. They exist so the project opens into something usable, not so it opens into something finished.
+
+Refine them in [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings) and [Camera Controller](/en/docs/editor/editor-panels/scene-panel/camera-controller) once assets are loaded and you can judge the scene properly. Tuning a camera against an empty scene is guesswork.
+
+## Why this matters
+
+Pairing project types with sensible controller defaults removes a category of repetitive setup that adds no value. Project creators start from a working configuration rather than an empty one, and can put their attention on asset layout, interaction design, and review preparation instead of rebuilding the same foundation for every project.
+
+Over a portfolio, that difference compounds. See [Project Actions](/en/docs/project-center/project-actions) for duplication, which extends the same principle to entire finished projects.

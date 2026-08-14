@@ -1,0 +1,5 @@
+{
+  "title": "Product Documentation",
+  "defaultOpen": true,
+  "pages": ["index", "platform-concepts", "end-to-end-workflow", "project-center", "editor", "open-api"]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Model Panel",
+  "defaultOpen": false,
+  "pages": [
+    "asset-management",
+    "model-settings",
+    "debug-tools"
+  ]
+}

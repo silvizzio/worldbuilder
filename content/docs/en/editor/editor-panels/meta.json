@@ -1,0 +1,11 @@
+{
+  "title": "Feature Panels",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "scene-panel",
+    "model-panel",
+    "marker-panel",
+    "ui-panel"
+  ]
+}

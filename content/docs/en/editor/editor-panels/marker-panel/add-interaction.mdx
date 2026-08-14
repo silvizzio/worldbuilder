@@ -1,0 +1,48 @@
+---
+title: Add Interaction
+description: Attach actions to markers so clicking one opens a link, flies the camera to a viewpoint, or reveals a UI page.
+---
+
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+
+Marker interactions turn annotations into entry points. Instead of a marker only labelling something, clicking it can open related content, move the camera, or reveal a UI panel.
+
+This is the mechanism behind guided walkthroughs. Rather than leaving viewers to navigate freely and hope they find what matters, interactions route them through a planned sequence.
+
+<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-marker-panel-add-interaction-1.jpg']} />
+
+## How interactions are configured
+
+Each marker has an **Interaction Panel** in its edit view. Use **Add Interaction** to attach an action, then choose the action type from the dropdown. A marker can carry more than one interaction, listed as Interaction 1, Interaction 2, and so on, each removable independently.
+
+| Action | What happens on click | Use it for |
+| --- | --- | --- |
+| Open link | Opens an external page, business system, or document | Specifications, reports, external dashboards, supporting materials |
+| Fly to view | Moves the camera to a predefined position over a set duration | Guiding viewers to the best angle for inspecting a model or area |
+| Show UI panel | Shows or hides a specified UI page | Revealing contextual information or controls only when relevant |
+
+The **Fly to view** action takes camera parameters defining the destination pose, plus a duration controlling how long the movement takes. A longer duration reads as a smooth transition and helps viewers keep their bearings; a very short one can feel like a cut, which is disorienting in a spatial scene.
+
+## Open link
+
+Add an open-link action to connect a marker with an external page, business system, or supporting document.
+
+This keeps detailed information accessible without crowding the 3D scene, which matters when a marker needs to reference material too large to display in place: full specifications, a maintenance history, a live dashboard.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-1.mp4" poster="/demos/project-center/3.3.1标记面板-添加交互打开链接.poster.jpg" />
+
+## Fly to specified viewpoint
+
+Add a fly-to-viewpoint action so clicking the marker moves the camera to a predefined position.
+
+This guides viewers to the best angle for inspecting a model, location, or area, and removes the need for manual camera movement during a walkthrough. It is the difference between telling someone where to look and taking them there.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-2.mp4" poster="/demos/project-center/3.3.2标记面板-飞行到指定视角.poster.jpg" />
+
+## Show UI panel
+
+Add an action to show or hide a specified UI page, so scene elements can drive UI content.
+
+Markers reveal contextual information, controls, or supporting panels only when relevant, combining 3D spatial context with 2D presentation without overloading the viewport. The target UI page must exist first, so build pages in [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) before wiring this up.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-3.mp4" poster="/demos/project-center/3.3.2标记面板-显示UI面板.poster.jpg" />
