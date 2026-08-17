@@ -235,6 +235,14 @@
     1440,
     900
   ],
+  "/demos/project-center/screens/1-create-project-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/1-create-project-s2-1.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/10-publish-and-share-01.png": [
     1600,
     903
@@ -243,7 +251,27 @@
     1600,
     903
   ],
+  "/demos/project-center/screens/10-publish-and-share-s2-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/10-publish-and-share-s3-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/10-publish-and-share-s5-1.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/2-project-settings-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/2-project-settings-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/2-project-settings-s2-1.png": [
     1600,
     903
   ],
@@ -255,11 +283,35 @@
     1600,
     903
   ],
+  "/demos/project-center/screens/3-upload-models-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/3-upload-models-s2-1.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/4-adjust-model-layout-01.png": [
     1600,
     903
   ],
   "/demos/project-center/screens/4-adjust-model-layout-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-s4-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-s6-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-s6-2.png": [
     1600,
     903
   ],
@@ -271,11 +323,31 @@
     1600,
     903
   ],
+  "/demos/project-center/screens/5-camera-behaviour-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/5-camera-behaviour-s2-1.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/6-lighting-01.png": [
     1600,
     903
   ],
   "/demos/project-center/screens/6-lighting-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/6-lighting-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/6-lighting-s2-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/6-lighting-s5-1.png": [
     1600,
     903
   ],
@@ -299,6 +371,42 @@
     1600,
     903
   ],
+  "/demos/project-center/screens/7-add-markers-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s2-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s2-2.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s2-3.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s2-4.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s2-5.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s3-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s4-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-s5-1.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/8-ui-pages-and-interactions-01.png": [
     1600,
     903
@@ -319,11 +427,67 @@
     1600,
     903
   ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s2-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s3-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s4-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s4-2.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s4-3.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s5-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s6-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s6-2.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s6-3.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s7-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-s7-2.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/9-save-and-preview-01.png": [
     1600,
     903
   ],
   "/demos/project-center/screens/9-save-and-preview-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/9-save-and-preview-s1-1.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/9-save-and-preview-s2-1.png": [
     1600,
     903
   ],
