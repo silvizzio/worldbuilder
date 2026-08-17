@@ -1,13 +1,16 @@
 ---
 title: Debug Tools
-description: Ground grid visualization and camera reset, two controls that make model positioning and scale review reliable rather than subjective.
+description: Ground grid visualization and camera reset, two controls that make model positioning and scale review verifiable rather than subjective.
 ---
+import { FeatureHero, VideoDemo } from '@/components/docs'
 
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+Turn on the ground grid before judging placement, and reset the camera before comparing iterations.
+Both make placement disagreements checkable.
 
-Debug Tools contains two controls. Both exist to make judgements about placement checkable rather than a matter of opinion.
+Placement problems are hard to settle without something to measure against.
+One person says a model is floating above the ground, another says it looks fine, and neither can prove it.
+It gets worse when the camera has been moved around, because every check happens from a different angle.
 
-<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-debug-tools-1.jpg']} />
 
 ## Control reference
 
@@ -18,9 +21,13 @@ Debug Tools contains two controls. Both exist to make judgements about placement
 
 ## Show Ground Grid
 
-Toggle a ground reference grid to evaluate model position, rotation, and spatial scale.
+Against an empty background these problems are nearly invisible.
+Against evenly spaced grid lines they show up straight away:
 
-The grid turns a subjective judgement into a checkable one. Floating models, vertical offsets, and inconsistent scale are all difficult to see against an empty background and immediately obvious against a regular grid. Rotation errors show up the same way, since an off-axis model reads as misaligned relative to the grid lines.
+- Floating models
+- Vertical offsets
+- Inconsistent scale
+- Rotation errors, since an off-axis model is visibly misaligned relative to the grid lines
 
 Most useful for object-level and space-level projects, where layout review needs to be reliable before preview or sharing.
 
@@ -28,10 +35,11 @@ Most useful for object-level and space-level projects, where layout review needs
 
 ## Reset Camera
 
-Restore the current view to the initial camera configured in the [Scene Panel](/en/docs/editor/editor-panels/scene-panel/camera-controller).
+Restores the current view to the initial camera configured in the [Scene Panel](/en/docs/editor/editor-panels/scene-panel/camera-controller).
 
-This removes the navigation friction of manually finding your way back after inspecting an asset up close. More usefully, it gives every check the same reference view, so comparisons between iterations are made from an identical angle rather than from wherever the camera happened to end up.
+Two benefits:
 
-Useful for repeated checks during model placement, marker setup, and interaction testing.
+- Returns the view without manually navigating back after inspecting an asset up close
+- Gives every check the same reference view, so comparisons between iterations happen from an identical angle
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-2.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-重置相机位置.poster.jpg" />

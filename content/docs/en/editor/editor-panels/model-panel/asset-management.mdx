@@ -2,14 +2,16 @@
 title: Asset Management
 description: Upload, load, delete, and batch-manage the 3D model assets that form the foundation of a digital twin scene.
 ---
+import { FeatureHero, VideoDemo } from '@/components/docs'
 
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+Settle the asset structure before adding markers or interface layers.
+Everything above depends on it.
 
-Asset Management is where 3D model resources enter a project. Upload and load models, remove assets that are no longer needed, and use batch operations when a scene contains many related models.
+Markers are labels pinned to models, and buttons often point at models too.
+Rearrange the models later and both stop working, usually with no warning.
 
-This is the foundation layer. Markers attach to models, UI interactions target models, and both break if assets are reorganised later, so it is worth settling the asset structure before moving on.
+Asset Management is where 3D model resources enter a project.
 
-<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-asset-management-1.jpg']} />
 
 ## Panel reference
 
@@ -19,34 +21,48 @@ This is the foundation layer. Markers attach to models, UI interactions target m
 | Multi-select | Switches the asset grid into selection mode for batch actions | Adding or removing several assets at once |
 | List view toggle | Switches between grid and list presentation of the asset panel | The project holds enough assets that names matter more than thumbnails |
 
-Assets appear in the panel as tiles showing the file name and type. Reconstructed scene and object assets use the `.sog` format; supporting files such as cover images appear alongside them.
+Assets appear as tiles showing the file name and type:
+
+- Scanned scenes and objects arrive as `.sog` files, the format VIZZIO reconstruction produces
+- Supporting files such as cover images sit alongside them
 
 ## Upload and load models
 
-Upload through the Asset Management panel, or drag and drop supported model formats into the panel to add and load assets.
+Upload through the panel, or drag and drop supported model formats into it.
 
-Once a model is loaded it appears in the Model Layer of the Outline on the left, and becomes selectable for placement. Continue with position, rotation, scale, and visibility in [Model Settings](/en/docs/editor/editor-panels/model-panel/model-settings).
+Once loaded, the model appears in the list on the left under Model Layer, and you can click it to select and position it.
+Continue with position, rotation, scale, and visibility in [Model Settings](/en/docs/editor/editor-panels/model-panel/model-settings).
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-1.mp4" poster="/demos/project-center/3.2.2上传模型.poster.jpg" />
 
 ## Delete assets
 
-Delete a specific asset to remove unused resources and keep the project structure clean. This is most useful during iteration, when test assets or obsolete models have been superseded by final versions.
+Delete a specific asset to remove unused resources and keep the project structure clean.
+Most useful during iteration, when test assets or obsolete models have been superseded.
 
-Check whether markers or UI interactions reference an asset before deleting it. Markers attach to positions on a model, and UI components can target a model for visibility control, so removing an asset can leave both pointing at something that no longer exists.
+Check first whether anything is pointing at it:
+
+- **Markers** are pinned to spots on the model
+- **Buttons** may be set up to show or hide that model
+
+Delete the model and both are left pointing at something that no longer exists.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-2.mp4" poster="/demos/project-center/3.2.3删除资产.poster.jpg" />
 
 ## Batch asset operations
 
-Use **Multi-select** to add multiple assets to the scene or delete multiple assets in one action.
+Use **Multi-select** to add or delete multiple assets in one action.
 
-Batch handling cuts repetitive work in scenes with many related models, which matters most for complex facilities, map-level assets, and object collections where a scene may hold dozens of individual pieces.
+This matters most for complex facilities, map-level assets, and object collections, where a scene may hold dozens of individual pieces.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-asset-management-3.mp4" poster="/demos/project-center/3.2.4批量删除模型.poster.jpg" />
 
 ## Why asset structure matters
 
-Every layer above this one references what is placed here. A project with a clear asset structure can be duplicated and adapted; a project where nobody is sure which model is which gets rebuilt.
+A project with a clear asset structure can be duplicated and adapted. A project where nobody is certain which model is which gets rebuilt.
 
-The practical habit is to load assets in the order they will be discussed, name them meaningfully where the format allows, and settle placement before attaching anything to them.
+Three habits keep it clear:
+
+- Load assets in the order they will be discussed
+- Name them meaningfully where the format allows
+- Settle placement before attaching anything to them

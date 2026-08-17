@@ -2,22 +2,32 @@
 title: Overview
 description: The portfolio workspace where digital twin projects are created, found, duplicated, and controlled across their lifecycle.
 ---
-
 import { ShotGrid } from '@/components/docs';
 
-The Project Center is where WORLD BUILDER work starts and ends. It handles project creation, portfolio browsing, search, sorting, and the project-level actions that move a project through its lifecycle.
+The **Project Center** is the screen you land on first.
+It holds every project in your workspace and keeps them findable as that list grows.
 
-A project here is more than a file record. It carries the project identity, cover image, type, scene configuration, publishing state, and the access settings that decide who can open it. Managing that centrally is what keeps a portfolio navigable once several scenarios are in progress at once.
+One project needs no management layer, and twenty do.
+Teams accumulate projects faster than they expect: one per customer, one per site,
+one per capture date, plus the experiments that turned out worth keeping.
+Once the list is long enough, finding the right project becomes guesswork,
+and the usual result is rebuilding something that already exists.
+
+Three capabilities prevent that, and each one depends on the one before it:
 
 <ShotGrid images={['/demos/project-center/Project Management Overview.png']} />
 
-## Why the portfolio layer exists
+## What a project holds
 
-A single project does not need a management layer. Twenty do.
+More than a file record. Each project carries:
 
-Teams delivering digital twin work accumulate projects faster than expected: a version per customer, a version per site, a version per capture date, plus the experiments that turned out well enough to keep. Without a portfolio view, finding the right one becomes guesswork, and the common failure is rebuilding something that already exists because nobody could locate it.
+- Project identity and cover image
+- Project type
+- Scene configuration
+- Publishing state
+- Access settings that determine who can open it
 
-The Project Center addresses this with three capabilities that compound: identity that makes a project recognisable, search and sorting that make it findable, and duplication that makes it reusable.
+Managing that centrally is what keeps a portfolio navigable once several scenarios run in parallel.
 
 ## What you can do here
 
@@ -29,7 +39,7 @@ The Project Center addresses this with three capabilities that compound: identit
 
 ## Relationship to the editor
 
-The Project Center and the Online Editor are two halves of one workflow, split along a clean line: the Project Center manages projects as objects, the editor manages what is inside them.
+Two halves of one workflow, divided along a clean line. The Project Center manages projects as objects. The editor manages what is inside them.
 
 | Project Center | Online Editor |
 | --- | --- |
@@ -38,12 +48,19 @@ The Project Center and the Online Editor are two halves of one workflow, split a
 | Access control and share links | Save, preview, publish |
 | Operates across many projects | Operates inside one project |
 
-Opening a project from the Project Center loads it into the editor with its saved state intact. Save before navigating away, because unsaved editor changes are not carried across.
+Opening a project from the Project Center loads it into the editor with its saved state intact.
+Save before navigating away, since unsaved editor changes are not carried across.
 
 ## A note on duplication
 
-Duplication is the most underused capability here, and the one that changes how a team's costs scale.
+The most underused capability here, and the one that changes how a team's costs scale.
 
-A project whose structure is understood can be copied and adapted for a new customer, a new site, or an updated capture, starting from a working baseline rather than an empty scene. That applies to alternate versions during a review cycle too: duplicate before a significant change, edit the copy, and the original remains available for comparison or rollback.
+A project whose structure is understood can be copied and adapted, starting from a working baseline rather than an empty scene:
 
-The alternative, rebuilding each time, is where the cost of a 3D programme usually accumulates without anyone deciding it should.
+- A new customer variant of the same scene
+- An updated capture of the same site
+- An alternate version prepared for a review
+
+The same applies before any significant change. Duplicate first, edit the copy, and the original stays available for comparison or rollback.
+
+The alternative is rebuilding each time, which is generally where the cost of a 3D programme accumulates without anyone having decided it should.

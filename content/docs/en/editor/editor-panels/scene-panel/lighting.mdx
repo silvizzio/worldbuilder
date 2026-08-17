@@ -2,12 +2,13 @@
 title: Lighting
 description: Configure render mode, ambient light, sky light, and key light to control how scene illumination presents 3D assets during review and sharing.
 ---
+Light the scene after the main assets are loaded and before final preview.
+Capture accuracy does not determine whether a viewer can read form and material.
 
-Lighting controls how scene illumination affects 3D asset presentation. Switch the render mode, adjust ambient light, enable sky light, and configure key light direction and intensity to improve how models read in the viewport.
+A scan can be captured in perfect detail and still look like a flat cut-out shape on screen.
+Whether you can see texture, material, and depth comes down to how the light falls on it.
 
-Lighting is the difference between an asset a viewer can inspect and one they can only look at. Material detail, surface texture, and the depth cues that let someone judge form all depend on how light falls. A reconstruction captured at high fidelity can still present as a flat silhouette if it is lit badly.
-
-Configure lighting after the main model assets are loaded and before the project enters final preview or publishing.
+Lighting separates an asset a viewer can inspect from one they can only look at.
 
 ## Field reference
 
@@ -15,62 +16,76 @@ Configure lighting after the main model assets are loaded and before the project
 | --- | --- | --- |
 | Render Mode | Whether the scene uses lighting-based rendering or shows mesh materials by their original textures and colours. | Use **Lit** when scene lighting should affect presentation. Use **Unlit** for scanned or baked-texture assets that should keep their original appearance. |
 | Ambient Color | The base ambient light colour applied to the scene. | Use a neutral colour for clean product or asset presentation. |
-| Ambient Intensity | The strength of ambient light. | Increase to brighten overall model visibility; reduce when the scene needs stronger directional contrast. |
+| Ambient Intensity | The strength of ambient light. | Increase to brighten overall model visibility. Reduce when the scene needs stronger directional contrast. |
 | Sky Light | Enables or disables sky light contribution. | Enable when the scene needs softer environmental illumination. |
 | Sky Light Color | The colour of the sky light. | Use subtle cool or neutral tones so broad illumination does not overpower model materials. |
 | Sky Light Intensity | The strength of sky light. | Adjust together with ambient light to balance overall brightness. |
 | Key Light | Enables or disables the main key light. | Enable when the asset needs a stronger primary light direction for shape and surface definition. |
 | Key Light Color | The colour of the key light. | Use neutral or warm tones when presenting objects or products with natural material highlights. |
-| Key Light Intensity | The strength of the key light. | Increase to emphasise form and material detail; reduce if highlights become too strong. |
+| Key Light Intensity | The strength of the key light. | Increase to emphasise form and material detail. Reduce if highlights become too strong. |
 | Key Light Yaw | The horizontal direction of the key light. | Rotate the main light around the asset to avoid unwanted shadow direction. |
 | Key Light Pitch | The vertical direction of the key light. | Control whether light arrives from a higher or lower angle. |
 
 ## The three light sources
 
-Scene illumination is built from three contributions, and understanding what each does makes tuning them far quicker than adjusting values at random.
-
-| Source | Contributes | Without it |
+| Light | What it does | Without it |
 | --- | --- | --- |
-| Ambient | An even base light across the whole scene | Shadowed areas go unreadably dark |
-| Sky light | Broad, soft environmental illumination | Contrast becomes harsh, surfaces read as stark |
-| Key light | A single directional source with a definable angle | Form flattens, surfaces lose their sense of shape |
+| Ambient | An even glow everywhere, like an overcast day | Shadowed areas go too dark to see |
+| Sky light | Soft light from above, as if from open sky | Contrast turns harsh and surfaces look stark |
+| Key light | One main light from an angle you choose, like a lamp | Shapes flatten out and lose their form |
 
-Most scenes need all three in balance. Ambient establishes visibility, sky light softens, and key light restores the directional definition that makes an object look three-dimensional.
+Most scenes need all three in balance:
+
+- **Ambient** establishes visibility
+- **Sky light** softens
+- **Key light** restores the directional definition that makes an object appear three-dimensional
 
 ## Configure render mode
 
-Use **Render Mode** to switch how the scene handles lighting. **Lit** applies scene lighting to the model, making ambient, sky, and key light settings visible in the viewport. **Unlit** disables scene lighting and shows mesh materials by their original textures or colours.
+- **Lit**: the scene lights actually affect the model, so your lighting settings change what you see
+- **Unlit**: the lights are ignored and the model shows the colours and textures it was captured with
 
-The choice depends on what the asset already contains. A scanned asset often carries lighting information baked into its texture from the moment of capture. Adding scene lighting on top of baked lighting produces a doubled, muddy result, which is why Unlit frequently looks better for reconstruction output.
+The choice depends on what the model already has in it.
+A scanned model usually has the real-world lighting from the day of capture already recorded in its surface.
+Add more light on top of that and you get two sets of shadows fighting each other, which looks muddy.
+That is why Unlit frequently looks better for reconstruction output.
 
-When the project needs controlled visual presentation, or when assets were produced without baked lighting, Lit gives far more flexibility.
+When the project needs controlled visual presentation, or the assets were produced without baked lighting, Lit offers considerably more flexibility.
 
 ## Set ambient light
 
-Use **Ambient Color** and ambient intensity to define the base light level. Ambient light governs overall visibility and prevents dark areas from becoming unreadable.
+Ambient light governs overall visibility and prevents dark areas becoming impossible to make out.
 
-For object-level assets, moderate ambient intensity improves surface visibility without flattening the model. Pushing it too high is the most common lighting mistake: the scene brightens, but form disappears because nothing casts a discernible shadow any more.
+- **Object-level assets**: moderate intensity improves surface visibility without flattening the model
+- **Space or map scenes**: balance ambient against sky and key light so the scene retains depth
 
-For space or map scenes, balance ambient against sky and key light so the scene keeps depth and contrast.
+Pushing ambient too high is the most common lighting mistake. The scene brightens, but form disappears because nothing casts a discernible shadow any longer.
 
 ## Enable sky light
 
-Use the **Sky Light** switch to enable or disable environmental illumination. Sky light adds broader, softer light and reduces harsh contrast when a model needs more balanced presentation.
+Sky light adds broader, softer light and reduces harsh contrast when a model needs more balanced presentation.
 
-Adjust **Sky Light Color** and intensity together. Subtle cool or neutral tones support broad illumination without tinting the asset. Excessive intensity flattens the sense of depth in the same way excessive ambient does.
+Adjust colour and intensity together.
+Subtle cool or neutral tones support broad illumination without tinting the asset.
+Excessive intensity flattens depth the same way excessive ambient does.
 
 ## Configure key light
 
-Use the **Key Light** switch to enable or disable the primary light source. Key light is what gives an asset shape definition, visible surface detail, and a clear presentation direction.
+Key light gives an asset shape definition, visible surface detail, and a clear presentation direction.
 
-Adjust **Key Light Color**, intensity, yaw, and pitch together. Yaw moves the light horizontally around the asset; pitch changes its vertical angle. Between them they determine how highlights and shadows fall, which is what a viewer reads as form.
+Four settings work together:
 
-A practical starting point is to place the key light off to one side rather than head on. Light arriving from directly in front of the viewer eliminates the shadows that describe shape.
+- **Colour**: neutral or slightly warm looks most natural on materials
+- **Intensity**: how bright the light is, which controls how much shape and texture you see
+- **Yaw**: swings the light left and right around the model
+- **Pitch**: raises or lowers it, from overhead to closer to eye level
+
+A practical starting point is to place the key light off to one side rather than head on.
+Light arriving from directly in front of the viewer eliminates the shadows that describe shape.
 
 ## Review guidance
 
-After configuring lighting, review the scene through the same camera view intended for preview or sharing. Lighting that works from an inspection angle can fail from the opening view.
-
-Lighting should support the content without hiding detail, overexposing surfaces, or casting distracting shadows. If a viewer would struggle to judge material or form, the lighting is not finished regardless of how the numbers look.
-
-If the project uses scanned or baked-texture assets, compare Lit and Unlit before finalising. Which is better depends on whether scene lighting improves the asset or fights its captured appearance, and that varies asset by asset.
+- Review through the same camera view intended for preview or sharing. Lighting that works from an inspection angle can fail from the opening view.
+- Check that nothing is hidden, overexposed, or casting distracting shadows.
+  If a viewer would struggle to judge material or form, the lighting is not finished regardless of how the numbers look.
+- For scanned or baked-texture assets, compare Lit and Unlit before finalising. Which is better varies asset by asset.

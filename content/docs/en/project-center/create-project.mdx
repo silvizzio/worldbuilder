@@ -2,20 +2,21 @@
 title: Create Project
 description: Start a project from a template or from blank, and understand what the project type decides on your behalf.
 ---
-
 import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
 
-Project creation is the entry point for a digital twin scene. Start from a template for a standardised structure, or start blank when the scene needs a custom one. Either way, WORLD BUILDER generates default scene and camera settings so the project opens directly into the editor without repeated baseline setup.
+Choose the project type with care.
+It sets the default camera controller, which shapes every placement decision that follows.
 
-The step takes under a minute, but one decision inside it, project type, shapes how the rest of the project is built.
+Project creation is the entry point for a digital twin scene and takes under a minute.
+Everything else generated at creation is a baseline you refine later.
 
 ## Steps
 
 1. In the Project Center, start a new project.
 
-2. Choose a **template** or a **blank project**. A template provides a standardised scene structure; blank gives you an empty scene to build from.
+2. Choose a **template** or a **blank project**.
 
-3. Select the **project type**. This is the decision that matters most, because it sets the default camera controller.
+3. Select the **project type**. This sets the default camera controller.
 
 4. Confirm creation. A default scene and camera configuration are generated, and the project opens in the editor.
 
@@ -28,7 +29,8 @@ The step takes under a minute, but one decision inside it, project type, shapes 
 | Template | The scene follows a pattern your team builds regularly | A standardised structure, less repeated setup |
 | Blank | The scene structure is unusual or not yet decided | An empty scene, full control, more configuration |
 
-For a team producing similar deliverables repeatedly, templates are the higher-leverage choice. For a first project or an unfamiliar scenario, blank avoids inheriting structure you then have to unpick.
+- **Producing similar deliverables repeatedly**: use templates
+- **First project, or an unfamiliar scenario**: blank avoids inheriting a structure you then have to unpick
 
 ## What project type decides
 
@@ -38,18 +40,25 @@ For a team producing similar deliverables repeatedly, templates are the higher-l
 | Map | Third person | Map-level presentation, urban context, infrastructure review | Wide scenes are read from above and around, not walked through |
 | Space | First person | Interior walkthroughs, room-scale navigation | Interiors are entered, so walkthrough navigation matches how people understand them |
 
-The logic is about how a viewer should move. Getting this right at creation is not critical, because it can be changed, but it does affect every placement judgement you make afterwards: a layout that reads well from an orbit camera can read badly from a first-person one.
+The question is how a viewer should move.
+Getting it right at creation is not critical, since the setting can be changed, but it affects every placement decision afterwards.
 
 <Callouts title="Notes" cautions={['A default scene and camera configuration are generated after creation. Refine them in Project Settings and Camera Controller once assets are loaded.', 'Project type sets the default controller but does not lock it. Both the controller type and the generated camera values can be changed at any time.']} />
 
 ## After creation
 
-The generated scene and camera settings are baseline defaults, not tuned values. They exist so the project opens into something usable, not so it opens into something finished.
+The generated settings exist so the project opens into something usable, not something finished.
+Refine them once assets are loaded and the scene can be judged properly:
 
-Refine them in [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings) and [Camera Controller](/en/docs/editor/editor-panels/scene-panel/camera-controller) once assets are loaded and you can judge the scene properly. Tuning a camera against an empty scene is guesswork.
+- [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings): title, cover, background, type
+- [Camera Controller](/en/docs/editor/editor-panels/scene-panel/camera-controller): controller, initial view, FOV
+
+Tuning a camera against an empty scene is guesswork.
 
 ## Why this matters
 
-Pairing project types with sensible controller defaults removes a category of repetitive setup that adds no value. Project creators start from a working configuration rather than an empty one, and can put their attention on asset layout, interaction design, and review preparation instead of rebuilding the same foundation for every project.
+Pairing project types with sensible defaults removes repetitive setup that adds nothing.
+Project creators start from a working configuration and direct their attention to asset layout, interaction design, and review preparation.
 
-Over a portfolio, that difference compounds. See [Project Actions](/en/docs/project-center/project-actions) for duplication, which extends the same principle to entire finished projects.
+Across a portfolio, that saving repeats on every project.
+See [Project Actions](/en/docs/project-center/project-actions) for duplication, which extends the same principle to entire finished projects.

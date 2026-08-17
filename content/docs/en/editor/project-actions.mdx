@@ -2,14 +2,13 @@
 title: Publish Project
 description: Save, preview, publish, and undo, the delivery actions that move edited content into review and presentation.
 ---
+import { FeatureHero, VideoDemo } from '@/components/docs'
 
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+Save, preview, then publish, in that order.
+A share link serves the saved state, not what your screen currently shows.
 
-These are the delivery actions inside the editor: save current changes, preview the saved version, generate a sharing entry, or discard unsaved draft changes.
+Previewing before sharing is the only way to confirm the two match.
 
-The sequence matters. Save writes the state, preview shows what was written, publishing exposes it. A share link always serves the saved state, so previewing before sharing is the only way to confirm a reviewer sees what you intended.
-
-<ShotGrid images={['/demos/project-center/stills/editor-project-actions-1.jpg']} />
 
 ## Action reference
 
@@ -22,26 +21,38 @@ The sequence matters. Save writes the state, preview shows what was written, pub
 
 ## Save and preview
 
-Use **Save** to write modified content and synchronise it to cloud storage. After saving, the preview page displays the latest content, so you can confirm scene presentation, asset placement, UI layout, and interaction behaviour before publishing.
+**Save** writes modified content and synchronises it to cloud storage. After saving, the preview page displays the latest content, so you can confirm:
 
-This matters most when several elements have changed at once. Individual changes are easy to judge in the editor; how they work together is only visible in preview, and interaction behaviour in particular cannot be fully evaluated from the authoring view.
+- Scene presentation
+- Asset placement
+- UI layout
+- Interaction behaviour
+
+This matters most when several elements have changed at once.
+You can judge individual changes in the editor.
+How they work together is visible only in preview, and interaction behaviour in particular cannot be fully evaluated from the authoring view.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-project-actions-1.mp4" poster="/demos/project-center/6.1保存与预览.poster.jpg" />
 
 ## Publish and share
 
-Use **Publish and share** to generate a share link. Access can be disabled, opened publicly, or protected with a password, depending on whether the audience is a customer demo, a team review, or external viewing.
+Generates a share link.
+Access can be disabled, opened publicly, or protected with a password.
+The choice depends on the audience: a customer demo, a team review, or external viewing.
 
-Publishing converts the edited project into an accessible review entry point, so stakeholders can see results without entering the editor. That is the step that makes a digital twin a deliverable rather than a working file.
+Publishing converts the edited project into an accessible review entry point, so stakeholders can see results without entering the editor.
+That step turns a digital twin into a deliverable.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-project-actions-2.mp4" poster="/demos/project-center/6.2发布分析.poster.jpg" />
 
 ## Undo changes
 
-Use **Undo changes** to discard unsaved local draft changes and return to the last saved version. This limits the impact of accidental edits and gives a controlled way to recover before changes are committed.
+Discards unsaved local draft changes and returns to the last saved version.
+This limits the impact of accidental edits and gives a controlled way to recover before changes are committed.
 
-Most useful during iterative layout, model positioning, UI tuning, or interaction configuration, when comparing the current draft against the last stable state is the fastest way to decide whether to keep going or start again.
+Most useful during iterative work.
+Comparing the current draft against the last stable state is the fastest way to decide whether to continue or start again.
 
-For changes you may want to reverse after saving, duplicate the project first. See [Project Actions](/en/docs/project-center/project-actions).
+For changes you may want to reverse *after* saving, duplicate the project first. See [Project Actions](/en/docs/project-center/project-actions).
 
 <VideoDemo src="/demos/project-center/web-videos/editor-project-actions-3.mp4" poster="/demos/project-center/6.3撤销修改.poster.jpg" />

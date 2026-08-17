@@ -2,12 +2,18 @@
 title: Project Actions
 description: Edit, duplicate, share with access control, and delete a project from the Project Center.
 ---
-
 import { FeatureHero, VideoDemo } from '@/components/docs'
 
-Project actions are the lifecycle operations available on a single project from the Project Center. They cover updating a project, copying it, opening it for review under a chosen access setting, and removing it.
+Project actions control the project itself: updating it, copying it, sharing it, and removing it.
+The editor controls what is inside it.
 
-These are distinct from the save, preview, and publish actions available inside the editor, which are documented in [Publish Project](/en/docs/editor/project-actions). The split is worth holding onto: the editor controls what a project contains, the Project Center controls what happens to it.
+They are often confused with the save, preview, and publish actions inside the editor.
+Those are covered in [Publish Project](/en/docs/editor/project-actions).
+
+The line between them is functional:
+
+- **The editor** controls project content
+- **The Project Center** controls the project itself
 
 ## Action reference
 
@@ -22,7 +28,8 @@ These are distinct from the save, preview, and publish actions available inside 
 
 Use **Edit project** to update the project name, cover image, or basic information, or to reopen the project in the editor.
 
-Accurate metadata is what makes a project findable in the list, and the cost of neglecting it lands on whoever needs the project next. Update it before sharing with reviewers, so the name and cover a stakeholder sees match what they are actually being shown.
+Accurate metadata is what makes a project findable, and neglecting it falls to whoever needs the project next.
+Update it before sharing with reviewers, so the name and cover a stakeholder sees match what they are being shown.
 
 <VideoDemo src="/demos/project-center/edit-project.mp4" poster="/demos/project-center/edit-project.poster.jpg" />
 
@@ -30,9 +37,7 @@ Accurate metadata is what makes a project findable in the list, and the cost of 
 
 Use **Duplicate project** to copy an existing project along with its scene structure and configuration.
 
-This is the capability that changes how a team's costs scale. A finished project is a working baseline: scene settings tuned, assets placed, markers written, UI built. Duplicating it and adapting for a new customer, a new site, or an updated capture starts from that baseline rather than an empty scene.
-
-It is also the safe way to explore a significant change. Duplicate first, edit the copy, and the original stays intact for comparison or rollback. That removes the hesitation that otherwise attaches to any large edit late in a project.
+A finished project is a working baseline: scene settings tuned, assets placed, markers written, UI built. Duplicating starts from there rather than an empty scene.
 
 | Use duplication for | Instead of |
 | --- | --- |
@@ -41,11 +46,13 @@ It is also the safe way to explore a significant change. Duplicate first, edit t
 | A significant restructure you might reverse | Editing in place and hoping undo is enough |
 | Alternate versions for a review | Presenting one version and describing the other |
 
+It is also the safe way to explore a large change. Duplicate first, edit the copy, and the original stays intact for comparison or rollback.
+
 <VideoDemo src="/demos/project-center/duplicate-project.mp4" poster="/demos/project-center/copy-project.poster.jpg" />
 
 ## Share project
 
-Use **Share project** to generate a share link. Access can be disabled, opened for public access, or protected with a password, depending on who needs to see the project.
+Use **Share project** to generate a share link.
 
 | Access setting | Suits | Consider |
 | --- | --- | --- |
@@ -53,14 +60,21 @@ Use **Share project** to generate a share link. Access can be disabled, opened f
 | Public | Open demonstrations, marketing, wide distribution | Anyone with the link can open the project |
 | Password protected | Customer reviews, commercially sensitive scenes | The password must reach the recipient through a separate channel |
 
-Save and preview before sharing externally. A share link serves the saved state, so whatever was last saved is what the reviewer opens, regardless of what the editor currently shows on your screen.
+Save and preview before sharing externally.
+A share link serves the saved state, so whatever was last saved is what the reviewer opens, regardless of what your editor currently shows.
 
 <VideoDemo src="/demos/project-center/share-project.mp4" poster="/demos/project-center/share-project.poster.jpg" />
 
 ## Delete project
 
-Use **Delete project** to remove a project that is no longer needed and keep the list focused.
+Use **Delete project** to remove a project that is no longer needed.
 
-Before deleting, consider whether the project might still be wanted for historical reference, customer demonstration, or version comparison. Duplication is cheap and a superseded project is often the only record of how something looked at a point in time. If in doubt, an accurate title and a clear cover cost less than losing the project entirely.
+Before deleting, consider whether it might still be wanted for:
+
+- Historical reference
+- Customer demonstration
+- Version comparison
+
+Duplication has minimal cost, and a superseded project is often the only record of a given state at a point in time.
 
 <VideoDemo src="/demos/project-center/delete-project.mp4" poster="/demos/project-center/delete-project.poster.jpg" />

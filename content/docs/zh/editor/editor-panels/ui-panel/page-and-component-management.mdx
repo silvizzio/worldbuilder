@@ -3,13 +3,12 @@ title: 页面与组件管理
 description: 创建界面页面并添加网页、按钮、文本、图片与音频组件，构建三维场景之上的二维图层。
 ---
 
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+import { FeatureHero, VideoDemo } from '@/components/docs'
 
-这里是构建三维场景之上二维图层的地方。你可以创建界面页面、向页面中添加组件，并配置对齐方式与响应式缩放。
+请将不同的展示步骤拆分到独立页面，而非将组件堆叠在同一页面上。这正是多步骤演示得以实现的前提。
 
-页面是容器，组件是内容。把不同的展示步骤或内容状态拆分到不同页面，才能避免场景变成一个拥挤的单层覆盖界面，也才使多步骤演示成为可能。
+若将全部内容放在一个页面上，界面会因过于拥挤而难以阅读。页面是屏幕，组件是放置在屏幕上的按钮、文本、图片与音频。
 
-<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-ui-panel-page-and-component-management-1.jpg']} />
 
 ## 组件参考
 
@@ -18,8 +17,8 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 | 界面页面 | 用于编排组件的独立界面容器。 | 为不同的展示步骤、内容状态或场景面板使用独立页面。 |
 | 网页组件 | 嵌入基于 URL 的网页内容，支持布局与透明度设置。 | 外部看板、业务页面或辅助信息面板。 |
 | 文本按钮 | 可配置按钮文字、字号、颜色、不透明度与对齐方式的按钮。 | 导航、面板切换、场景控制等需要明确表达的交互指令。 |
-| 图片按钮 | 支持自定义图片背景，并可设置标签文字与颜色的按钮。 | 当图标、产品图像或品牌视觉比文字更能表达该操作时。 |
-| 文本组件 | 用于标题、描述或业务文案的静态文本。 | 保持简洁，并与当前场景或界面状态相符。 |
+| 图片按钮 | 支持自定义图片背景，并可设置标签文字与颜色的按钮。 | 图标、产品图像或品牌视觉比文字更能表达该操作时。 |
+| 文本组件 | 用于标题、描述或业务文案的静态文本。 | 保持简洁，并与当前场景或界面状态一致。 |
 | 图片组件 | 用于视觉参照或辅助图形的静态图片内容。 | 示意图、参考图像、图标、产品视觉。 |
 | 音频组件 | 支持自动播放与循环播放的音频内容。 | 旁白、引导式演示、语境提示。 |
 | 对齐方式 | 控制组件的位置与响应式缩放。 | 应用统一规则，使页面在不同屏幕尺寸下保持可读。 |
@@ -28,9 +27,9 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 ## 创建界面页面
 
-设置页面名称与可见性，建立用于组件布局的独立容器。多个页面可以区分不同的内容状态、场景步骤或展示章节。
+设置页面名称与可见性，建立用于组件布局的独立容器。多个页面可区分不同的内容状态、场景步骤或展示章节。
 
-可见性设置让你能够提前准备好界面内容，仅在流程需要时才显示——正是这一点，让页面成为标记或按钮可以按需唤出的对象。
+可见性设置可提前准备界面内容，仅在流程需要时显示，使页面成为标记或按钮可按需唤出的对象。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-1.mp4" poster="/demos/project-center/4.1.2页面组件-创建UI页面.poster.jpg" />
 
@@ -38,19 +37,19 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 支持 URL 配置、透明背景与布局对齐，适用于在三维场景旁嵌入外部页面或业务信息面板。
 
-这是把数字孪生与其自身之外的系统连接起来的组件。实时看板、维护记录或预约界面，都可以置于场景之内，而不是并列于场景之旁。
+该组件将数字孪生与其自身之外的系统连接起来。实时看板、维护记录或预约界面可置于场景之内，而非并列于场景之旁。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-2.mp4" poster="/demos/project-center/4.1.2页面组件-添加网页组件.poster.jpg" />
 
 ## 添加文本按钮
 
-支持按钮文字、字号、文字颜色、背景色、不透明度与对齐方式。适用于步骤导航、功能触发、面板切换与场景控制等需要让操作一目了然的场合。
+支持按钮文字、字号、文字颜色、背景色、不透明度与对齐方式。适用于步骤导航、功能触发、面板切换与场景控制等需要使操作一目了然的场合。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-3.mp4" poster="/demos/project-center/4.1.2页面组件-添加文本按钮.poster.jpg" />
 
 ## 添加图片按钮
 
-通过图片选择器支持自定义图片背景，并可设置标签文字、颜色与对齐方式。当图标、产品视觉或品牌图形比纯文字更能表达操作含义时尤为适用。
+通过图片选择器支持自定义图片背景，并可设置标签文字、颜色与对齐方式。当图标、产品视觉或品牌图形比纯文字更能表达操作含义时较为适用。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-4.mp4" poster="/demos/project-center/4.1.2页面组件-添加图片按钮.poster.jpg" />
 
@@ -68,7 +67,7 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 ## 添加音频组件
 
-支持自定义音频上传、自动播放与循环播放，用于场景旁白或语音提示。当项目需要更具沉浸感的表达，或希望观看者的注意力停留在场景本身而非阅读文字时，音频组件尤为有用。
+支持自定义音频上传、自动播放与循环播放，用于场景旁白或语音提示。当项目需要更具沉浸感的表达，或需要观看者的注意力停留在场景而非文字上时较为适用。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-7.mp4" poster="/demos/project-center/4.1.2页面组件-添加音频组件.poster.jpg" />
 
@@ -76,6 +75,6 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 对齐方式控制组件在画布上的位置与响应式缩放，使布局在不同显示尺寸下保持一致。
 
-请在各页面之间沿用相同规则。当项目在非搭建设备上被查看时，对齐不一致正是让人觉得「没做完」的主要原因；而已发布的项目会被用观看者手边的任意设备打开，因此这才是常态，而非例外。
+请在各页面之间沿用相同规则。当项目在非搭建设备上查看时，对齐不一致会使其显得未完成；已发布的项目会被用观看者手边的任意设备打开，因此这是常态而非例外。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-ui-panel-page-and-component-management-8.mp4" poster="/demos/project-center/4.1.2页面组件-组件对齐方式.poster.jpg" />

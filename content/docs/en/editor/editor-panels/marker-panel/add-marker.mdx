@@ -2,20 +2,25 @@
 title: Add Marker
 description: Add text, image, video, and data markers to attach business context to positions and objects in a 3D scene.
 ---
+import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
 
-import { FeatureHero, VideoDemo, ShotGrid, Callouts } from '@/components/docs'
+A **marker** is a label pinned to a point in the scene, a bit like a pin dropped on a map.
+It holds text, an image, a video, or a data value, and it stays attached to that exact spot.
 
-Markers attach information to specific positions or model objects. They are what turn a static 3D view into something that explains itself: naming assets, identifying locations, providing inspection material, or associating operational data with spatial content.
+Markers exist because a scan does not explain itself.
+It shows what a space looks like.
+It does not say what the viewer is looking at, why it matters, or what to do next.
+A marker carries that missing information and puts it where the viewer is already looking.
 
-A reconstruction shows what a space looks like. A marker explains what the viewer is looking at, why it matters, and what to do next.
+Add markers once the models are positioned.
+A marker remembers the spot it was pinned to.
+Move the model afterwards and the marker stays behind, waiting to be repositioned by hand.
 
-Add markers after assets are placed. A marker is bound to a position, so moving the underlying model afterwards means revisiting the marker.
-
-<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-marker-panel-add-marker-1.jpg']} />
 
 ## Marker types
 
-Four types are available from the Add POI section at the top of the Marker Panel.
+Four types are available from the Add POI section at the top of the panel.
+POI is short for point of interest, the term the interface uses for a marker.
 
 | Type | Carries | Use it for |
 | --- | --- | --- |
@@ -30,46 +35,57 @@ Once a marker is placed, its properties appear under Basic Info.
 
 | Field | Description | Recommended usage |
 | --- | --- | --- |
-| Name | The marker's label and its identifier in the POI Layer. | Name markers for what they describe, so the Outline stays readable as they accumulate. |
-| Style | Whether the marker renders as a Text POI or an Icon POI, with a colour picker. | Use Text POI when the label must be readable at a glance; Icon POI when many markers would crowd the view. |
+| Name | The text on the marker, and how it is listed in the panel on the left. | Name each one after what it describes, so the list stays readable as markers pile up. |
+| Style | Whether the marker shows as a text label or a small icon, plus its colour. | Use text when the label needs to be readable at a glance. Use an icon when there are so many markers that text would clutter the view. |
 | Scale | The marker's display size in the scene. | Increase for map-level scenes where markers are viewed from a distance. |
-| Position | The marker's location in 3D space. | Set by placement, adjust numerically when a marker needs to sit precisely on a feature. |
-| Height | The marker's vertical offset from its anchor point. | Raise a marker clear of the surface it describes so the label does not overlap the asset. |
-| Visible Distance | The camera distance within which the marker displays. | Limit it in dense scenes so markers appear only as a viewer approaches the relevant area. |
-| Link line | Whether a connecting line is drawn between the marker and its anchor point. | Enable when a raised marker needs its anchor made explicit. |
+| Position | Where the marker sits in the scene. | Set when you place it. Type exact numbers when it needs to land on a specific detail. |
+| Height | How far the marker floats above the point it is pinned to, with a **Link line** checkbox next to it. | Lift the marker clear of the surface so the label does not sit on top of the object. Tick Link line to draw a line back down to the exact spot. |
+| Visible Distance | Two distances: how close the camera must be for the marker to **Show**, and how far before it will **Hide**. | Set both in busy scenes so markers appear as someone gets close and disappear again when they move away. |
 
-Colour is set through an RGB picker attached to the Style row.
+Colour is set with the picker on the Style row.
+Position is typed as three numbers: X and Y for the flat position, Z for height.
 
-<Callouts title="Notes" cautions={['Visible Distance is the control that prevents a map-level scene from opening as a wall of overlapping labels. It is worth setting deliberately rather than leaving at its default in dense scenes.']} />
+<Callouts title="Notes" cautions={['Visible Distance is a Show/Hide pair rather than a single threshold, so markers can fade in on approach and out again at distance. This control prevents a map-level scene from displaying a large number of overlapping labels on load.', 'Link line sits beside Height. Raising a marker without enabling it leaves the label with no visible connection to what it describes.']} />
 
 ## Add text marker
 
-Add a text marker to display descriptions, prompts, or business annotations. Text markers suit naming assets, explaining locations, and highlighting information directly in the 3D context, so viewers understand a scene element without leaving the spatial view.
+For descriptions, prompts, or business annotations.
+Text markers suit naming assets, explaining locations, and highlighting information in the 3D context.
+Viewers understand a scene element without leaving the spatial view.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-marker-1.mp4" poster="/demos/project-center/3.3.1标记面板-添加文本标记.poster.jpg" />
 
 ## Add image marker
 
-Add an image marker to provide photos, equipment images, or visual references.
+For photos, equipment images, or visual references.
 
-These are most useful when a location or object needs visual evidence the 3D model itself does not carry: a close-up of a serial plate, a photograph of a defect, a reference image of how something should look. Reconstruction captures geometry, not documentation.
+Reconstruction captures geometry, not documentation. Image markers cover what the model cannot:
+
+- A close-up of a serial plate
+- A photograph of a defect
+- A reference image of how something should look
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-marker-2.mp4" poster="/demos/project-center/3.3.1标记面板-添加图片标记.poster.jpg" />
 
 ## Add video marker
 
-Add a video marker to provide demonstrations, instructions, or scene records.
+For demonstrations, instructions, or scene records.
 
-Video communicates procedure and sequence that a static annotation cannot. It suits explaining how an asset operates, showing a process end to end, or recording the state of something at a point in time.
+Video communicates procedure and sequence that a static annotation cannot.
+It suits explaining how an asset operates, showing a process end to end, or recording the state of something at a point in time.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-marker-3.mp4" poster="/demos/project-center/3.3.1标记面板-添加视频标记.poster.jpg" />
 
 ## Add data marker
 
-Add a data marker to display data associated with a spatial object or location.
+For values associated with a spatial object or location.
 
-Data markers connect the visual scene to business or operational information, which is what makes a digital twin informative during inspection rather than merely accurate. A model that shows a piece of equipment is a picture; the same model with its operating values attached is a monitoring surface.
+Data markers connect the visual scene to business or operational information.
+A model of a piece of equipment presents its geometry.
+The same model with operating values attached also presents its current state.
 
 ## Next step
 
-Markers can do more than display. Attach an action so clicking one opens a link, moves the camera, or reveals a UI page. See [Add Interaction](/en/docs/editor/editor-panels/marker-panel/add-interaction).
+Markers can do more than display.
+Attach an action so clicking one opens a link, moves the camera, or reveals a UI page.
+See [Add Interaction](/en/docs/editor/editor-panels/marker-panel/add-interaction).

@@ -1,57 +1,70 @@
 ---
 title: Platform Concepts
-description: The six objects WORLD BUILDER is built from, how they nest, which panel configures each, and why the structure maps onto how teams actually divide the work.
+description: The six objects a WORLD BUILDER project is built from, how they contain each other, and which panel configures each one.
 ---
+As you start building in WORLD BUILDER, it helps to think of a project as six kinds of thing stacked on each other.
+Learn the stack once and two questions answer themselves:
+which panel do I open to change this, and what else will that change affect?
 
-Every digital twin in WORLD BUILDER is assembled from six objects. Learning them as a structure rather than a glossary is worth the ten minutes, because the nesting answers two questions that come up constantly: which panel do I open to change this, and what breaks if I change it.
+The stack matters because projects rarely stay simple.
+They begin with one model and grow to hold dozens of models, hundreds of labels, and a full interface.
+At that size, someone moves a model and breaks a label nobody remembers creating.
+Two people configure the same setting in different places.
 
-## Why an object model matters here
-
-3D projects tend to fail in a predictable way. They start simple, accumulate assets and annotations, and reach a point where nobody is certain where a given piece of configuration lives or what depends on it. Changing a model breaks an annotation nobody remembers creating. Two people configure the same thing in different places.
-
-WORLD BUILDER avoids this by making the containment explicit. Each object has exactly one home, one panel that configures it, and a defined relationship to the objects above and below it. That is what makes a project handed between team members legible rather than archaeological.
+WORLD BUILDER avoids this by giving every kind of thing one home.
+Each has a single panel that configures it and a defined relationship to what sits above and below it.
+That is what lets you hand a project to a colleague without walking them through it first.
 
 ## Object model
 
 | Concept | What it is | Where you configure it |
 | --- | --- | --- |
 | Project | The container for one digital twin experience. Holds identity, type, cover image, scene settings, assets, markers, UI, and publishing state. | [Project Settings](/en/docs/editor/editor-panels/scene-panel/project-settings) |
-| Scene | The 3D environment opened in the editor and the preview. Defines the viewing context for everything placed inside it. | [Feature Panels](/en/docs/editor/editor-panels/) |
+| Scene | The 3D environment that opens in the editor and the preview. Defines the viewing context for everything inside it. | [Feature Panels](/en/docs/editor/editor-panels/) |
 | Model Asset | A 3D resource representing an object, space, map area, or supporting element. | [Asset Management](/en/docs/editor/editor-panels/model-panel/asset-management) |
-| Marker | A spatial annotation attached to a position or model. Carries text, image, video, or data, and can trigger an interaction. | [Add Marker](/en/docs/editor/editor-panels/marker-panel/add-marker) |
-| UI Layer | A 2D interface layer drawn on top of the 3D scene, containing pages and components. | [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) |
+| Marker | A label pinned to a spot in the scene. Holds text, an image, a video, or data, and can trigger an action when clicked. | [Add Marker](/en/docs/editor/editor-panels/marker-panel/add-marker) |
+| UI Layer | The user interface drawn flat on top of the 3D scene, holding pages, buttons, text, and images. | [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) |
 | Publish State | The delivery status of the project: saved, previewed, shared, or public. | [Publish Project](/en/docs/editor/project-actions) |
 
-## How they nest
+## Containment hierarchy
 
-The project is the operating container. Inside it, model assets form the visible 3D content, scene settings govern how that content is viewed, markers add spatial information on top, and UI layers sit above everything as the 2D control surface.
+The **project** is the container everything else lives in.
+Inside it, four layers stack from the bottom up.
 
-That order is also a dependency chain, which is the practically important part.
+**Model assets** are the 3D content itself, the scanned building or product you are presenting.
+**Scene settings** control how that content is viewed: where the camera starts, how it moves, how the scene is lit.
+**Markers** are labels pinned to points in the scene, carrying text, an image, a video, or a data value.
+**UI layers** are the flat interface drawn on top, holding the pages and buttons a viewer clicks.
+
+That order is also a dependency chain, and the chain is what affects daily work.
+Change something low in the order and everything above it may need checking.
 
 | If you change | What may need revisiting |
 | --- | --- |
-| Project type | Default camera controller, and how model placement reads |
+| Project type | The default camera controller, and how model placement is judged |
 | A model's position or scale | Any marker attached to it, and any fly-to viewpoint framing it |
-| A model's existence | Marker attachments, and UI interactions targeting that model |
-| A UI page's name or existence | Marker interactions that show or hide that page |
+| Whether a model exists | Marker attachments, and UI interactions targeting that model |
+| A UI page's name, or whether it exists | Marker interactions that show or hide that page |
 
-Nothing here is fragile, but the chain runs one way. Building in the same direction, scene settings then assets then markers then UI, means each layer is placed against something already settled. Building against the chain means revisiting work you have already done.
+The chain runs one way:
+
+- **Build along it**: scene settings, then assets, then markers, then UI. Each layer is placed against something already settled.
+- **Build against it**: and you redo work you have already finished.
 
 ## Asset levels
 
-Asset level describes the scale of the 3D content, and it determines the project type you choose at creation.
-
 | Asset level | What it covers | Typical use | What it changes about authoring |
 | --- | --- | --- | --- |
-| Map-level | Large-scale reconstructed geography, city blocks, campuses, outdoor scenes | Spatial display, urban context, infrastructure review | Wide initial views, markers used for location-bound data |
-| Space-level | Interiors, rooms, buildings, facility environments | Walkthroughs, indoor scenarios, space inspection | First-person navigation, UI used to guide a route |
-| Object-level | Individual objects, equipment, products, vehicles, components | Product display, asset inspection, equipment explanation | Tight framing, visibility toggles to reveal internals |
+| Map-level | Large-scale reconstructed geography, city blocks, campuses, outdoor scenes | Spatial display, urban context, infrastructure review | Wider initial views, markers carrying location-bound data |
+| Space-level | Interiors, rooms, buildings, facility environments | Walkthroughs, indoor scenarios, space inspection | First-person navigation, UI guiding a route |
+| Object-level | Individual objects, equipment, products, vehicles, components | Product display, asset inspection, equipment explanation | Tighter framing, visibility toggles revealing internals |
 
-The level is not just a label. It shapes which controls matter: a map project lives or dies on its initial camera view, while an object project depends far more on lighting and visibility control.
+The level determines which controls carry weight:
+
+- A **map project** depends heavily on its initial camera view
+- An **object project** depends far more on lighting and visibility control
 
 ## Who does what
-
-The object model maps onto team roles almost exactly, which is the main reason it is worth internalising.
 
 | Role | Owns | Works in | Hands off |
 | --- | --- | --- | --- |
@@ -60,10 +73,11 @@ The object model maps onto team roles almost exactly, which is the main reason i
 | Solution engineer | Markers, UI, and interactions | Marker Panel, UI Panel | A configured, interactive experience |
 | Reviewer | The saved or published output | Preview and share links | Feedback against a specific saved version |
 
-The handoff column is the useful one. Each role finishes at a point the next can build on, so the sequence works as a pipeline rather than as a scramble.
+Read the handoff column closely. Each role concludes where the next begins, so work moves through the team in one direction.
 
 ## Why it matters
 
-A clear object model reduces confusion as projects grow. Teams can tell where each type of configuration belongs, keep assets organised, and make later editing, review, and maintenance predictable rather than exploratory.
+- **During the project**: teams know where each kind of configuration belongs, so editing, review, and maintenance stay predictable
+- **After the project**: a structure that is understood can be duplicated and adapted for a new customer, site, or capture
 
-It also makes reuse practical. A project whose structure is understood can be duplicated and adapted for a new customer, a new site, or an updated capture. A project nobody can navigate gets rebuilt from scratch, which is where the cost of a 3D programme usually accumulates.
+A project nobody can navigate gets rebuilt from scratch, and that rebuilding is where most of the cost of a 3D programme goes.

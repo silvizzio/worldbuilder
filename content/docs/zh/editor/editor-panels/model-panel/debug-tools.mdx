@@ -1,28 +1,29 @@
 ---
 title: 调试工具
-description: 地面网格显示与相机重置，这两个控件让模型定位与比例检查从「凭感觉」变为「可核查」。
+description: 地面网格显示与相机重置，这两个控件使模型定位与比例检查具备可验证性，而非依赖主观判断。
 ---
 
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+import { FeatureHero, VideoDemo } from '@/components/docs'
 
-调试工具包含两个控件，二者的存在都是为了让摆放方面的判断可以被核查，而不是停留在各执一词。
+请在判断摆放效果前打开地面网格，并在对比不同版本前重置相机。两者都使摆放方面的分歧可被核查。
 
-<ShotGrid images={['/demos/project-center/stills/editor-editor-panels-model-panel-debug-tools-1.jpg']} />
+摆放问题在缺少参照时难以判定。一人认为模型悬空，另一人认为正常，双方都无法证明。相机被移动过之后情况更为复杂，因为每次检查都在不同角度下进行。
+
 
 ## 控件参考
 
 | 控件 | 作用 | 适用时机 |
 | --- | --- | --- |
 | 显示地面网格 | 在三维视口中切换参照网格的显示 | 检查模型是否悬空、偏移或处于异常高度 |
-| 重置相机 | 将视角恢复到场景面板中配置的初始相机 | 相机已远离预期的检查角度 |
+| 重置相机 | 将视角恢复为场景面板中配置的初始相机 | 相机已远离预期的检查角度 |
 
 ## 显示地面网格
 
-切换地面参照网格，以评估模型的位置、旋转与空间比例。
+切换地面参照网格，用于评估模型的位置、旋转与空间比例。
 
-网格把主观判断变成了可核查的判断。悬空模型、垂直偏移与比例不一致，在空白背景下都很难看出，而在规则网格的对照下则一目了然。旋转偏差同理：偏轴的模型相对网格线会明显显得没有对齐。
+网格将主观判断转化为可核查的判断。悬空模型、垂直偏移与比例不一致在空白背景下难以察觉，在规则网格对照下则一目了然。旋转偏差同理：偏轴模型相对网格线会呈现明显错位。
 
-该功能在物体级与空间级项目中最为实用，这类项目在预览或分享前需要可靠的布局检查。
+该功能在物体级与空间级项目中最为适用，这类项目在预览或分享前需要可靠的布局检查。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-1.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-地面网格.poster.jpg" />
 
@@ -30,8 +31,8 @@ import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 将当前视角恢复为[场景面板](/zh/docs/editor/editor-panels/scene-panel/camera-controller)中配置的初始相机。
 
-这样就免去了近距离查看资产后手动找回原视角的麻烦。更有价值的是，它让每次检查都基于同一个参照视角，因此不同迭代之间的对比是在完全相同的角度下进行的，而不是取决于相机恰好停在哪里。
+该操作免去了近距离查看资产后手动找回原视角的过程。更重要的是，它使每次检查基于同一参照视角，不同迭代之间的对比在相同角度下进行，而非取决于相机的停留位置。
 
-在模型摆放、标记设置与交互测试的反复检查中尤为实用。
+适用于模型摆放、标记设置与交互测试过程中的反复检查。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-2.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-重置相机位置.poster.jpg" />
