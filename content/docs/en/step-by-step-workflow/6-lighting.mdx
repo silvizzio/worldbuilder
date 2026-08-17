@@ -5,16 +5,18 @@ description: Light the models so shape and material are visible.
 
 import { ShotGrid } from '@/components/docs'
 
-1. Select **Scene** in the top bar, then open the lighting section.
+1. Select **Scene** in the top bar, then open **Lighting**.
 
-   <ShotGrid images={['/demos/project-center/screens/6-lighting-s1-1.png']} />
+   <ShotGrid images={['/demos/project-center/screens/scene-panel-lighting.png']} />
 
-2. Adjust the ambient light until shadowed areas are visible.
-3. Enable the sky light to soften harsh contrast.
-4. Enable the key light and set its yaw and pitch to move it to one side.
-5. Raise the key light intensity until surface detail shows.
+2. Under **Base Mode**, set **Render Mode** to **Lit**.
 
-   <ShotGrid images={['/demos/project-center/screens/6-lighting-s5-1.png']} />
+3. Set **Ambient Color** and its value until shadowed areas are visible.
 
+4. Turn on **Sky Light**, then set **Sky Light Color** and its value.
+
+5. Turn on **Key Light**, then set **Key Light Color** and its value.
+
+6. Set **Key Light Yaw** and **Key Light Pitch** to move the light to one side.
 
 The model shows visible shadows and surface texture, not a flat shape.
