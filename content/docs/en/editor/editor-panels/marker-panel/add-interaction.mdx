@@ -4,20 +4,20 @@ description: Attach actions to markers so clicking one opens a link, flies the c
 ---
 import { FeatureHero, VideoDemo } from '@/components/docs'
 
-Attach an action to a marker to route viewers through a planned sequence.
-Clicking it can open related content, move the camera, or reveal a UI page.
+An interaction is an action a marker performs when a viewer clicks it.
+A marker can open an external page, move the camera to a saved viewpoint, or show a UI page.
 
-A marker that only labels something leaves the viewer to work out where to go next.
-Interactions remove that guesswork.
+Without an interaction, a marker only labels its position, and the viewer decides where to go next.
+With one, the marker itself moves them to the relevant content.
 
 
 ## How interactions are configured
 
 Each marker has an **Interaction Panel** in its edit view.
+Select **Add Interaction**, then choose an action type from the dropdown.
 
-1. Use **Add Interaction** to attach an action
-2. Choose the action type from the dropdown
-3. Repeat if the marker needs more than one, they list as Interaction 1, Interaction 2, and so on, each removable independently
+A marker can hold more than one interaction.
+They appear in the panel as Interaction 1, Interaction 2, and so on, and each can be removed on its own.
 
 | Action | What happens on click | Use it for |
 | --- | --- | --- |
@@ -25,10 +25,9 @@ Each marker has an **Interaction Panel** in its edit view.
 | Fly to view | Moves the camera to a predefined position over a set duration | Guiding viewers to the best angle for inspecting a model or area |
 | Show UI panel | Shows or hides a specified UI page | Revealing contextual information or controls only when relevant |
 
-**Fly to view** stores the camera angle you want to land on, plus how long the move should take:
-
-- **Longer**: the camera glides across, and the viewer keeps track of where they are
-- **Shorter**: the view jumps, which can leave people unsure what they are now looking at
+**Fly to view** stores the camera position you want to arrive at, along with the duration of the movement.
+A longer duration moves the camera smoothly, which helps the viewer follow where they are going.
+A short duration cuts almost directly to the new position, and viewers can lose track of where they now are.
 
 ## Open link
 

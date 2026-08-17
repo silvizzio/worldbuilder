@@ -4,11 +4,12 @@ description: Enable post-processing and adjust image parameters to refine how th
 ---
 import { FeatureHero, VideoDemo, Callouts } from '@/components/docs'
 
-Use post-processing last, once lighting is correct.
-It adjusts the rendered image, not the scene.
+Post-processing adjusts the rendered image rather than the scene itself.
+It is the final visual pass, applied after the scene is already correct.
 
-If assets are hard to make out, the cause is almost always lighting.
-Adjusting the image instead treats the symptom.
+The distinction matters in practice. If models are hard to make out, the cause is almost
+always lighting, and adjusting the image only masks it.
+Correct the lighting first, then use post-processing to refine the result.
 
 Use this module once the scene, camera, and model placement are stable.
 

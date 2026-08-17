@@ -1,67 +1,75 @@
 ---
 title: Camera Controller
-description: Configure controller type, initial camera view, and field of view, the settings that decide how a viewer navigates and what they see first.
+description: Set how viewers move through the scene, what they see when it opens, and how wide the view is.
 ---
 import { FeatureHero, VideoDemo } from '@/components/docs'
 
-Configure the initial camera view before sharing a project.
-It is the only introduction an external reviewer gets.
+Camera controller settings define two things: how a viewer moves through the scene,
+and what the scene shows when it first opens.
 
-A reviewer who receives a link has no briefing and no context.
-Whatever loads on screen decides whether they grasp the scope in seconds or form an impression from the wrong angle.
+Both matter most for projects you send to someone outside the team.
+A reviewer opening your link has no prior knowledge of the scene.
+If the opening view starts inside a wall or points at empty ground, they have to navigate before they can tell what the project is.
 
-No other setting in the Scene Panel affects the result as much.
+Configure the opening view before you share the project.
 
 ## Field reference
 
-| Field | Description | Recommended usage |
+| Field | What it does | How to set it |
 | --- | --- | --- |
-| Controls | The navigation controller type used in the 3D scene. | Match the controller to the project type and the expected viewing behaviour. |
-| Initial Camera Position | Where the camera sits when the scene opens. | Place it where viewers immediately understand the main scene context. |
-| Initial Camera Rotation | Which direction the camera faces when the scene opens. | Aim at the most important area, model, or spatial relationship. |
-| Initial Target LookAt | The point the camera is oriented toward. | Use with camera position to create a stable, readable opening view. |
-| Camera FOV | Field of view, meaning how wide the camera sees, like a wide-angle or zoom lens. | Tune alongside the opening view to balance how much fits on screen against how focused it feels. |
+| Controls | Chooses how the viewer moves: orbiting the scene from outside, or walking through it at eye level. | Match it to the kind of scene. Details in the next section. |
+| Initial Camera Position | The point in the scene where the camera sits when the project opens. | Place it far enough back that the main subject is fully in frame. |
+| Initial Camera Rotation | The direction the camera faces when the project opens. | Point it at the model or area the project is about. |
+| Initial Target LookAt | The point the camera looks toward. Setting it keeps the camera aimed at that point. | Use it with the position above to frame the subject in the centre of the view. |
+| Camera FOV | Field of view, measured in degrees. It controls how much of the scene fits on screen. | Start around 50 to 60 degrees. Adjust from there while watching the opening view. |
 
 ## Set controller type
 
-| Scenario | Suits | Why |
+| Scene | Controller | Why |
 | --- | --- | --- |
-| Object and map scenes | Third person, orbiting from outside | People look at these from outside, circling them the way you turn an object over in your hands |
-| Space scenes | First person, walking through at eye level | You understand a room by walking around inside it |
+| Object and map scenes | Third person, orbiting from outside | The subject sits in front of the viewer, who rotates around it to see other sides |
+| Space scenes | First person, walking at eye level | The viewer is inside the space and moves through it, as they would in the real building |
 
-Project type sets a sensible default at creation without locking it. Change it when a scene's actual use diverges from its category:
-
-- A large object viewers need to walk around inside
-- An interior presented as a cutaway rather than a walkthrough
+The project type you selected at creation sets one of these as the default.
+Change it when the scene is used differently from its type.
+An object large enough to walk inside is better served by the first-person controller,
+and a room presented as a cutaway rather than a walkthrough is better served by the third-person one.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-camera-controller-1.mp4" poster="/demos/project-center/3.1.2场景面板-设置控制器类型.poster.jpg" />
 
 ## Set initial camera view
 
-Three parameters work together:
+Three fields together define the opening view:
 
-- **Position** places the camera
-- **Rotation** and **Target LookAt** decide what it addresses
+- **Initial Camera Position** places the camera in the scene
+- **Initial Camera Rotation** turns it to face a direction
+- **Initial Target LookAt** fixes the point it aims at
 
-A useful test: reload the scene and look at the first frame as though you had never seen the project.
-If it takes more than a moment to work out what the scene contains and where the subject is, the opening view needs work.
+Set the position first, then use the rotation or the look-at point to frame the subject.
+
+To check it, reload the project and look only at the first frame.
+If you cannot tell what the scene contains and where the main subject is, adjust it again.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-camera-controller-2.mp4" poster="/demos/project-center/3.1.2场景面板-设置初始视角.poster.jpg" />
 
 ## Set controller FOV
 
-- **Wider view**, like a wide-angle lens: fits more of the surroundings on screen and makes distances look bigger.
-  Good when the overall layout matters more than the detail.
-- **Narrower view**, like zooming in: focuses on one thing and keeps its shape true. Good for showing a single object without distortion.
+Field of view controls how much of the scene fits on screen at once.
 
-Review FOV together with the initial view rather than on its own.
-A well-placed camera at the wrong FOV still produces visible distortion or an overly confined result.
+- **A higher value**, around 75 to 90 degrees, fits more of the surroundings into the frame.
+  Objects near the edges stretch, and the scene looks deeper than it is.
+  Use it when the viewer needs to see the layout around the subject.
+- **A lower value**, around 35 to 45 degrees, fits less into the frame and keeps proportions accurate.
+  Use it when the viewer needs to look closely at one model.
+
+Adjust the field of view while watching the opening view, not on its own.
+A camera in the right place can still produce a distorted or cramped first frame if the field of view is wrong.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-scene-panel-camera-controller-3.mp4" poster="/demos/project-center/3.1.2场景面板-设置控制器FOV.poster.jpg" />
 
 ## Why this matters
 
-The reconstruction can be flawless and the assets perfectly placed.
-A poor opening view still leaves a reviewer uncertain what they are being shown.
+A scan can be accurate and every model correctly placed, and the project still fails to communicate if it opens on the wrong view.
 
-It takes a minute to correct and is often missed, because the person configuring it already knows the scene well.
+This is quick to fix and easy to overlook.
+By the time you set it, you already know the scene, so a confusing opening view does not look confusing to you.

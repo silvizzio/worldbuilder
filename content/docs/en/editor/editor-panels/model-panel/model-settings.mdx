@@ -1,24 +1,24 @@
 ---
 title: Model Settings
-description: Set model position, rotation, scale, and visibility through the visual gizmo or the parameter panel for precise 3D model layout.
+description: Set model position, rotation, scale, and visibility by dragging in the viewport or entering exact values.
 ---
 import { FeatureHero, VideoDemo } from '@/components/docs'
 
-Drag the gizmo for rough placement, then type exact numbers to finish.
-Neither method alone does the job.
+Model Settings control the position, rotation, scale, and visibility of every model in the scene.
 
-The gizmo is the set of coloured arrows and rings that appears on a selected model.
-Drag it and the model moves with your mouse, which is quick but never lands on an exact position.
-Typing numbers into the panel is exact but slow to work in.
+Each of these can be set two ways. Selecting a model in the viewport shows drag handles
+around it, and dragging those moves the model directly.
+That is the faster method, but it rarely lands on an exact value.
+Entering numbers in the Model Settings panel is precise and slower to work with.
 
-Model Settings control the spatial state of every model in the scene.
+Most layout work uses both. Drag the model roughly into place, then enter values to align it exactly.
 
 
 ## Field reference
 
 | Field | Description | Recommended usage |
 | --- | --- | --- |
-| Position | Where the model sits in the scene. | Drag the gizmo to place it roughly, then type numbers to line it up exactly. |
+| Position | Where the model sits in the scene. | Drag it into place, then enter values to align it exactly. |
 | Rotation | The model's orientation. | Align models with roads, rooms, equipment direction, or other scene references. |
 | Scale | The model's size in the scene. | Keep scale consistent across related assets so spatial relationships remain accurate. |
 | Visibility | Whether the model is shown in the current scene. | Hide supporting or temporary assets during review without deleting them. |
