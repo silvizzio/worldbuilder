@@ -1,0 +1,17 @@
+{
+  "title": "Step-by-step Workflow",
+  "defaultOpen": true,
+  "pages": [
+    "index",
+    "1-create-project",
+    "2-project-settings",
+    "3-upload-models",
+    "4-adjust-model-layout",
+    "5-camera-behaviour",
+    "6-lighting",
+    "7-add-markers",
+    "8-ui-pages-and-interactions",
+    "9-save-and-preview",
+    "10-publish-and-share"
+  ]
+}

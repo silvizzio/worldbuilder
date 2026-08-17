@@ -1,0 +1,93 @@
+---
+title: Overview
+description: The ten steps from an empty project to a published digital twin, and what to check before sharing it.
+---
+
+import { ShotGrid } from '@/components/docs'
+
+<ShotGrid images={['/demos/project-center/screens/project-center-list.png']} />
+
+Work the ten steps in order.
+Each step builds on the one before it, so going out of order means redoing work rather than hitting an error.
+
+Here is why the order matters.
+When you place a label on a model, the label remembers that exact spot.
+Move the model later and the label stays behind, still pointing at empty space.
+Nothing warns you.
+You find out when someone opens the project and the labels are in the wrong place.
+
+## Recommended workflow
+
+| Step | Objective | Related documentation |
+| --- | --- | --- |
+| 1. Create a project | Start from a template or blank project. Default scene and camera settings are generated automatically. | [Create Project](/worldbuilder/en/docs/step-by-step-workflow/1-create-project) |
+| 2. Configure project settings | Set title, cover image, background colour, and project type. | [Project Settings](/worldbuilder/en/docs/step-by-step-workflow/2-project-settings) |
+| 3. Upload or load model assets | Bring 3D assets into the project and keep the structure organised. | [Asset Management](/worldbuilder/en/docs/step-by-step-workflow/3-upload-models) |
+| 4. Adjust model layout | Set position, rotation, scale, and visibility. | [Model Settings](/worldbuilder/en/docs/step-by-step-workflow/4-adjust-model-layout) |
+| 5. Configure camera behaviour | Choose how people move around, what they see first, and the field of view. | [Camera Controller](/worldbuilder/en/docs/step-by-step-workflow/5-camera-behaviour) |
+| 6. Configure lighting | Set how the scene is lit so shapes and materials are visible. | [Lighting](/worldbuilder/en/docs/step-by-step-workflow/6-lighting) |
+| 7. Add scene markers | Attach text, image, video, or data to positions and models. | [Add Marker](/worldbuilder/en/docs/step-by-step-workflow/7-add-markers) |
+| 8. Add UI pages and interactions | Build pages, add components, configure interactions. | [Page & Component Management](/worldbuilder/en/docs/step-by-step-workflow/8-ui-pages-and-interactions) |
+| 9. Save and preview | Save the latest edits and review the output before publishing. | [Publish Project](/worldbuilder/en/docs/step-by-step-workflow/9-save-and-preview) |
+| 10. Publish and share | Generate a shareable entry with the intended access setting. | [Project Actions](/worldbuilder/en/docs/step-by-step-workflow/10-publish-and-share) |
+
+## Three phases
+
+Treat these as separate sittings rather than one continuous run.
+
+- **Foundation, steps 1 to 2**
+  - Cheap to decide now, expensive to change later
+  - The project type you pick decides how people move around the scene, which changes how you judge where everything sits
+- **Construction, steps 3 to 8**
+  - Most of the work happens here, and this is where the order matters most
+  - First you position the 3D models, then you label them, then you build buttons and panels on top
+- **Delivery, steps 9 to 10**
+  - These are two separate decisions, and people often treat them as one
+  - Saving and previewing tells you the work is right. Publishing decides who is allowed to see it
+  - Keeping them apart is what stops an unfinished scene reaching a customer
+
+## Why this order
+
+- **Settings before models**
+  - The project type sets the camera style, and the camera style changes how the layout looks to you
+  - A scene arranged while circling it from outside can look wrong once you walk through it at eye level
+- **Models before markers**
+  - A marker is a label pinned to a spot in the scene, and it remembers that spot
+  - Move the model afterwards and every marker on it has to be repositioned by hand
+- **Markers before the interface**
+  - Buttons and panels point at markers, models, and saved camera angles
+  - Those have to exist before a button can point at them, or you build the interface twice
+- **Preview as you go, not only at the end**
+  - Preview shows the last saved version, which is exactly what a reviewer will open
+  - A problem caught at step 5 costs minutes. The same problem at step 10 costs a whole review round
+
+## Where time usually goes
+
+| Symptom | Underlying cause | Avoid it by |
+| --- | --- | --- |
+| Markers appear misplaced after a layout change | Models were repositioned after markers were attached | Settling asset placement before adding markers |
+| The scene works in the editor but not for reviewers | The initial camera view was never set deliberately | Configuring the initial view before sharing |
+| UI components point at pages or models that no longer exist | Targets were renamed or deleted after interactions were configured | Treating UI as the last layer, built on settled targets |
+| A reviewer sees an older version than expected | Changes were made but not saved before sharing | Saving and previewing immediately before generating a link |
+
+## Delivery checklist
+
+Spend two minutes on this before you send anyone a link.
+Two minutes of checking is the difference between useful feedback and a list of things you already knew were unfinished.
+
+| Checkpoint | Confirm that |
+| --- | --- |
+| Project identity | Title, cover image, and project type describe the project accurately |
+| Scene entry view | The initial camera view opens on the most relevant area or asset |
+| Lighting presentation | Assets are visible, with no overexposure or distracting shadows |
+| Asset placement | Models are positioned, rotated, scaled, and shown or hidden as intended |
+| Marker content | Text, image, video, and data markers carry the right context |
+| UI experience | Pages and components are readable and interaction states are clear |
+| Publishing state | The project is saved, previewed, and set to the intended access level |
+
+## Related topics
+
+- [Platform Concepts](/worldbuilder/en/docs/platform-concepts)
+- [Project Center Overview](/worldbuilder/en/docs/project-center/)
+- [Online Editor Overview](/worldbuilder/en/docs/editor/)
+- [Feature Panels](/worldbuilder/en/docs/editor/editor-panels/)

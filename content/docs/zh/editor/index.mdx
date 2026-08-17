@@ -21,18 +21,18 @@ import { ShotGrid } from '@/components/docs';
 
 | 面板 | 负责范围 | 通常操作角色 | 文档 |
 | --- | --- | --- | --- |
-| 场景面板 | 项目标识、相机行为、灯光、后处理 | 项目负责人、三维内容运营 | [场景面板](/zh/docs/editor/editor-panels/scene-panel/project-settings) |
-| 模型面板 | 资产上传、摆放与调试 | 三维内容运营 | [模型面板](/zh/docs/editor/editor-panels/model-panel/asset-management) |
-| 标记面板 | 空间标注及其交互 | 解决方案工程师 | [标记面板](/zh/docs/editor/editor-panels/marker-panel/add-marker) |
-| 界面面板 | 二维页面、组件及组件交互 | 解决方案工程师 | [界面面板](/zh/docs/editor/editor-panels/ui-panel/canvas-settings) |
+| 场景面板 | 项目标识、相机行为、灯光、后处理 | 项目负责人、三维内容运营 | [场景面板](/worldbuilder/zh/docs/step-by-step-workflow/2-project-settings) |
+| 模型面板 | 资产上传、摆放与调试 | 三维内容运营 | [模型面板](/worldbuilder/zh/docs/step-by-step-workflow/3-upload-models) |
+| 标记面板 | 空间标注及其交互 | 解决方案工程师 | [标记面板](/worldbuilder/zh/docs/step-by-step-workflow/7-add-markers) |
+| 界面面板 | 二维页面、组件及组件交互 | 解决方案工程师 | [界面面板](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/canvas-settings) |
 
-除面板外，项目操作负责保存、预览、发布与撤销，详见[发布项目](/zh/docs/editor/project-actions)。
+除面板外，项目操作负责保存、预览、发布与撤销，详见[发布项目](/worldbuilder/zh/docs/step-by-step-workflow/9-save-and-preview)。
 
 ## 工作顺序
 
 各面板相互独立，但场景搭建遵循固定顺序：先配置场景，再加载并摆放资产，然后添加标记，最后构建界面。
 
-每一层都引用上一层已确定的位置。在附加标记后移动模型，其上的每个标记都需重新调整；在目标页面与模型尚未存在时配置界面交互，则需重复配置一次。完整的十步流程，以及因逆序操作而产生返工的常见情形，请参见[端到端工作流](/zh/docs/end-to-end-workflow)。
+每一层都引用上一层已确定的位置。在附加标记后移动模型，其上的每个标记都需重新调整；在目标页面与模型尚未存在时配置界面交互，则需重复配置一次。完整的十步流程，以及因逆序操作而产生返工的常见情形，请参见[分步工作流](/worldbuilder/zh/docs/step-by-step-workflow)。
 
 ## 编辑器替代的工作方式
 

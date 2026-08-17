@@ -2,9 +2,6 @@
   "title": "Scene Panel",
   "defaultOpen": false,
   "pages": [
-    "project-settings",
-    "camera-controller",
-    "lighting",
     "post-processing"
   ]
 }

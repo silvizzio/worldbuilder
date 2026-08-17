@@ -2,7 +2,6 @@
   "title": "Marker Panel",
   "defaultOpen": false,
   "pages": [
-    "add-marker",
     "add-interaction"
   ]
 }

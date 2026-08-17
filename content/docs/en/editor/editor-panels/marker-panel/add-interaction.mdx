@@ -2,7 +2,7 @@
 title: Add Interaction
 description: Attach actions to markers so clicking one opens a link, flies the camera to a viewpoint, or reveals a UI page.
 ---
-import { FeatureHero, VideoDemo } from '@/components/docs'
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 An interaction is an action a marker performs when a viewer clicks it.
 A marker can open an external page, move the camera to a saved viewpoint, or show a UI page.
@@ -17,6 +17,8 @@ Each marker has an **Interaction Panel** in its edit view.
 Select **Add Interaction**, then choose an action type from the dropdown.
 
 A marker can hold more than one interaction.
+
+<ShotGrid images={['/demos/project-center/screens/marker-panel-add-interaction-01.png']} />
 They appear in the panel as Interaction 1, Interaction 2, and so on, and each can be removed on its own.
 
 | Action | What happens on click | Use it for |
@@ -53,6 +55,6 @@ Shows or hides a specified UI page, so scene elements can drive UI content.
 Markers reveal contextual information, controls, or supporting panels only when relevant, which combines 3D spatial context with 2D presentation without overloading the viewport.
 
 The target UI page must exist first.
-Build pages in [Page & Component Management](/en/docs/editor/editor-panels/ui-panel/page-and-component-management) before wiring this up.
+Build pages in [Page & Component Management](/worldbuilder/en/docs/step-by-step-workflow/8-ui-pages-and-interactions) before wiring this up.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-3.mp4" poster="/demos/project-center/3.3.2标记面板-显示UI面板.poster.jpg" />

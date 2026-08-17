@@ -235,6 +235,102 @@
     1440,
     900
   ],
+  "/demos/project-center/screens/10-publish-and-share-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/10-publish-and-share-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/2-project-settings-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/3-upload-models-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/3-upload-models-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/4-adjust-model-layout-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/5-camera-behaviour-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/5-camera-behaviour-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/6-lighting-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/6-lighting-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-03.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-04.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/7-add-markers-05.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-03.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-04.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/8-ui-pages-and-interactions-05.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/9-save-and-preview-01.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/9-save-and-preview-02.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/create-project-dialog.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/editor-publish-01.png": [
     1600,
     1009
@@ -291,6 +387,10 @@
     1600,
     1009
   ],
+  "/demos/project-center/screens/marker-panel-add-poi.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/model-panel-asset-management-01.png": [
     1600,
     1009
@@ -318,6 +418,10 @@
   "/demos/project-center/screens/model-panel-upload-02.png": [
     1600,
     1009
+  ],
+  "/demos/project-center/screens/model-panel-upload.png": [
+    1600,
+    903
   ],
   "/demos/project-center/screens/project-center-list-01.png": [
     1600,
@@ -351,6 +455,10 @@
     1600,
     1009
   ],
+  "/demos/project-center/screens/project-center-list.png": [
+    1600,
+    903
+  ],
   "/demos/project-center/screens/project-center-new-project-dialog-01.png": [
     1600,
     1009
@@ -358,6 +466,10 @@
   "/demos/project-center/screens/project-center-new-project-dialog-alt-01.png": [
     1600,
     1009
+  ],
+  "/demos/project-center/screens/publish-panel.png": [
+    1600,
+    903
   ],
   "/demos/project-center/screens/scene-panel-background-colour-01.png": [
     1600,
@@ -382,6 +494,14 @@
   "/demos/project-center/screens/scene-panel-project-settings-05.png": [
     1600,
     1009
+  ],
+  "/demos/project-center/screens/scene-panel-settings.png": [
+    1600,
+    903
+  ],
+  "/demos/project-center/screens/ui-panel-canvas.png": [
+    1600,
+    903
   ],
   "/demos/project-center/screens/ui-panel-pages-and-components-01.png": [
     1600,

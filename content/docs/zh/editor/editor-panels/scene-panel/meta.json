@@ -2,9 +2,6 @@
   "title": "场景面板",
   "defaultOpen": false,
   "pages": [
-    "project-settings",
-    "camera-controller",
-    "lighting",
     "post-processing"
   ]
 }

@@ -3,7 +3,7 @@ title: 添加交互
 description: 为标记附加动作，使点击时打开链接、将相机飞行至指定视角，或显示界面页面。
 ---
 
-import { FeatureHero, VideoDemo } from '@/components/docs'
+import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
 
 交互是观看者点击标记时触发的动作。标记可以打开外部页面、将相机移动到已保存的视角，或显示界面页面。
 
@@ -13,6 +13,8 @@ import { FeatureHero, VideoDemo } from '@/components/docs'
 ## 交互的配置方式
 
 每个标记的编辑视图中都有**交互面板**。使用**添加交互**附加动作，再从下拉菜单中选择动作类型。一个标记可承载多个交互，依次列为「交互 1」「交互 2」等，可分别删除。
+
+<ShotGrid images={['/demos/project-center/screens/marker-panel-add-interaction-01.png']} />
 
 | 动作 | 点击后的效果 | 适用场景 |
 | --- | --- | --- |
@@ -42,6 +44,6 @@ import { FeatureHero, VideoDemo } from '@/components/docs'
 
 添加显示或隐藏指定界面页面的动作，使场景元素能够控制界面内容。
 
-标记仅在相关时展示语境信息、控制项或辅助面板，将三维空间语境与二维展示结合，同时避免视口过载。目标界面页面须先行创建，因此请先在[页面与组件管理](/zh/docs/editor/editor-panels/ui-panel/page-and-component-management)中建立页面，再配置此交互。
+标记仅在相关时展示语境信息、控制项或辅助面板，将三维空间语境与二维展示结合，同时避免视口过载。目标界面页面须先行创建，因此请先在[页面与组件管理](/worldbuilder/zh/docs/step-by-step-workflow/8-ui-pages-and-interactions)中建立页面，再配置此交互。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-marker-panel-add-interaction-3.mp4" poster="/demos/project-center/3.3.2标记面板-显示UI面板.poster.jpg" />

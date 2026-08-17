@@ -1,47 +1,44 @@
 ---
 title: Debug Tools
-description: Ground grid visualization and camera reset, two controls that make model positioning and scale review verifiable rather than subjective.
+description: Show a ground grid and reset the camera, so model placement can be checked rather than argued about.
 ---
+
 import { FeatureHero, VideoDemo } from '@/components/docs'
 
-Debug Tools contains two controls that make model placement verifiable: a ground grid and a camera reset.
+Debug Tools has two controls.
+Both make placement something you can verify.
 
-Placement is difficult to assess without a reference. One person sees a model floating above
-the ground, another sees it sitting correctly, and neither view can be confirmed.
-A camera that has been moved during editing compounds this, because each check happens
-from a different angle and the comparisons are not equivalent.
+## Check whether a model sits correctly
 
-Turn on the grid before judging placement, and reset the camera before comparing one version against another.
+1. Open the **Model Panel**.
+2. Select **Show Ground Grid**.
+3. Look at the model from the side.
 
+The grid appears under the models.
+A correctly placed model rests on the grid line.
 
-## Control reference
-
-| Control | What it does | Use it when |
-| --- | --- | --- |
-| Show Ground Grid | Toggles a reference grid in the 3D viewport | Checking whether a model is floating, offset, or placed at an unexpected height |
-| Reset Camera | Restores the view to the initial camera configured in the Scene Panel | The camera has moved far from the intended review angle |
-
-## Show Ground Grid
-
-Against an empty background these problems are nearly invisible.
-Against evenly spaced grid lines they show up straight away:
-
-- Floating models
-- Vertical offsets
-- Inconsistent scale
-- Rotation errors, since an off-axis model is visibly misaligned relative to the grid lines
-
-Most useful for object-level and space-level projects, where layout review needs to be reliable before preview or sharing.
+Against an empty background these problems are invisible.
+Against a grid they show up at once.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-1.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-地面网格.poster.jpg" />
 
-## Reset Camera
+## Return to the same view every time
 
-Restores the current view to the initial camera configured in the [Scene Panel](/en/docs/editor/editor-panels/scene-panel/camera-controller).
+1. Open the **Model Panel**.
+2. Select **Reset Camera**.
 
-Two benefits:
+The view returns to the opening angle set in the Scene Panel.
 
-- Returns the view without manually navigating back after inspecting an asset up close
-- Gives every check the same reference view, so comparisons between iterations happen from an identical angle
+Use this before comparing two versions.
+Otherwise each check happens from a different angle.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-2.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-重置相机位置.poster.jpg" />
+
+## What the grid reveals
+
+| Problem | How it looks against the grid |
+| --- | --- |
+| Model floats | A gap between the model and the grid line |
+| Model sinks | The base disappears below the grid |
+| Wrong scale | The model spans too many or too few squares |
+| Wrong rotation | Edges run at an angle to the grid lines |
