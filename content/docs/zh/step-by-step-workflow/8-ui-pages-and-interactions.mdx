@@ -7,22 +7,38 @@ import { ShotGrid } from '@/components/docs'
 
 1. 在顶部栏选择**界面**。
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s1-1.png']} />
+2. 在**页面管理**中，点击加号按钮添加页面。
 
-2. 在**画布设置**中关闭**启用交互**，避免误移相机。
-3. 设置**宽度**与**高度**，或选择 **16:9**、**4:3**、**1:1**。
-4. 开启**锁定画布尺寸**，在编辑过程中保持尺寸固定。
-5. 在**页面管理**中，点击加号按钮创建页面。
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-page-and-webpage.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s5-1.png']} />
+3. 输入**名称**。如需页面在加载时显示，勾选**默认可见**。
 
-6. 向页面中添加组件：按钮、文本、图片或音频。
+4. 在**添加组件**中选择**添加网页**、**添加文本按钮**、**添加图片按钮**、**添加文本**、**添加图片**或**添加音频**。
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s6-1.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s6-2.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s6-3.png']} />
+5. 文本按钮需设置**按钮文字**、**字号（px）**、**颜色**、**背景色**与**不透明度（0~1）**。
 
-7. 选中组件，选择**添加交互**，然后选择动作类型。
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-text-button.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s7-1.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s7-2.png']} />
+6. 图片按钮需设置**按钮文字**，并在**图片选择器**中选择文件。
 
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-image-button.png']} />
 
-点击组件即可移动相机、切换页面或隐藏模型。
+7. 文本组件需输入**文本**，并设置**字号（px）**与**颜色**。
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-text.png']} />
+
+8. 图片组件需在**图片选择器**中选择文件。
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-image.png']} />
+
+9. 音频组件需在**音频选择器**中选择文件，然后设置**自动播放**、**循环**与**音量（0~1）**。
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-audio.png']} />
+
+10. 为每个组件设置 **X(px)**、**Y(px)**、**宽度（px）**与**高度（px）**。
+
+11. 在**布局**中设置**水平**与**垂直**，使组件在屏幕尺寸变化时保持位置。
+
+12. 在按钮上打开**交互面板**，选择**添加交互**。
+
+页面将出现在大纲的**界面图层**中，其下列出各个组件。

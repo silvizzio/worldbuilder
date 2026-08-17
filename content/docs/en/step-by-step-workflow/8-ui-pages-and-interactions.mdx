@@ -7,22 +7,38 @@ import { ShotGrid } from '@/components/docs'
 
 1. Select **UI** in the top bar.
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s1-1.png']} />
+2. Under **Page Management**, select the plus button to add a page.
 
-2. Under **Canvas Settings**, turn off **Enable interaction** so you do not move the camera by accident.
-3. Set **Width** and **Height**, or choose **16:9**, **4:3**, or **1:1**.
-4. Turn on **Lock Canvas Size** to keep it fixed while you work.
-5. Under **Page Management**, select the plus button to create a page.
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-page-and-webpage.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s5-1.png']} />
+3. Enter a **Name** and tick **Visible by default** if the page should show on load.
 
-6. Add components to the page: buttons, text, images, or audio.
+4. Under **Add Components**, choose **Add Web Page**, **Add Text Button**, **Add Image Button**, **Add Text**, **Add Image**, or **Add Audio**.
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s6-1.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s6-2.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s6-3.png']} />
+5. For a text button, set **Button text**, **Font size (px)**, **Color**, **Background color**, and **Opacity (0~1)**.
 
-7. Select a component, then **Add Interaction**, then choose an action.
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-text-button.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/8-ui-pages-and-interactions-s7-1.png', '/demos/project-center/screens/8-ui-pages-and-interactions-s7-2.png']} />
+6. For an image button, set **Button text** and choose a file in **Image picker**.
 
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-image-button.png']} />
 
-Clicking a component now moves the camera, switches pages, or hides a model.
+7. For text, enter the **Text** and set **Font size (px)** and **Color**.
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-text.png']} />
+
+8. For an image, choose a file in **Image picker**.
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-image.png']} />
+
+9. For audio, choose a file in **Audio picker**, then set **Autoplay**, **Loop**, and **Volume (0~1)**.
+
+   <ShotGrid images={['/demos/project-center/screens/ui-panel-audio.png']} />
+
+10. Set **X(px)**, **Y(px)**, **Width (px)**, and **Height (px)** for each component.
+
+11. Under **Layout**, set **Horizon** and **Vertical** so the component holds its place when the screen size changes.
+
+12. On a button, open the **Interaction Panel** and select **Add Interaction**.
+
+The page appears under **UI Layer** in the Outline, with each component listed beneath it.
