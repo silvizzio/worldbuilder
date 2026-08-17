@@ -1,93 +1,53 @@
 ---
 title: Overview
-description: The ten steps from an empty project to a published digital twin, and what to check before sharing it.
+description: The ten steps from an empty project to a published digital twin.
 ---
 
-import { ShotGrid } from '@/components/docs'
+Work the ten steps in order. Each step uses something the step before it set up.
 
-<ShotGrid images={['/demos/project-center/screens/project-center-list.png']} />
+## The ten steps
 
-Work the ten steps in order.
-Each step builds on the one before it, so going out of order means redoing work rather than hitting an error.
-
-Here is why the order matters.
-When you place a label on a model, the label remembers that exact spot.
-Move the model later and the label stays behind, still pointing at empty space.
-Nothing warns you.
-You find out when someone opens the project and the labels are in the wrong place.
-
-## Recommended workflow
-
-| Step | Objective | Related documentation |
-| --- | --- | --- |
-| 1. Create a project | Start from a template or blank project. Default scene and camera settings are generated automatically. | [Create Project](/worldbuilder/en/docs/step-by-step-workflow/1-create-project) |
-| 2. Configure project settings | Set title, cover image, background colour, and project type. | [Project Settings](/worldbuilder/en/docs/step-by-step-workflow/2-project-settings) |
-| 3. Upload or load model assets | Bring 3D assets into the project and keep the structure organised. | [Asset Management](/worldbuilder/en/docs/step-by-step-workflow/3-upload-models) |
-| 4. Adjust model layout | Set position, rotation, scale, and visibility. | [Model Settings](/worldbuilder/en/docs/step-by-step-workflow/4-adjust-model-layout) |
-| 5. Configure camera behaviour | Choose how people move around, what they see first, and the field of view. | [Camera Controller](/worldbuilder/en/docs/step-by-step-workflow/5-camera-behaviour) |
-| 6. Configure lighting | Set how the scene is lit so shapes and materials are visible. | [Lighting](/worldbuilder/en/docs/step-by-step-workflow/6-lighting) |
-| 7. Add scene markers | Attach text, image, video, or data to positions and models. | [Add Marker](/worldbuilder/en/docs/step-by-step-workflow/7-add-markers) |
-| 8. Add UI pages and interactions | Build pages, add components, configure interactions. | [Page & Component Management](/worldbuilder/en/docs/step-by-step-workflow/8-ui-pages-and-interactions) |
-| 9. Save and preview | Save the latest edits and review the output before publishing. | [Publish Project](/worldbuilder/en/docs/step-by-step-workflow/9-save-and-preview) |
-| 10. Publish and share | Generate a shareable entry with the intended access setting. | [Project Actions](/worldbuilder/en/docs/step-by-step-workflow/10-publish-and-share) |
-
-## Three phases
-
-Treat these as separate sittings rather than one continuous run.
-
-- **Foundation, steps 1 to 2**
-  - Cheap to decide now, expensive to change later
-  - The project type you pick decides how people move around the scene, which changes how you judge where everything sits
-- **Construction, steps 3 to 8**
-  - Most of the work happens here, and this is where the order matters most
-  - First you position the 3D models, then you label them, then you build buttons and panels on top
-- **Delivery, steps 9 to 10**
-  - These are two separate decisions, and people often treat them as one
-  - Saving and previewing tells you the work is right. Publishing decides who is allowed to see it
-  - Keeping them apart is what stops an unfinished scene reaching a customer
-
-## Why this order
-
-- **Settings before models**
-  - The project type sets the camera style, and the camera style changes how the layout looks to you
-  - A scene arranged while circling it from outside can look wrong once you walk through it at eye level
-- **Models before markers**
-  - A marker is a label pinned to a spot in the scene, and it remembers that spot
-  - Move the model afterwards and every marker on it has to be repositioned by hand
-- **Markers before the interface**
-  - Buttons and panels point at markers, models, and saved camera angles
-  - Those have to exist before a button can point at them, or you build the interface twice
-- **Preview as you go, not only at the end**
-  - Preview shows the last saved version, which is exactly what a reviewer will open
-  - A problem caught at step 5 costs minutes. The same problem at step 10 costs a whole review round
-
-## Where time usually goes
-
-| Symptom | Underlying cause | Avoid it by |
-| --- | --- | --- |
-| Markers appear misplaced after a layout change | Models were repositioned after markers were attached | Settling asset placement before adding markers |
-| The scene works in the editor but not for reviewers | The initial camera view was never set deliberately | Configuring the initial view before sharing |
-| UI components point at pages or models that no longer exist | Targets were renamed or deleted after interactions were configured | Treating UI as the last layer, built on settled targets |
-| A reviewer sees an older version than expected | Changes were made but not saved before sharing | Saving and previewing immediately before generating a link |
-
-## Delivery checklist
-
-Spend two minutes on this before you send anyone a link.
-Two minutes of checking is the difference between useful feedback and a list of things you already knew were unfinished.
-
-| Checkpoint | Confirm that |
+| Step | What you do |
 | --- | --- |
-| Project identity | Title, cover image, and project type describe the project accurately |
-| Scene entry view | The initial camera view opens on the most relevant area or asset |
-| Lighting presentation | Assets are visible, with no overexposure or distracting shadows |
-| Asset placement | Models are positioned, rotated, scaled, and shown or hidden as intended |
-| Marker content | Text, image, video, and data markers carry the right context |
-| UI experience | Pages and components are readable and interaction states are clear |
-| Publishing state | The project is saved, previewed, and set to the intended access level |
+| [1. Create a Project](/worldbuilder/en/docs/step-by-step-workflow/1-create-project) | Start a project and choose its type |
+| [2. Configure Project Settings](/worldbuilder/en/docs/step-by-step-workflow/2-project-settings) | Set title, cover, type, and background colour |
+| [3. Upload Models](/worldbuilder/en/docs/step-by-step-workflow/3-upload-models) | Bring 3D models into the project |
+| [4. Position Models](/worldbuilder/en/docs/step-by-step-workflow/4-adjust-model-layout) | Place each model and check it sits correctly |
+| [5. Set the Camera View](/worldbuilder/en/docs/step-by-step-workflow/5-camera-behaviour) | Choose how viewers move and what they see first |
+| [6. Light the Scene](/worldbuilder/en/docs/step-by-step-workflow/6-lighting) | Light the models so shape and material are visible |
+| [7. Add Markers](/worldbuilder/en/docs/step-by-step-workflow/7-add-markers) | Pin labels to points on the model |
+| [8. Build the Interface](/worldbuilder/en/docs/step-by-step-workflow/8-ui-pages-and-interactions) | Add pages and components on top of the scene |
+| [9. Save and Preview](/worldbuilder/en/docs/step-by-step-workflow/9-save-and-preview) | Save and check the result |
+| [10. Publish and Share](/worldbuilder/en/docs/step-by-step-workflow/10-publish-and-share) | Publish as a link and set access |
 
-## Related topics
+## Why the order matters
 
-- [Platform Concepts](/worldbuilder/en/docs/platform-concepts)
-- [Project Center Overview](/worldbuilder/en/docs/project-center/)
-- [Online Editor Overview](/worldbuilder/en/docs/editor/)
-- [Feature Panels](/worldbuilder/en/docs/editor/editor-panels/)
+A marker is pinned to a point on a model. Move the model afterwards and the
+marker stays where it was.
+
+A component points at a marker, a model, or a saved camera view. Those have to
+exist before a component can point at them.
+
+The project type sets the camera controller, and the controller changes how the
+layout looks while you work on it.
+
+## Common problems
+
+| What you see | Why | What to do instead |
+| --- | --- | --- |
+| Markers sit in the wrong place | The model moved after the markers were added | Position models before adding markers |
+| The scene opens on empty space | The initial camera view was never set | Set the initial view before sharing |
+| A component does nothing | Its target page or model was deleted | Build the interface last |
+| A reviewer sees an old version | The project was not saved before sharing | Save and preview, then share |
+
+## Before you share
+
+| Check | Confirm |
+| --- | --- |
+| Project title and cover | They describe the project |
+| Initial camera view | It opens on the main subject |
+| Lighting | Models are visible, with no blown-out surfaces |
+| Model placement | Models rest on the ground grid |
+| Markers | Each one has a name and the right content |
+| Interface | Components are readable and every action works |
+| Publish status | Set to the access level you intend |
