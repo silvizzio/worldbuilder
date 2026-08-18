@@ -2,19 +2,17 @@
 title: 添加交互
 description: 为标记附加动作，使点击时打开链接、将相机飞行至指定视角，或显示界面页面。
 ---
-
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+import { ShotGrid, VideoDemo } from '@/components/docs'
 
 交互是观看者点击标记时触发的动作。标记可以打开外部页面、将相机移动到已保存的视角，或显示界面页面。
 
 未配置交互的标记只能标识所在位置，观看者需自行决定下一步查看什么。配置交互后，标记本身即可将观看者带到相关内容。
 
+<ShotGrid images={['/demos/project-center/screens/text-marker-interaction.png', '/demos/project-center/screens/image-marker-interaction.png', '/demos/project-center/screens/video-marker-interaction.png', '/demos/project-center/screens/data-marker-interaction.png']} />
 
 ## 交互的配置方式
 
 每个标记的编辑视图中都有**交互面板**。使用**添加交互**附加动作，再从下拉菜单中选择动作类型。一个标记可承载多个交互，依次列为「交互 1」「交互 2」等，可分别删除。
-
-<ShotGrid images={['/demos/project-center/screens/marker-panel-add-interaction-01.png']} />
 
 | 动作 | 点击后的效果 | 适用场景 |
 | --- | --- | --- |

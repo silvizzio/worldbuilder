@@ -2,7 +2,7 @@
 title: Add Interaction
 description: Attach actions to markers so clicking one opens a link, flies the camera to a viewpoint, or reveals a UI page.
 ---
-import { FeatureHero, VideoDemo, ShotGrid } from '@/components/docs'
+import { ShotGrid, VideoDemo } from '@/components/docs'
 
 An interaction is an action a marker performs when a viewer clicks it.
 A marker can open an external page, move the camera to a saved viewpoint, or show a UI page.
@@ -10,6 +10,7 @@ A marker can open an external page, move the camera to a saved viewpoint, or sho
 Without an interaction, a marker only labels its position, and the viewer decides where to go next.
 With one, the marker itself moves them to the relevant content.
 
+<ShotGrid images={['/demos/project-center/screens/text-marker-interaction.png', '/demos/project-center/screens/image-marker-interaction.png', '/demos/project-center/screens/video-marker-interaction.png', '/demos/project-center/screens/data-marker-interaction.png']} />
 
 ## How interactions are configured
 
@@ -18,7 +19,6 @@ Select **Add Interaction**, then choose an action type from the dropdown.
 
 A marker can hold more than one interaction.
 
-<ShotGrid images={['/demos/project-center/screens/marker-panel-add-interaction-01.png']} />
 They appear in the panel as Interaction 1, Interaction 2, and so on, and each can be removed on its own.
 
 | Action | What happens on click | Use it for |
