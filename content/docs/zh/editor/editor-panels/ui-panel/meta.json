@@ -3,6 +3,7 @@
   "defaultOpen": false,
   "pages": [
     "canvas-settings",
-    "add-interaction"
+    "add-interaction",
+    "open-api-playground"
   ]
 }

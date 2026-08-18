@@ -2,6 +2,7 @@
   "title": "场景面板",
   "defaultOpen": false,
   "pages": [
-    "post-processing"
+    "post-processing",
+    "render-mode"
   ]
 }

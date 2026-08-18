@@ -1,0 +1,24 @@
+---
+title: Add Measurement
+description: Measure distance, path length, and area on a model.
+---
+
+**Add Measurement** sits in the Marker Panel, below Add Marker.
+
+| Tool | What it measures |
+| --- | --- |
+| Segment | The straight distance between two points |
+| Polyline | The total length along a series of points |
+| Area | The area enclosed by a set of points |
+
+Select a tool, then click points on the model. The viewport shows a prompt while
+you work, and the status bar counts your progress, for example
+`Segment measurement: 0 / 2 points selected`. Press Esc to cancel.
+
+Completed measurements appear under **Measurements**, which starts at
+"No measurements". The bin icon clears the list.
+
+Measurement picks against the collision proxy rather than the visible surface.
+If a point lands somewhere unexpected, turn on
+[Show collision proxy](/worldbuilder/en/docs/editor/editor-panels/model-panel/collision-proxy)
+to see what it is hitting.

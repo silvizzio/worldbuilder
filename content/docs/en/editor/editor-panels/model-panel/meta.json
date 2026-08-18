@@ -2,6 +2,8 @@
   "title": "Model Panel",
   "defaultOpen": false,
   "pages": [
-    "debug-tools"
+    "debug-tools",
+    "collision-proxy",
+    "loading-animation"
   ]
 }

@@ -2,6 +2,7 @@
   "title": "Scene Panel",
   "defaultOpen": false,
   "pages": [
-    "post-processing"
+    "post-processing",
+    "render-mode"
   ]
 }

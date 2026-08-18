@@ -1,0 +1,20 @@
+---
+title: Collision Proxy
+description: Give a model a simplified shape for picking, measuring, and debugging.
+---
+
+**Collision Proxy** and **Show collision proxy (debug)** sit in the Model Panel,
+under Model Parameters.
+
+A collision proxy is a `.collision.glb` file generated alongside the model. It
+follows the Gaussian transform, stays hidden by default, and is used for
+picking, measuring, and the debug view.
+
+| Control | What it does |
+| --- | --- |
+| Collision Proxy | Choose a generated proxy, or None |
+| Show collision proxy (debug) | Draw the proxy in the viewport so you can see its shape |
+
+Turn the debug view on when a marker will not land where you click, or when a
+measurement snaps to the wrong surface. The proxy is what the click actually
+hits, so seeing it explains the behaviour.

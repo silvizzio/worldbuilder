@@ -2,6 +2,8 @@
   "title": "模型面板",
   "defaultOpen": false,
   "pages": [
-    "debug-tools"
+    "debug-tools",
+    "collision-proxy",
+    "loading-animation"
   ]
 }

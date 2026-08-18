@@ -2,6 +2,8 @@
   "title": "Marker Panel",
   "defaultOpen": false,
   "pages": [
-    "add-interaction"
+    "add-interaction",
+    "add-measurement",
+    "collider-and-debug"
   ]
 }

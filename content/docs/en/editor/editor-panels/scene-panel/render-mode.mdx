@@ -1,0 +1,20 @@
+---
+title: Render Mode
+description: Choose whether scene lighting affects the models, or they show their captured appearance.
+---
+
+**Render Mode** sits under **Base Mode** in the Scene Panel.
+
+| Mode | What it does |
+| --- | --- |
+| Lit | Scene lighting affects the models. Ambient, sky, and key light settings change what you see. |
+| Unlit | Scene lighting is ignored. Models show their original textures and colours. |
+
+The panel notes that Unlit suits scanned or baked-texture assets.
+
+A scanned model usually carries the lighting from the day of capture in its
+surface. Adding scene light on top produces two sets of shadows, which reads
+as muddy. Unlit avoids that.
+
+Use Lit when you want control over how the model presents, or when the model
+was produced without baked lighting.
