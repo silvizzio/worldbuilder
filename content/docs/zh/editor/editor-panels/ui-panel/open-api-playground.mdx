@@ -1,25 +1,92 @@
 ---
 title: Open API 演练场
-description: 在当前打开的场景中试用内嵌 API。
+description: 在场景中调用内嵌 API，观察结果，并复制生成的代码。
 ---
+
 import { ShotGrid } from '@/components/docs'
 
-**Open API** 位于界面面板中，处于画布设置与页面管理之间。
+**Open API** 位于界面面板中，处于画布设置与页面管理之间。选择 **Open API Playground** 打开。
 
-<ShotGrid images={['/demos/project-center/screens/ui-panel-canvas.png']} />
+<ShotGrid images={['/demos/project-center/screens/open-api-playground.png']} />
 
-面板中说明这是用于相机、模型、POI 与界面图层的内嵌 API，并明确指出改动仅在当前会话中生效，刷新后重置。在演练场中的任何操作都不会保存到项目。
+演练场是内嵌 API 的调试视图。选择方法后即可在当前打开的场景中运行，并同时查看结果与对应的代码。
 
-这一限制正是其价值所在。可以任意调用、直接观察场景的变化，并通过刷新恢复初始状态。在此处无法对项目造成破坏。
+界面面板中说明，改动仅在当前会话中生效，刷新后重置。此处的任何操作都不会保存到项目，因此可以放心试用。
 
-## 使用时机
+## 方法列表
 
-在编写集成代码之前。[WebUI Open API](/worldbuilder/zh/docs/open-api) 允许外部应用驱动已发布的查看器，而调用能否生效，差异往往在于参数结构。在演练场中确认只需数秒，在自己的应用中确认则需要一次构建。
+左侧列出全部可用方法，上方设有搜索框。
 
-已完成的集成中出现异常调用时同样适用。在此复现可区分问题出在自身代码还是调用本身。
+| 分组 | 方法 |
+| --- | --- |
+| 会话 | `handshake`、`scene.getInfo` |
+| 相机 | `camera.getState`、`camera.getControllerMode`、`camera.setControllerMode`、`camera.reset`、`camera.flyTo` |
+| 模型 | `model.list`、`model.getVisibility`、`model.show`、`model.hide`、`model.setVisibility` |
+| 标记 | `poi.list`、`poi.setVisible`、`poi.flyTo` |
+| 界面 | `ui.list`、`ui.show`、`ui.hide` |
 
-## 打开方式
+标记在 API 中称为 **POI**，即兴趣点，与标记面板创建的对象相同。
 
-选择 **Open API Playground**。它基于当前项目打开，因此调用作用的对象即为当前查看的模型、标记与界面图层。
+## 运行调用
 
-完整的方法与参数列表，请见 [WebUI Open API 参考](/worldbuilder/zh/docs/open-api)。
+选择方法后，右侧显示**调试输入**，即参数的 JSON 字段。无需参数的方法初始显示为 `{}`。
+
+编辑参数后，选择 **Run**。
+
+## 代码片段
+
+输入框下方会生成等效代码，并提供**复制**按钮：
+
+```js
+const client = createTwinScapeClient({
+  targetWindow: window.parent,
+  targetOrigin: window.location.origin,
+});
+await client.ready();
+await client.call('camera.getState', {});
+```
+
+这段代码正是演练场在编写集成代码前的价值所在：在此调通后复制，粘贴到应用中即为正确写法。
+
+## 请求与事件
+
+右侧底部的两个标签，并提供**清空**按钮。
+
+**请求**记录每次调用的时间戳与响应内容。`scene.getInfo` 的返回结果类似：
+
+```json
+{
+  "sceneId": "indoor",
+  "ready": true,
+  "projectId": "22"
+}
+```
+
+**事件**记录查看器主动推送的内容，而非所发起的请求。
+
+## 模型与 POI
+
+方法列表下方是场景中内容的实时列表，各自带有**刷新**按钮。
+
+**MODELS** 显示每个模型及其 ID，并提供 **show**、**hide** 与 **Fill** 按钮。
+
+**POIS** 显示每个标记及其 ID，并提供 **flyTo**、**hide** 与 **Fill** 按钮。
+
+这些按钮调用的是上方列表中的同名方法，并已自动填入 ID。在手动编写调用之前，这是确认 ID 与对象对应关系的最快方式。
+
+## 连接状态
+
+右侧顶部显示查看器状态，例如 **Scene ready · indoor**，并提供两个控件。
+
+| 控件 | 作用 |
+| --- | --- |
+| Reload Viewer | 重新加载场景，放弃仅会话内生效的改动 |
+| Reconnect SDK | 在不重新加载场景的情况下重建连接 |
+
+调用无响应但场景正常时，使用 **Reconnect SDK**；需要恢复到初始状态时，使用 **Reload Viewer**。
+
+## 相关内容
+
+窗口底部的**嵌入模式**说明查看器在其他页面中的承载方式。
+
+全部方法、参数以及查看器发出的事件，请见 [WebUI Open API 参考](/worldbuilder/zh/docs/open-api)。

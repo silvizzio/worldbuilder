@@ -1,38 +1,112 @@
 ---
 title: Open API Playground
-description: Try the embedded APIs against the scene you have open.
+description: Call the embedded APIs against your scene, watch what happens, and copy the code.
 ---
+
 import { ShotGrid } from '@/components/docs'
 
 **Open API** sits in the UI Panel, between Canvas Settings and Page Management.
+Select **Open API Playground** to open it.
 
-<ShotGrid images={['/demos/project-center/screens/ui-panel-canvas.png']} />
+<ShotGrid images={['/demos/project-center/screens/open-api-playground.png']} />
 
-The panel describes it as embedded APIs for camera, models, POIs, and UI layers,
-and states plainly that changes are session-only and reset on refresh. Nothing
-you do in the playground is saved to the project.
+The playground is a debugging view for the embedded APIs. You pick a method,
+run it against the scene you have open, and see both the result and the code
+that produced it.
 
-That constraint is the point. You can call anything, watch what happens to the
-scene in front of you, and reload to start clean. There is no way to damage the
-project from here.
+The UI Panel notes that changes are session-only and reset on refresh. Nothing
+you do here is saved to the project, which is what makes it safe to experiment
+in.
 
-## When to use it
+## The method list
 
-Before writing integration code. The
-[WebUI Open API](/worldbuilder/en/docs/open-api) lets an external application
-drive a published Viewer, and the difference between a call that works and one
-that does not is often a parameter shape. Finding that out in the playground
-takes seconds. Finding it out in your own application takes a build.
+The left column lists every available method, with a search box above it.
 
-Also when a call is behaving unexpectedly in an integration you have already
-built. Reproducing it here separates a problem in your code from a problem in the
-call itself.
+| Group | Methods |
+| --- | --- |
+| Session | `handshake`, `scene.getInfo` |
+| Camera | `camera.getState`, `camera.getControllerMode`, `camera.setControllerMode`, `camera.reset`, `camera.flyTo` |
+| Models | `model.list`, `model.getVisibility`, `model.show`, `model.hide`, `model.setVisibility` |
+| Markers | `poi.list`, `poi.setVisible`, `poi.flyTo` |
+| Interface | `ui.list`, `ui.show`, `ui.hide` |
 
-## Opening it
+Markers are called **POIs** in the API, short for points of interest. It is the
+same object the Marker Panel creates.
 
-Select **Open API Playground**. It opens against the current project, so the
-models, markers, and UI layers you are looking at are the ones the calls will
-act on.
+## Running a call
 
-For the full list of methods and their parameters, see
+Select a method. The right column shows **Debug input**, a JSON field for the
+parameters, which starts as `{}` for methods that take none.
+
+Edit the parameters, then select **Run**.
+
+## Code snippet
+
+Below the input, the playground writes the equivalent code, with a **Copy**
+button:
+
+```js
+const client = createTwinScapeClient({
+  targetWindow: window.parent,
+  targetOrigin: window.location.origin,
+});
+await client.ready();
+await client.call('camera.getState', {});
+```
+
+That snippet is what makes the playground worth using before you write
+integration code. Get the call working here, copy it, and paste it into your
+application already correct.
+
+## Requests and Events
+
+Two tabs at the bottom of the right column, with a **Clear** button.
+
+**Requests** logs each call with a timestamp and the response body. A
+`scene.getInfo` call returns something like:
+
+```json
+{
+  "sceneId": "indoor",
+  "ready": true,
+  "projectId": "22"
+}
+```
+
+**Events** logs what the Viewer pushes back, rather than what you asked for.
+
+## Models and POIs
+
+Below the method list, two live lists of what is in the scene, each with a
+**Refresh** button.
+
+**MODELS** shows each model with its id, and buttons for **show**, **hide**, and
+**Fill**.
+
+**POIS** shows each marker with its id, and buttons for **flyTo**, **hide**, and
+**Fill**.
+
+These call the same methods as the list above, with the id filled in for you. It
+is the fastest way to confirm which id belongs to which object before writing a
+call by hand.
+
+## Connection state
+
+The top of the right column shows the Viewer state, for example
+**Scene ready · indoor**, with two controls.
+
+| Control | What it does |
+| --- | --- |
+| Reload Viewer | Reload the scene, discarding session-only changes |
+| Reconnect SDK | Re-establish the connection without reloading the scene |
+
+Use **Reconnect SDK** when calls stop responding but the scene is still fine.
+Use **Reload Viewer** to get back to a clean state.
+
+## Related
+
+**Embedding modes** sits at the bottom of the window, covering how the Viewer is
+hosted in another page.
+
+For every method, its parameters, and the events the Viewer emits, see
 [WebUI Open API Reference](/worldbuilder/en/docs/open-api).
