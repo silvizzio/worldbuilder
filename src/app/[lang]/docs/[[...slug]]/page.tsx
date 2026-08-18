@@ -22,9 +22,17 @@ export default async function Page({
     toc?: TableOfContents;
   };
 
+  // Pages that are a single numbered list have no headings, so the table of
+  // contents would be empty and its column would sit blank. Give those pages
+  // one entry, the page title, so every page keeps the same layout.
+  const pageToc: TableOfContents =
+    toc && toc.length > 0
+      ? toc
+      : [{ title: page.data.title, url: '#page-top', depth: 2 }];
+
   return (
-    <DocsPage toc={toc}>
-      <DocsTitle>{page.data.title}</DocsTitle>
+    <DocsPage toc={pageToc}>
+      <DocsTitle id="page-top">{page.data.title}</DocsTitle>
       {page.data.description ? (
         <DocsDescription className="!mb-4 max-w-none leading-7">{page.data.description}</DocsDescription>
       ) : null}
