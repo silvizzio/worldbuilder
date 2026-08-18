@@ -1,43 +1,63 @@
 ---
 title: 搭建界面
-description: 在场景之上添加页面与组件。
+description: 在三维场景之上创建界面页面和组件，并配置按钮、媒体和交互动作。
 ---
+
 import { ShotGrid } from '@/components/docs'
 
-1. 在顶部栏选择**界面**。
+界面用于在三维场景之上组织导览、说明和控制入口。通过页面和组件，用户可以将项目制作成更完整的展示体验，而不只是一个可自由浏览的三维场景。
 
-2. 在**页面管理**中，点击加号按钮添加页面。
+## 操作步骤
+
+1. 在顶部工具栏选择**界面**。
+2. 在**页面管理**中点击加号按钮，添加新页面。
 
    <ShotGrid images={['/demos/project-center/screens/ui-panel-page-and-webpage.png']} />
 
-3. 输入**名称**。如需页面在加载时显示，勾选**默认可见**。
+3. 输入页面**名称**。如需页面在项目加载后立即显示，勾选**默认可见**。
+4. 在**添加组件**中选择需要的组件类型。
+5. 设置组件内容、尺寸、位置和样式。
+6. 对需要响应点击的组件，打开**交互面板**并选择**添加交互**。
+7. 保存项目并在预览中检查界面效果。
 
-4. 在**添加组件**中选择**添加网页**、**添加文本按钮**、**添加图片按钮**、**添加文本**、**添加图片**或**添加音频**。
+## 组件类型
 
-5. 文本按钮需设置**按钮文字**、**字号（px）**、**颜色**、**背景色**与**不透明度（0~1）**。
+### 文本按钮
 
-   <ShotGrid images={['/demos/project-center/screens/ui-panel-text-button.png']} />
+文本按钮适合用于导览入口、步骤切换和操作触发。配置时需要设置按钮文字、字号、文字颜色、背景色和不透明度。
 
-6. 图片按钮需设置**按钮文字**，并在**图片选择器**中选择文件。
+<ShotGrid images={['/demos/project-center/screens/ui-panel-text-button.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/ui-panel-image-button.png']} />
+### 图片按钮
 
-7. 文本组件需输入**文本**，并设置**字号（px）**与**颜色**。
+图片按钮适合用于更具识别度的入口，例如楼层、区域、产品部件或功能模块。配置时需要设置按钮文字，并在图片选择器中选择素材。
 
-   <ShotGrid images={['/demos/project-center/screens/ui-panel-text.png']} />
+<ShotGrid images={['/demos/project-center/screens/ui-panel-image-button.png']} />
 
-8. 图片组件需在**图片选择器**中选择文件。
+### 文本组件
 
-   <ShotGrid images={['/demos/project-center/screens/ui-panel-image.png']} />
+文本组件用于展示标题、说明、提示和补充信息。配置时需要输入文本内容，并设置字号和颜色。
 
-9. 音频组件需在**音频选择器**中选择文件，然后设置**自动播放**、**循环**与**音量（0~1）**。
+<ShotGrid images={['/demos/project-center/screens/ui-panel-text.png']} />
 
-   <ShotGrid images={['/demos/project-center/screens/ui-panel-audio.png']} />
+### 图片组件
 
-10. 为每个组件设置 **X(px)**、**Y(px)**、**宽度（px）**与**高度（px）**。
+图片组件用于展示说明图、现场照片、流程图或补充素材。配置时需要在图片选择器中选择素材。
 
-11. 在**布局**中设置**水平**与**垂直**，使组件在屏幕尺寸变化时保持位置。
+<ShotGrid images={['/demos/project-center/screens/ui-panel-image.png']} />
 
-12. 在按钮上打开**交互面板**，选择**添加交互**。
+### 音频组件
 
-页面将出现在大纲的**界面图层**中，其下列出各个组件。
+音频组件用于添加讲解、提示音或背景声音。配置时需要选择音频文件，并设置自动播放、循环和音量。
+
+<ShotGrid images={['/demos/project-center/screens/ui-panel-audio.png']} />
+
+## 布局设置
+
+每个组件都需要设置 **X(px)**、**Y(px)**、**宽度(px)** 和 **高度(px)**。在**布局**中设置水平和垂直对齐方式，可以帮助组件在不同屏幕尺寸下保持稳定位置。
+
+界面元素较多时，建议先确定页面结构，再统一调整组件位置和间距。完成布局后，应在预览中检查文字可读性、按钮可点击性和组件是否遮挡关键三维内容。
+
+## 后续操作
+
+需要让按钮控制相机、界面或模型时，请继续配置[界面组件交互](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/add-interaction)。

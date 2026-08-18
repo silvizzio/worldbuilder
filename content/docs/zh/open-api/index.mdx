@@ -1,13 +1,13 @@
 ---
-title: WebUI 开放接口参考
-description: 面向外部 WebUI、调试工具与业务集成场景的开放接口参考，覆盖场景控制、相机、模型、POI 与 UI Layer 等能力。
+title: WebUI 开放 API 参考
+description: 面向外部 WebUI、调试工具和业务系统集成的开放 API 参考，覆盖场景控制、相机、模型、POI 和界面图层等能力。
 ---
 > **版本**：`1.0`（协议通道 `twinscape-open`）
 > **最后更新**：2026-06-30
-> **维护约定**：当开放方法、事件、协议字段或 SDK 行为发生新增、变更或移除时，**需同步更新本文档**。
+> **维护约定**：当开放方法、事件、协议字段或 SDK 行为发生新增、变更或移除时，需同步更新本文档。
 > **实现源码（以代码为准）**：`open-bridge.js`（Host 桥接）、`sdk/twinscape-client.js`（Guest SDK）、`main-lod.js`（`initTwinScapeOpenBridgeHost`）
 
-本文档定义 WORLD BUILDER Viewer 与外部 WebUI 之间的开放通信能力，适用于企业客户在数字孪生场景中接入自定义业务面板、调试控制台或上层应用系统。当前版本覆盖已上线的 V1 能力，帮助集成方以标准化方式控制场景、相机、模型、POI 与 UI Layer。
+本文档说明 WORLD BUILDER Viewer 与外部 WebUI 之间的开放通信能力，适用于在数字孪生场景中接入自定义业务面板、调试控制台或上层业务系统。当前版本覆盖已上线的 V1 能力，集成方可通过标准方法控制场景、相机、模型、POI 和界面图层。
 
 ---
 
@@ -15,20 +15,20 @@ description: 面向外部 WebUI、调试工具与业务集成场景的开放接�
 
 | 场景 | 调用方页面 | `targetWindow` | 典型用途 |
 |------|------------|----------------|----------|
-| **Guest WebUI** | 嵌入 Viewer 的用户自定义页面（iframe） | `window.parent` | 通过业务面板控制相机、模型、POI 与 UI Layer |
-| **Host 调试页** | Playground 等外层页面 | `iframe.contentWindow`（Viewer） | 用于接口联调、交付验收与示例代码生成 |
+| **Guest WebUI** | 嵌入 Viewer 的用户自定义页面（iframe） | `window.parent` | 通过业务面板控制相机、模型、POI 和界面图层 |
+| **Host 调试页** | Playground 等外层页面 | `iframe.contentWindow`（Viewer） | 用于接口联调、交付验收和示例代码生成 |
 
 集成约束：
 
 - 仅通过浏览器 `window.postMessage` 通信，**禁止**将 `targetOrigin` 设置为 `*`。
-- Guest 侧调用为**会话级运行时效果**：模型/POI 显隐等运行时修改**不写入项目数据库**；刷新 Viewer 后恢复为项目配置中的状态。
+- Guest 侧调用为**会话级运行时效果**：模型和 POI 显示/隐藏等运行时修改不会写入项目数据库；刷新 Viewer 后会恢复为项目配置中的状态。
 - 除 `handshake` 外，其余方法在场景未就绪时会返回 `NOT_READY`。
 
 ---
 
 ## 2. 快速开始（SDK）
 
-建议集成方优先使用官方 SDK 接入开放接口。SDK 封装了握手、请求响应、事件监听与超时处理逻辑，可降低直接处理 `postMessage` 协议的接入复杂度。
+建议集成方优先使用官方 SDK 接入开放 API。SDK 已封装握手、请求响应、事件监听和超时处理逻辑，可降低直接处理 `postMessage` 协议的接入复杂度。
 
 ### 2.1 引入
 
@@ -67,7 +67,7 @@ console.log(info);
 | `createTwinScapeClient(options)` | 创建客户端实例 |
 | `client.ready(): Promise<void>` | 执行 `handshake`，幂等 |
 | `client.call(method, params?): Promise<object>` | 调用开放方法，`params` 默认为 `{}` |
-| `client.onEvent(handler): () => void` | 监听 Host 推送事件；返回取消监听函数 |
+| `client.onEvent(handler): () => void` | 监听 Host 推送事件，并返回取消监听函数 |
 | `client.dispose()` | 移除监听、拒绝未完成请求 |
 | `client.CHANNEL` / `client.VERSION` | 常量 `'twinscape-open'` / `'1.0'` |
 
@@ -79,7 +79,7 @@ console.log(info);
 
 ### 3.1 消息信封（Envelope）
 
-所有消息均采用统一 JSON Envelope，便于 Host 与 Guest 在同一协议通道内区分请求、响应与事件：
+所有消息均采用统一 JSON Envelope，便于 Host 与 Guest 在同一协议通道内区分请求、响应和事件：
 
 ```json
 {
@@ -152,7 +152,7 @@ console.log(info);
 
 ## 4. 生命周期
 
-开放接口遵循明确的会话生命周期。Guest 应在完成握手并收到场景加载事件后调用业务 API，以避免在 Viewer 尚未就绪时触发 `NOT_READY`。
+开放 API 遵循明确的会话生命周期。Guest 应在完成握手并收到场景加载事件后调用业务 API，避免在 Viewer 尚未就绪时触发 `NOT_READY`。
 
 1. Guest 页面加载，创建 SDK 并 `ready()`（发送 `handshake`）。
 2. Host 校验 origin，登记会话，返回 `allowedMethods`。
@@ -160,7 +160,7 @@ console.log(info);
 4. Guest 通过 `call()` 调用 API；Host 通过 `onEvent` 推送事件。
 5. 页面卸载或 `dispose()` 时清理。
 
-Playground 调试入口：`/playground.html?projectId=<id>&status=draft`（开发阶段默认使用 `draft`；验证发布快照时添加 `status=published`）。
+Playground 调试入口：`/playground.html?projectId=<id>&status=draft`。开发阶段默认使用 `draft`；验证发布快照时添加 `status=published`。
 
 ---
 
@@ -178,14 +178,14 @@ Playground 调试入口：`/playground.html?projectId=<id>&status=draft`（开�
 | `model.list` | 列出当前场景模型 |
 | `model.show` | 显示模型（可独占） |
 | `model.hide` | 隐藏模型 |
-| `model.setVisibility` | 批量设置显隐 |
-| `model.getVisibility` | 查询显隐状态 |
+| `model.setVisibility` | 批量设置可见状态 |
+| `model.getVisibility` | 查询可见状态 |
 | `poi.list` | 列出 POI |
-| `poi.setVisible` | 设置 POI 显隐（会话级） |
+| `poi.setVisible` | 设置 POI 可见状态（会话级） |
 | `poi.flyTo` | 飞到 POI 关联相机 |
-| `ui.list` | 列出 UI Layer |
-| `ui.show` | 显示 UI Layer |
-| `ui.hide` | 隐藏 UI Layer |
+| `ui.list` | 列出界面图层 |
+| `ui.show` | 显示界面图层 |
+| `ui.hide` | 隐藏界面图层 |
 
 ---
 
@@ -193,7 +193,7 @@ Playground 调试入口：`/playground.html?projectId=<id>&status=draft`（开�
 
 ### 6.1 handshake
 
-建立开放接口会话。**这是唯一可在场景未加载时正常完成的方法（错误场景除外）。**
+建立开放 API 会话。除异常场景外，这是唯一可在场景未加载时正常完成的方法。
 
 **params**
 
@@ -342,7 +342,7 @@ await client.call('camera.flyTo', {
 | 字段 | 说明 |
 |------|------|
 | `type` | `gsplat`（默认）或 `mesh`（根据资源路径含 `.glb`/`.gltf` 判断） |
-| `visible` | 综合配置与**会话级**运行时显隐后的有效状态 |
+| `visible` | 综合项目配置与会话级运行时控制后的有效可见状态 |
 
 ---
 
@@ -385,7 +385,7 @@ await client.call('camera.flyTo', {
 
 ### 6.11 model.setVisibility
 
-批量设置多个模型的显隐。
+批量设置多个模型的可见状态。
 
 **params**
 
@@ -409,7 +409,7 @@ await client.call('camera.flyTo', {
 
 | 字段 | 类型 | 必填 | 说明 |
 |------|------|------|------|
-| `ids` | `string[]` | 否 | 省略时返回当前场景**全部**模型显隐 |
+| `ids` | `string[]` | 否 | 省略时返回当前场景全部模型的可见状态 |
 
 **result**
 
@@ -445,7 +445,7 @@ await client.call('camera.flyTo', {
 ```
 
 - 包含根 POI 与子 POI；子项 `parentId` 为父 ID。
-- `visible` 含会话级临时隐藏状态。
+- `visible` 包含会话级临时隐藏状态。
 
 ---
 
@@ -464,7 +464,7 @@ await client.call('camera.flyTo', {
 { "poiId": "poi-1", "visible": true }
 ```
 
-> 会话级隐藏，刷新后恢复。
+> 该设置仅在当前会话内生效，刷新后恢复。
 
 ---
 
@@ -491,7 +491,7 @@ await client.call('camera.flyTo', {
 
 ### 6.16 ui.list
 
-列出当前场景可控制的 **UI Layer**（用户自定义页面层）。
+列出当前场景可控制的界面图层，即用户自定义页面层。
 
 **params**：`{}`
 
@@ -521,13 +521,13 @@ await client.call('camera.flyTo', {
 { "name": "layer-home" }
 ```
 
-显隐作用于运行时 UI Layer 列表，与编辑器「界面」Tab 中页面管理一致。
+显示和隐藏操作作用于运行时界面图层列表，与编辑器**界面**面板中的页面管理保持一致。
 
 ---
 
 ## 7. 事件（Host → Guest）
 
-V1 当前已实现以下 Host 到 Guest 的单向事件：
+V1 当前已实现以下由 Host 推送到 Guest 的单向事件：
 
 | 事件 | 触发时机 | payload |
 |------|----------|---------|
@@ -551,10 +551,10 @@ client.onEvent((eventName, payload) => {
 
 | code | 含义 |
 |------|------|
-| `FORBIDDEN` | origin 不允许，或方法不在白名单 |
-| `NOT_READY` | 场景/相机尚未就绪 |
+| `FORBIDDEN` | origin 不被允许，或方法不在白名单中 |
+| `NOT_READY` | 场景或相机尚未就绪 |
 | `INVALID_PARAMS` | 参数缺失或格式错误 |
-| `NOT_FOUND` | 资源不存在（如 POI） |
+| `NOT_FOUND` | 资源不存在，例如 POI |
 | `INTERNAL_ERROR` | Host 内部错误 |
 | `TIMEOUT` | SDK 侧超时（非 Host 响应字段） |
 
@@ -564,10 +564,10 @@ SDK 抛出的 `Error` 对象上可读取 `error.code`。
 
 ## 9. 安全与限制
 
-- **Origin 校验**：当前 Host 仅允许与 Viewer **同源**的 `event.origin`；如需接入跨域 Guest，需在 Host 侧扩展 `isOriginAllowed`（见 `open-bridge.js` / `initTwinScapeOpenBridgeHost`）。
+- **Origin 校验**：当前 Host 仅允许与 Viewer 同源的 `event.origin`；如需接入跨域 Guest，需在 Host 侧扩展 `isOriginAllowed`（见 `open-bridge.js` / `initTwinScapeOpenBridgeHost`）。
 - **方法白名单**：`open-bridge.js` 中的 `ALLOWED_METHODS` 定义当前可调用方法，未知方法统一返回 `FORBIDDEN`。
 - **事件接收机制**：当前版本未提供独立订阅 API；事件通过 `onEvent` 统一接收，由 Guest 按事件名称自行过滤。
-- **无持久化写接口**：Guest 不能通过开放 API 修改项目数据库，所有运行时控制均限定在当前 Viewer 会话内。
+- **无持久化写入接口**：Guest 不能通过开放 API 修改项目数据库，所有运行时控制均限定在当前 Viewer 会话内。
 
 ---
 
@@ -618,11 +618,11 @@ SDK 抛出的 `Error` 对象上可读取 `error.code`。
 
 ## 11. 相关文件与调试
 
-以下文件用于接口实现、能力注入与调试验证。排查集成问题时，建议优先确认 Host 桥接、SDK 版本与 Playground API 列表是否保持一致。
+以下文件用于 API 实现、能力注入和调试验证。排查集成问题时，建议优先确认 Host 桥接、SDK 版本与 Playground API 列表是否保持一致。
 
 | 文件 | 说明 |
 |------|------|
-| `open-bridge.js` | Host 消息路由、方法分发与事件广播 |
+| `open-bridge.js` | Host 消息路由、方法分发和事件广播 |
 | `sdk/twinscape-client.js` | Guest / 外层页 SDK |
 | `main-lod.js` | Viewer 能力注入（`initTwinScapeOpenBridgeHost`） |
 | `playground.html` | 可视化调试台（API 列表、参数编辑、日志） |
@@ -635,6 +635,6 @@ SDK 抛出的 `Error` 对象上可读取 `error.code`。
 
 | 日期 | 版本 | 说明 |
 |------|------|------|
-| 2026-06-30 | 1.0 | 初版：对齐 `ALLOWED_METHODS` 共 18 个方法；事件仅 `scene.loaded`；补充 SDK、协议、会话级语义说明 |
+| 2026-06-30 | 1.0 | 初版：对齐 `ALLOWED_METHODS` 共 18 个方法；事件仅包含 `scene.loaded`；补充 SDK、协议和会话级语义说明 |
 
-**后续修改开放接口时，请同步更新上表，并检查 `playground.html` 内 `API_CATALOG` 是否与本文档一致。**
+**后续修改开放 API 时，请同步更新上表，并检查 `playground.html` 内 `API_CATALOG` 是否与本文档一致。**

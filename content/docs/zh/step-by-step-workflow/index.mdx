@@ -1,49 +1,49 @@
 ---
 title: 概述
-description: 从空白项目到发布数字孪生的十个步骤。
+description: 按照十个步骤完成数字孪生项目制作，从创建项目到保存预览、发布分享。
 ---
-请按顺序完成这十个步骤。每一步都依赖上一步的结果。
+
+分步工作流说明从空白项目到发布数字孪生应用的完整流程。建议按顺序完成各步骤，因为后续配置通常依赖前一步的结果。
 
 ## 十个步骤
 
-| 步骤 | 操作内容 |
-| --- | --- |
-| [1. 创建项目](/worldbuilder/zh/docs/step-by-step-workflow/1-create-project) | 新建项目并选择类型 |
-| [2. 配置项目设置](/worldbuilder/zh/docs/step-by-step-workflow/2-project-settings) | 设置标题、封面、类型与背景色 |
-| [3. 上传模型](/worldbuilder/zh/docs/step-by-step-workflow/3-upload-models) | 将三维模型导入项目 |
-| [4. 摆放模型](/worldbuilder/zh/docs/step-by-step-workflow/4-adjust-model-layout) | 摆放每个模型并确认位置正确 |
-| [5. 设置相机视角](/worldbuilder/zh/docs/step-by-step-workflow/5-camera-behaviour) | 设置观看者的移动方式与初始画面 |
-| [6. 设置场景灯光](/worldbuilder/zh/docs/step-by-step-workflow/6-lighting) | 为模型布光，使形体与材质可见 |
-| [7. 添加标记](/worldbuilder/zh/docs/step-by-step-workflow/7-add-markers) | 在模型的指定位置添加标签 |
-| [8. 搭建界面](/worldbuilder/zh/docs/step-by-step-workflow/8-ui-pages-and-interactions) | 在场景之上添加页面与组件 |
-| [9. 保存与预览](/worldbuilder/zh/docs/step-by-step-workflow/9-save-and-preview) | 保存并检查效果 |
-| [10. 发布与分享](/worldbuilder/zh/docs/step-by-step-workflow/10-publish-and-share) | 发布为链接并设置访问权限 |
+| 步骤 | 操作内容 | 目标 |
+| --- | --- | --- |
+| [1. 创建项目](/worldbuilder/zh/docs/step-by-step-workflow/1-create-project) | 新建项目并选择项目类型 | 建立项目容器 |
+| [2. 配置项目设置](/worldbuilder/zh/docs/step-by-step-workflow/2-project-settings) | 设置标题、封面、类型与背景色 | 完成项目基础信息 |
+| [3. 上传模型](/worldbuilder/zh/docs/step-by-step-workflow/3-upload-models) | 将三维模型导入项目 | 准备三维资产 |
+| [4. 摆放模型](/worldbuilder/zh/docs/step-by-step-workflow/4-adjust-model-layout) | 调整模型位置、旋转和缩放 | 确定场景空间关系 |
+| [5. 设置相机视角](/worldbuilder/zh/docs/step-by-step-workflow/5-camera-behaviour) | 设置控制方式和初始视角 | 确定观看体验 |
+| [6. 设置场景灯光](/worldbuilder/zh/docs/step-by-step-workflow/6-lighting) | 调整渲染模式和光照参数 | 保证模型清晰可见 |
+| [7. 添加标记](/worldbuilder/zh/docs/step-by-step-workflow/7-add-markers) | 在指定位置添加业务信息 | 补充空间说明 |
+| [8. 搭建界面](/worldbuilder/zh/docs/step-by-step-workflow/8-ui-pages-and-interactions) | 添加页面、组件和交互 | 构建导览和展示界面 |
+| [9. 保存与预览](/worldbuilder/zh/docs/step-by-step-workflow/9-save-and-preview) | 保存项目并检查效果 | 确认发布前版本 |
+| [10. 发布与分享](/worldbuilder/zh/docs/step-by-step-workflow/10-publish-and-share) | 发布项目并复制访问链接 | 完成交付或评审分享 |
 
-## 顺序的原因
+## 为什么需要按顺序操作
 
-标记固定在模型上的某一点。之后移动模型，标记会留在原处。
+模型是标记和界面交互的基础。模型位置确认后再添加标记，可以避免后续标记偏移；界面交互通常会指向模型、标记或指定视角，因此应在这些目标对象创建完成后再配置。
 
-组件指向标记、模型或已保存的相机视角。这些对象必须先存在，组件才能指向它们。
-
-项目类型决定相机控制器，控制器会改变编辑过程中布局的呈现方式。
+项目类型和相机控制方式也应尽早确认。它们会影响观看者进入场景后的移动方式，并影响后续视角、标记和界面的设计。
 
 ## 常见问题
 
-| 现象 | 原因 | 正确做法 |
+| 现象 | 常见原因 | 建议处理 |
 | --- | --- | --- |
-| 标记位置错误 | 添加标记后移动了模型 | 先摆放模型，再添加标记 |
-| 场景打开时对着空白区域 | 未设置初始相机视角 | 分享前设置初始视角 |
-| 组件点击无反应 | 其目标页面或模型已被删除 | 最后再搭建界面 |
-| 评审者看到旧版本 | 分享前未保存项目 | 先保存并预览，再分享 |
+| 标记位置不准确 | 添加标记后又移动了模型 | 先完成模型摆放，再添加标记 |
+| 场景打开后看不到主体 | 未设置初始相机视角 | 发布前设置并保存初始视角 |
+| 界面按钮点击无反应 | 目标页面、模型或视角已被删除 | 检查组件交互目标 |
+| 评审者看到旧内容 | 修改后未保存或未重新发布 | 先保存并预览，再发布分享 |
 
-## 分享前检查
+## 发布前检查
 
 | 检查项 | 确认内容 |
 | --- | --- |
-| 项目标题与封面 | 能够说明项目内容 |
-| 初始相机视角 | 打开时对准主要对象 |
-| 灯光 | 模型可见，无过曝表面 |
-| 模型摆放 | 模型贴合地面网格 |
-| 标记 | 每个标记都有名称与正确内容 |
-| 界面 | 组件可读，所有操作有效 |
-| 发布状态 | 已设为预期的访问权限 |
+| 项目标题和封面 | 是否能准确识别项目内容 |
+| 项目类型 | 是否符合地图级、空间级或物体级资产 |
+| 初始相机视角 | 打开项目时是否对准主要内容 |
+| 灯光和画面 | 模型是否清晰可见，无明显过暗或过曝 |
+| 模型摆放 | 模型是否贴合地面或目标位置 |
+| 标记内容 | 名称、位置、媒体和交互是否正确 |
+| 界面组件 | 文本是否可读，按钮交互是否有效 |
+| 发布状态 | 是否符合预期访问范围 |

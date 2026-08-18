@@ -1,72 +1,72 @@
 ---
 title: 概述
-description: 四个功能面板将场景创作划分为独立的工作区域，使复杂项目保持可维护，不同角色可并行工作。
+description: 功能面板用于组织在线编辑器中的核心配置，将场景、模型、标记和界面拆分为清晰的工作区域。
 ---
+
 import { Callouts, VideoDemo } from '@/components/docs'
 
-编辑器分为四个**功能面板**，每个面板负责场景中的一个层次。可按任务在面板之间切换，同时保持在同一工作区内。
+在线编辑器通过功能面板组织项目配置。每个面板对应数字孪生内容中的一个层级，用户可以按任务在场景、模型、标记和界面之间切换，并始终保持在同一工作区内完成编辑。
 
-这一划分遵循数字孪生的实际搭建顺序：先导入模型，再设置场景的观看方式，然后标注其中的内容，最后搭建观看者点击的界面。若将全部内容放入单一面板，所有设置将同时争夺注意力。
-
-由于面板相互独立，两名人员可在同一项目中并行工作而互不干扰。负责摆放模型的人员无需处理交互逻辑，负责搭建界面的人员也无需了解模型对齐。
+这种结构符合数字孪生项目的制作顺序：先确定场景基础信息和观看方式，再导入并摆放模型，然后添加业务标记，最后搭建界面页面和交互组件。
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-1.mp4" poster="/demos/project-center/3.1.0功能面板-概述.poster.jpg" />
 
 ## 面板参考
 
-| 面板 | 配置内容 | 使用时机 |
+| 面板 | 配置内容 | 适用阶段 |
 | --- | --- | --- |
-| 场景面板 | 项目标题、封面、背景、类型、相机控制器、灯光、后处理 | 确定项目的标识方式，以及场景的打开与呈现效果 |
-| 模型面板 | 资产上传与加载、位置、旋转、缩放、可见性、调试工具 | 搭建构成场景基础的三维内容 |
-| 标记面板 | 文本、图片、视频与数据标记及其交互 | 为位置与对象附加业务语境 |
-| 界面面板 | 画布行为、页面、组件及组件交互 | 在场景之上构建二维控制与展示层 |
+| 场景面板 | 项目标题、封面、背景、项目类型、相机控制、灯光和后处理 | 项目初始化、场景呈现和发布前调优 |
+| 模型面板 | 模型上传、加载、位置、旋转、缩放、显示/隐藏和调试工具 | 搭建三维内容基础 |
+| 标记面板 | 文本、图片、视频、数据标记及标记交互 | 为模型或空间位置补充业务信息 |
+| 界面面板 | 画布行为、页面、组件和组件交互 | 构建导览、说明和控制界面 |
 
 ## 场景面板
 
-配置整体三维场景的呈现与观看体验：项目基础信息、相机控制、灯光与后处理。
-
-该面板决定项目在项目组合中的标识方式、观看者在场景打开时看到的内容、光照对资产的呈现效果，以及预览与分享时的最终画面。其中多数设置在项目早期配置，并在资产就位后进一步调整。
+场景面板用于配置项目的整体呈现方式，包括项目基础信息、相机控制、灯光和画面后处理。它决定项目在列表中的识别方式、打开场景时的初始画面，以及最终预览和分享时的视觉效果。
 
 | 模块 | 配置内容 |
 | --- | --- |
-| [项目设置](/worldbuilder/zh/docs/step-by-step-workflow/2-project-settings) | 标题、封面图、背景色、项目类型 |
-| [相机控制器](/worldbuilder/zh/docs/step-by-step-workflow/5-camera-behaviour) | 控制器类型、初始视角、视场角 |
-| [灯光](/worldbuilder/zh/docs/step-by-step-workflow/6-lighting) | 渲染模式、环境光、天空光、主光源 |
-| [后处理](/worldbuilder/zh/docs/editor/editor-panels/scene-panel/post-processing) | 画面级视觉优化 |
+| [项目设置](/worldbuilder/zh/docs/step-by-step-workflow/2-project-settings) | 项目标题、封面图、背景色和项目类型 |
+| [相机控制器](/worldbuilder/zh/docs/step-by-step-workflow/5-camera-behaviour) | 控制方式、初始视角、视场角和移动范围 |
+| [灯光](/worldbuilder/zh/docs/step-by-step-workflow/6-lighting) | 渲染模式、环境光、天空光和主光源 |
+| [后处理](/worldbuilder/zh/docs/editor/editor-panels/scene-panel/post-processing) | 渲染缩放、色调映射、泛光、调色、暗角和抗锯齿 |
 
 ## 模型面板
 
-管理三维模型资产：上传与加载、参数调整，以及用于定位与排查的调试工具。
+模型面板用于管理三维模型资产。用户可以在这里上传模型、调整位置和比例、控制可见性，并通过调试工具检查模型是否正确落位。
 
-这是基础层。其上的所有内容（包括标记与界面交互）都附着在此处确定的位置上，因此资产摆放需先行定稿。
+模型是标记和界面交互的基础。模型位置确定前，不建议大量配置标记和界面动作，否则后续模型调整可能导致标记偏移或交互目标失效。
 
 | 模块 | 配置内容 |
 | --- | --- |
-| [资产管理](/worldbuilder/zh/docs/step-by-step-workflow/3-upload-models) | 上传、加载、删除、批量操作 |
-| [模型设置](/worldbuilder/zh/docs/step-by-step-workflow/4-adjust-model-layout) | 位置、旋转、缩放、可见性 |
-| [调试工具](/worldbuilder/zh/docs/editor/editor-panels/model-panel/debug-tools) | 地面网格、相机重置 |
+| [上传模型](/worldbuilder/zh/docs/step-by-step-workflow/3-upload-models) | 上传、加载、删除和管理模型资产 |
+| [摆放模型](/worldbuilder/zh/docs/step-by-step-workflow/4-adjust-model-layout) | 位置、旋转、缩放和可见性 |
+| [调试工具](/worldbuilder/zh/docs/editor/editor-panels/model-panel/debug-tools) | 地面网格和重置相机 |
+| [碰撞代理](/worldbuilder/zh/docs/editor/editor-panels/model-panel/collision-proxy) | 设置用于点击、测量和拾取的代理形体 |
+| [模型加载动画](/worldbuilder/zh/docs/editor/editor-panels/model-panel/loading-animation) | 设置模型载入时的动画效果 |
 
 ## 标记面板
 
-添加标记与交互，用于信息展示、导航逻辑，或与三维环境关联的业务语境。
-
-标记使准确的场景具备说明能力。重建成果呈现空间的样貌；标记则说明观看者正在查看什么、其重要性，以及下一步操作。
+标记面板用于在三维场景中添加业务信息。标记可以绑定到模型或空间位置，并展示文本、图片、视频或数据，也可以在点击时触发链接、相机飞行或界面显示。
 
 | 模块 | 配置内容 |
 | --- | --- |
-| [添加标记](/worldbuilder/zh/docs/step-by-step-workflow/7-add-markers) | 文本、图片、视频与数据标记 |
-| [添加交互](/worldbuilder/zh/docs/editor/editor-panels/marker-panel/add-interaction) | 打开链接、飞行到视角、显示界面面板 |
+| [添加标记](/worldbuilder/zh/docs/step-by-step-workflow/7-add-markers) | 创建文本、图片、视频和数据标记 |
+| [添加交互](/worldbuilder/zh/docs/editor/editor-panels/marker-panel/add-interaction) | 打开链接、飞行到视角、显示界面页面 |
+| [添加测量](/worldbuilder/zh/docs/editor/editor-panels/marker-panel/add-measurement) | 测量距离、折线路径和面积 |
+| [碰撞体与调试工具](/worldbuilder/zh/docs/editor/editor-panels/marker-panel/collider-and-debug) | 检查标记位置和点击命中范围 |
 
 ## 界面面板
 
-在三维场景之上构建二维界面图层：画布尺寸与缩放、页面与组件布局，以及交互设置。
+界面面板用于在三维场景之上搭建二维界面。用户可以创建页面、添加按钮、文本、图片、音频等组件，并为组件配置交互动作。
 
-这一层使场景成为应用，而非模型。页面、按钮、媒体与交互使观看者沿既定路线浏览内容，无需自由导航查找关键内容。
+界面面板适合制作导览式演示、分步骤说明和业务控制入口。通过界面组件，观看者可以按预设路径浏览项目，而不必完全依赖自由导航。
 
 | 模块 | 配置内容 |
 | --- | --- |
-| [画布设置](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/canvas-settings) | 场景交互锁定、场景渲染、画布缩放 |
-| [页面与组件管理](/worldbuilder/zh/docs/step-by-step-workflow/8-ui-pages-and-interactions) | 页面、按钮、文本、图片、音频、对齐 |
-| [添加交互](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/add-interaction) | 飞行到视角、界面显隐、模型显隐 |
+| [画布设置](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/canvas-settings) | 锁定场景交互、隐藏场景渲染、锁定画布缩放 |
+| [搭建界面](/worldbuilder/zh/docs/step-by-step-workflow/8-ui-pages-and-interactions) | 页面、按钮、文本、图片、音频和布局 |
+| [添加交互](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/add-interaction) | 飞行到视角、界面显示/隐藏、模型显示/隐藏 |
+| [Open API 演练场](/worldbuilder/zh/docs/editor/editor-panels/ui-panel/open-api-playground) | 调用内嵌 API，并生成示例代码 |
 
-<Callouts title="注意事项" cautions={['各面板相互独立，但场景搭建遵循固定顺序：先场景设置，再资产，然后标记，最后界面。每一层都引用上一层已确定的位置。', '逆序操作通常不会直接中断工作，但会导致后续返工。']} />
+<Callouts title="注意事项" cautions={['建议按“场景设置、模型资产、标记、界面”的顺序搭建项目。每一层配置都会引用上一层已确定的内容。', '逆序配置通常不会导致项目不可用，但会增加后续检查和返工成本。']} />
