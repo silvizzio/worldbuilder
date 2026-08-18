@@ -1,17 +1,40 @@
 ---
 title: Model Loading Animation
-description: Set how a model appears when the scene opens.
+description: Set how a model appears as the scene opens.
 ---
 
+import { ShotGrid } from '@/components/docs'
+
 **Model Loading Animation** sits in the Model Panel, below Model Parameters.
+
+<ShotGrid images={['/demos/project-center/screens/model-panel-settings.png']} />
+
+A reconstructed model takes a moment to load. Without an animation it appears
+abruptly, which reads as a glitch rather than as loading. The animation covers
+that moment and tells the viewer that something is arriving.
+
+## The fields
 
 | Field | What it does |
 | --- | --- |
 | Animation Selection | The animation played as the model loads, for example `dissolveScan` |
 | Preview | Play the animation without reloading the scene |
 | Speed | How fast the animation runs |
-| Glow Color | The colour of the glow during the animation |
+| Glow Color | The colour of the glow while the animation plays |
 | Glow Strength | How strong that glow is |
 
-Use **Preview** to check the result. Reloading the whole scene to see a loading
-animation is slower and harder to compare.
+## Setting it
+
+Use **Preview** rather than reloading. A loading animation only plays once per
+load, so checking it by refreshing means waiting for the whole scene each time
+and comparing from memory. Preview replays it on demand, which is the only
+practical way to judge Speed against Glow Strength.
+
+Speed is a judgement about the viewer, not the model. Too fast and the animation
+finishes before anyone registers it, which defeats the purpose. Too slow and it
+delays a scene that has already loaded.
+
+Glow Strength is the setting most often pushed too far. It is measured against
+the scene background, so a value that looks right on a dark background will bloom
+on a light one. Check it against the background colour set in
+[Configure Project Settings](/worldbuilder/en/docs/step-by-step-workflow/2-project-settings).

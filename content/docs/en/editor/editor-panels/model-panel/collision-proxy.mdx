@@ -1,20 +1,50 @@
 ---
 title: Collision Proxy
-description: Give a model a simplified shape for picking, measuring, and debugging.
+description: Give a model a simplified shape that clicks, markers, and measurements can land on.
 ---
+
+import { ShotGrid } from '@/components/docs'
 
 **Collision Proxy** and **Show collision proxy (debug)** sit in the Model Panel,
 under Model Parameters.
 
-A collision proxy is a `.collision.glb` file generated alongside the model. It
-follows the Gaussian transform, stays hidden by default, and is used for
-picking, measuring, and the debug view.
+<ShotGrid images={['/demos/project-center/screens/model-panel-settings.png']} />
+
+## What a collision proxy is
+
+A **collision proxy** is a simplified shape that sits invisibly over a model and
+catches clicks on its behalf. It arrives as a `.collision.glb` file generated
+alongside the model.
+
+You need one because of how reconstructed models are stored. A scan is not a
+solid object with surfaces. It is a cloud of points, and a click passing through
+it has nothing definite to hit. The proxy gives it something.
+
+The panel describes the behaviour precisely: the proxy follows the Gaussian
+transform, is hidden by default, and is used for picking, measuring, and the
+debug view.
+
+## The controls
 
 | Control | What it does |
 | --- | --- |
-| Collision Proxy | Choose a generated proxy, or None |
-| Show collision proxy (debug) | Draw the proxy in the viewport so you can see its shape |
+| Collision Proxy | Choose a generated proxy for this model, or None |
+| Show collision proxy (debug) | Draw the proxy in the viewport so its shape is visible |
 
-Turn the debug view on when a marker will not land where you click, or when a
-measurement snaps to the wrong surface. The proxy is what the click actually
-hits, so seeing it explains the behaviour.
+## When you need it
+
+Three symptoms point here.
+
+A marker will not land where you click, or lands somewhere behind the surface.
+
+A measurement snaps to a point that is not on the model.
+
+Clicks on part of a model do nothing at all, while other parts respond.
+
+In each case the proxy is either missing, set to None, or shaped differently from
+the model you can see. Turn on **Show collision proxy (debug)** and the mismatch
+becomes visible, because you are then looking at the shape your clicks are
+actually hitting rather than the one being rendered.
+
+Turn the debug view off once you have finished. It draws over the model and makes
+everything else harder to judge.

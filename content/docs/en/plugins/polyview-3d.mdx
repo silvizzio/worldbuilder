@@ -1,10 +1,15 @@
 ---
 title: POLYVIEW 3D
-description: Reconstruct a 3D model from video, inside the editor.
+description: Reconstruct a 3D model from video, without leaving the editor.
 ---
 
-**POLYVIEW 3D** builds a model from footage, so you can produce an asset
-without leaving the editor.
+import { ShotGrid } from '@/components/docs'
+
+**POLYVIEW 3D** builds a model from footage you upload. It matters because it
+removes a handoff: instead of sending video to a reconstruction team and waiting
+for a file to come back, you produce the asset in the project that will use it.
+
+<ShotGrid images={['/demos/project-center/screens/polyview-reconstruction.png']} />
 
 Open **Plugins** in the top bar, then select **POLYVIEW 3D**. The panel has four
 tabs down its left edge: **Upload**, **Tasks**, **Results**, and **Account**.
@@ -13,16 +18,38 @@ tabs down its left edge: **Upload**, **Tasks**, **Results**, and **Account**.
 
 Click or drag to upload. Supported formats are MP4 and MOV.
 
+What you film determines what you get. Walk around the subject rather than
+panning from one spot, keep it in frame throughout, and move slowly enough that
+frames are not blurred. Reconstruction works by matching features between frames,
+so anything that makes two frames hard to match costs you detail.
+
 ## Reconstruction Settings
 
-| Field | Options |
-| --- | --- |
-| Quality | Fast, Standard, High Quality |
-| Remove Background | On, Off |
-| Output Type | The format of the generated model, for example SPLAT |
-| Task Title | Optional, to identify the job later |
+| Field | Options | What it changes |
+| --- | --- | --- |
+| Quality | Fast, Standard, High Quality | How much detail is recovered, and how long the job runs |
+| Remove Background | On, Off | Whether surroundings are stripped, leaving the subject alone |
+| Output Type | For example SPLAT | The format of the generated model |
+| Task Title | Optional | A name to find the job by later |
 
-Select **Start Reconstruction**. The panel gives an estimate of 10 to 30 minutes.
+**Remove Background** is the setting worth thinking about. Turn it on for a
+single object, where the room around it is not the point. Leave it off for a
+space or a site, where the surroundings are the subject.
 
-Follow progress under **Tasks**, and collect the finished model under
-**Results**.
+Give the job a **Task Title**. The Tasks list fills up quickly, and untitled jobs
+are identified only by a timestamp and an id.
+
+## Running it
+
+Select **Start Reconstruction**. The panel estimates 10 to 30 minutes.
+
+Follow progress under **Tasks**, which shows each job with its status and
+completion percentage. Collect the finished model under **Results**.
+
+The job runs server-side, so you can close the panel and keep working. Come back
+to Tasks when you expect it to be done.
+
+## Afterwards
+
+The model becomes an asset you position like any other. See
+[Position Models](/worldbuilder/en/docs/step-by-step-workflow/4-adjust-model-layout).

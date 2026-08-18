@@ -3,16 +3,22 @@ title: Overview
 description: Install plugins that add capabilities to the editor.
 ---
 
-**Plugins** is a tab in the top bar, beside Scene, Model, Marker, and UI.
+import { ShotGrid } from '@/components/docs'
 
-It has two views.
+**Plugins** is a tab in the top bar, beside Scene, Model, Marker, and UI. It
+holds capabilities that are not part of the core editor, each installed
+separately.
+
+<ShotGrid images={['/demos/project-center/screens/publish-panel.png']} />
+
+## The two views
 
 | View | What it shows |
 | --- | --- |
 | My Plugins | The plugins already installed |
 | Marketplace | Everything available, with an Install button on each |
 
-Available at the time of writing:
+## What is available
 
 | Plugin | What it does |
 | --- | --- |
@@ -22,4 +28,18 @@ Available at the time of writing:
 | Point Cloud Cleaner | Clean and crop point clouds |
 | BIM Converter | Convert and optimize BIM formats |
 
-Installed plugins open in the right-hand panel, in place of the feature panels.
+POLYVIEW 3D carries a BETA label. The others install on demand.
+
+## How they behave
+
+An installed plugin opens in the right-hand panel, in the space the feature
+panels normally occupy. The Outline on the left and the viewport in the middle
+stay as they are, so the scene remains visible while the plugin works.
+
+That matters for the reconstruction plugins in particular, since a job can take
+half an hour and you will want to keep working in the meantime.
+
+## Next
+
+[POLYVIEW 3D](/worldbuilder/en/docs/plugins/polyview-3d) covers building a model
+from video, which is the plugin most projects reach for first.

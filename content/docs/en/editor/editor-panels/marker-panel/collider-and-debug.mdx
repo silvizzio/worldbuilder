@@ -3,22 +3,38 @@ title: Collider and Debug Tools
 description: Add colliders, and check where a marker actually sits.
 ---
 
-Two sections at the bottom of the Marker Panel.
+import { ShotGrid, VideoDemo } from '@/components/docs'
+
+Two sections at the bottom of the Marker Panel, both concerned with the same
+question: where does a click actually land?
+
+<ShotGrid images={['/demos/project-center/screens/marker-panel-full.png']} />
 
 ## Collider
 
-Lists the colliders on the scene, with a refresh button and a plus button to add
-one. The empty state reads "No colliders".
+A **collider** is a shape added to the scene that markers and clicks can attach
+to. The section lists the colliders present, with a refresh button and a plus
+button to add one. When empty it reads "No colliders".
 
-A collider gives a marker something to attach to when the model surface alone is
-not enough to pick reliably.
+You add one when the model surface alone is not enough to pick against. A thin
+railing, a gap between parts, or a region a scan captured poorly all give clicks
+nothing reliable to hit. A collider fills that in.
 
 ## Debug Tools
 
 | Control | What it does |
 | --- | --- |
 | Marker Position | Show where the selected marker sits in the scene |
-| Collider | Draw the colliders so you can see their shape |
+| Collider | Draw the colliders so their shape is visible |
 
 Use these when a marker looks correct in the panel but appears in the wrong place
-in the viewport.
+in the viewport. **Marker Position** shows you the coordinates the marker
+actually holds, which separates a placement problem from a display one.
+
+<VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-model-panel-debug-tools-2.mp4" poster="/demos/project-center/3.2.3模型面板-调试工具-重置相机位置.poster.jpg" />
+
+## Related
+
+Model placement has its own debug tools, covering the ground grid and camera
+reset. See
+[Debug Tools](/worldbuilder/en/docs/editor/editor-panels/model-panel/debug-tools).

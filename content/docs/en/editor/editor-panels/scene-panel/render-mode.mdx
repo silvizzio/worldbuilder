@@ -1,20 +1,43 @@
 ---
 title: Render Mode
-description: Choose whether scene lighting affects the models, or they show their captured appearance.
+description: Choose whether scene lighting affects the models, or they keep the appearance they were captured with.
 ---
 
-**Render Mode** sits under **Base Mode** in the Scene Panel.
+import { ShotGrid } from '@/components/docs'
 
-| Mode | What it does |
+**Render Mode** is the first control under **Base Mode** in the Scene Panel. It
+decides one thing: whether the lights you set up actually reach the model.
+
+<ShotGrid images={['/demos/project-center/screens/scene-panel-lighting.png']} />
+
+## The two modes
+
+| Mode | What happens |
 | --- | --- |
-| Lit | Scene lighting affects the models. Ambient, sky, and key light settings change what you see. |
-| Unlit | Scene lighting is ignored. Models show their original textures and colours. |
+| Lit | Scene lighting affects the model. Ambient, sky, and key light all change what you see. |
+| Unlit | Scene lighting is ignored. The model shows the textures and colours it was captured with. |
 
-The panel notes that Unlit suits scanned or baked-texture assets.
+## Why Unlit exists
 
-A scanned model usually carries the lighting from the day of capture in its
-surface. Adding scene light on top produces two sets of shadows, which reads
-as muddy. Unlit avoids that.
+A scanned model already contains light. When a site is photographed for
+reconstruction, the sun, the sky, and every lamp in the room are recorded into
+the surface colours. That is called **baked lighting**, meaning the light is part
+of the texture rather than something calculated as you view it.
 
-Use Lit when you want control over how the model presents, or when the model
-was produced without baked lighting.
+Turn on scene lighting over baked lighting and you get two sets of shadows on the
+same surface. Highlights land in places the original never had them, and the
+result reads as muddy rather than brighter.
+
+The panel says as much: Unlit suits scanned or baked-texture assets.
+
+## Choosing between them
+
+Use **Unlit** when the model came from a scan and already looks right. The
+lighting controls below will do nothing, which is expected.
+
+Use **Lit** when you want control over presentation, or when the model was built
+without baked lighting, as most manually authored assets are. Then the settings
+in [Lighting](/worldbuilder/en/docs/step-by-step-workflow/6-lighting) take effect.
+
+If you are unsure, switch between them and watch the model. The difference is
+immediate, and whichever reads more clearly is the right answer for that asset.
