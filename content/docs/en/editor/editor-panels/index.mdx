@@ -12,9 +12,7 @@ You bring in the models, then set how the scene is viewed, then label what is in
 then build the interface a viewer clicks.
 Putting all of that in a single panel would mean every setting competing for attention at once.
 
-Because the panels are separate, two people can work in the same project without colliding.
-Someone positioning models does not touch interaction logic,
-and someone building the interface does not need to understand model alignment.
+The panels separate responsibilities within the project: model placement uses the Model Panel, while interface design uses the UI Panel. Check dependent markers and interactions after changing model placement.
 
 <VideoDemo src="/demos/project-center/web-videos/editor-editor-panels-1.mp4" poster="/demos/project-center/3.1.0功能面板-概述.poster.jpg" />
 
@@ -62,9 +60,7 @@ Everything above it, markers and UI interactions alike, attaches to positions es
 
 Adds markers and interactions for information display, navigation logic, or business context.
 
-A scan shows what a space looks like.
-It does not tell anyone what they are looking at.
-A marker is a label pinned to a spot in the scene, and it carries that missing explanation.
+Markers attach an explanation to a location in the scene, helping viewers identify what they are looking at.
 
 | Module | Configures |
 | --- | --- |

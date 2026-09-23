@@ -7,13 +7,9 @@ import { ShotGrid } from '@/components/docs'
 The **Project Center** is the screen you land on first.
 It holds every project in your workspace and keeps them findable as that list grows.
 
-One project needs no management layer, and twenty do.
-Teams accumulate projects faster than they expect: one per customer, one per site,
-one per capture date, plus the experiments that turned out worth keeping.
-Once the list is long enough, finding the right project becomes guesswork,
-and the usual result is rebuilding something that already exists.
+Projects may represent different customers, sites, capture dates, or review versions. Search, sorting, and descriptive names help you find the right one as the workspace grows.
 
-Three capabilities prevent that, and each one depends on the one before it:
+Use the Project Center to create projects, find existing work, and manage project access.
 
 <ShotGrid images={['/demos/project-center/Project Management Overview.png']} />
 
@@ -39,7 +35,7 @@ Managing that centrally is what keeps a portfolio navigable once several scenari
 
 ## Relationship to the editor
 
-Two halves of one workflow, divided along a clean line. The Project Center manages projects as objects. The editor manages what is inside them.
+The Project Center manages the project list and access settings. Open the editor to change a project's contents.
 
 | Project Center | Online Editor |
 | --- | --- |
@@ -53,7 +49,7 @@ Save before navigating away, since unsaved editor changes are not carried across
 
 ## A note on duplication
 
-The most underused capability here, and the one that changes how a team's costs scale.
+Duplicate a project when you want to reuse its structure or keep a separate version.
 
 A project whose structure is understood can be copied and adapted, starting from a working baseline rather than an empty scene:
 
@@ -63,4 +59,4 @@ A project whose structure is understood can be copied and adapted, starting from
 
 The same applies before any significant change. Duplicate first, edit the copy, and the original stays available for comparison or rollback.
 
-The alternative is rebuilding each time, which is generally where the cost of a 3D programme accumulates without anyone having decided it should.
+Reusing a working project can reduce setup work for the next version.

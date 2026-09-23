@@ -7,7 +7,7 @@ description: Open API reference for external WebUI, debugging tools, and busines
 > **Maintenance convention**: When open methods, events, protocol fields, or SDK behavior are added, changed, or removed, **update this document in the same release**.
 > **Reference implementation (source code takes precedence)**: `open-bridge.js` (Host bridge), `sdk/twinscape-client.js` (Guest SDK), `main-lod.js` (`initTwinScapeOpenBridgeHost`)
 
-This document defines the open communication capabilities between WORLD BUILDER Viewer and external WebUI experiences. It is intended for enterprise teams integrating custom business panels, debugging consoles, or upper-layer applications into digital twin scenes. The current version covers shipped V1 capabilities for standardized control of scenes, cameras, models, POIs, and UI Layers.
+This reference explains how an external WebUI communicates with WORLD BUILDER Viewer. Use it to connect custom panels, debugging tools, or other applications to a scene. It covers the V1 methods for controlling scenes, cameras, models, POIs, and UI Layers.
 
 ---
 
@@ -28,7 +28,7 @@ Integration constraints:
 
 ## 2. Quick Start (SDK)
 
-Integrators are encouraged to use the official SDK first. The SDK encapsulates handshake, request/response handling, event listening, and timeout behavior, reducing the complexity of working directly with the `postMessage` protocol.
+Start with the official SDK. It handles the handshake, requests, responses, events, and timeouts so you do not need to implement the `postMessage` protocol yourself.
 
 ### 2.1 Include
 
@@ -71,7 +71,7 @@ console.log(info);
 | `client.dispose()` | Remove listeners and reject pending requests |
 | `client.CHANNEL` / `client.VERSION` | Constants `'twinscape-open'` / `'1.0'` |
 
-Timeout: SDK rejects with `error.code === 'TIMEOUT'` if no response within `timeoutMs`.
+The SDK rejects a request with `error.code === 'TIMEOUT'` if no response arrives within `timeoutMs`.
 
 ---
 
@@ -193,7 +193,7 @@ Playground debug entry: `/playground.html?projectId=<id>&status=draft` (`draft` 
 
 ### 6.1 handshake
 
-Establishes an Open API session. **This is the only method that can complete normally before the scene is loaded, excluding error cases.**
+Establishes an Open API session. **Only `handshake` can succeed before the scene has loaded.**
 
 **params**
 

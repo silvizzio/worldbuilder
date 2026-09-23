@@ -4,30 +4,24 @@ description: The online editor is where a reconstructed asset becomes an interac
 ---
 import { ShotGrid } from '@/components/docs'
 
-The **online editor** is where a project stops being a 3D file and becomes something a customer can use.
+Use the **online editor** to turn 3D assets into an interactive scene.
 Positioning models, labelling them, building the interface, and publishing all happen in one browser tab.
 
-That is worth pausing on, because most teams do this with three separate tools.
-A 3D application to position the models, a document to hold the annotations,
-and a developer to build the viewer a customer eventually sees.
-Every change means a trip through all three, which is why 3D deliverables
-tend to be finished once and never touched again.
+The editor keeps model placement, annotations, and interface controls in the same project, so you can review them together.
 
-In the editor, a change takes minutes and the result is a link you can send immediately.
-There is no local install, no game engine, and no build step.
+After making a change, save and preview the project before sharing its link.
 
 <ShotGrid images={['/demos/project-center/Editor Workspace Overview.png']} />
 
 ## Why the editor is panel-based
 
-A digital twin scene involves four concerns, and they belong to different people at different moments.
-Combine them into one interface and you get specialist software.
+The four panels separate the main authoring tasks so team members can find the controls relevant to their work.
 
 Separating them keeps each concern independent:
 
 - A **3D content operator** places assets without touching interaction logic
 - A **solution engineer** builds the UI layer without needing to understand asset alignment
-- Both work in the same project without obstructing each other
+- Both contribute to the same project through the panels relevant to their roles
 
 | Panel | Owns | Typically operated by | Documentation |
 | --- | --- | --- | --- |
@@ -40,7 +34,7 @@ Alongside the panels, project actions handle save, preview, publish, and undo. S
 
 ## Working order
 
-The panels are independent, but scenes come together in a fixed order.
+The panels have separate controls, but this order helps avoid rework:
 
 1. Configure the scene
 2. Load and place assets
@@ -50,7 +44,7 @@ The panels are independent, but scenes come together in a fixed order.
 Each layer references positions the previous one established:
 
 - Move a model after markers are attached, and every marker on it needs revisiting
-- Build UI interactions before their target pages and models exist, and you build them twice
+- Create target pages and models before connecting UI interactions to them
 
 [Step-by-step Workflow](/worldbuilder/en/docs/step-by-step-workflow) sets out the full ten-step path and where teams commonly lose time.
 
@@ -63,11 +57,11 @@ Each layer references positions the previous one established:
 | A developer building a front end around the asset | UI Panel, with pages, components, and interactions |
 | A deployment step to make changes visible | Save, preview, share, inside the same workspace |
 
-The cost comes from repeating all three every time the scene changes.
+Keeping these tasks together makes it easier to update and review a scene.
 
 ## Why it matters commercially
 
-- **During a review**: feedback can be addressed and reshared in minutes rather than deferred to the next iteration, so reviews converge instead of accumulating
+- **During a review**: feedback can be applied in the editor, previewed, and shared for another review
 - **Across a team**: scene configuration, annotation, and interface design become tasks for a solution engineer rather than a 3D specialist
 
-The second point removes the reconstruction team as the bottleneck for every customer variant and every presentation.
+Teams can prepare customer variants and presentations using the existing reconstructed assets.

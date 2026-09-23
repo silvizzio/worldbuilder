@@ -7,9 +7,7 @@ import { Callouts, ShotGrid, VideoDemo } from '@/components/docs'
 Post-processing adjusts the rendered image rather than the scene itself.
 It is the final visual pass, applied after the scene is already correct.
 
-The distinction matters in practice. If models are hard to make out, the cause is almost
-always lighting, and adjusting the image only masks it.
-Correct the lighting first, then use post-processing to refine the result.
+If models are hard to see, check their lighting before adjusting image effects. Once the lighting is suitable, use post-processing to refine the result.
 
 Use this module once the scene, camera, and model placement are stable.
 
@@ -69,5 +67,4 @@ The test is simple: does a viewer notice the effect, or notice the content? For 
 
 ## Why it matters
 
-The same reconstruction, at the same accuracy, is received differently depending on whether the output looks finished or provisional.
-That judgement gets made in the first few seconds, by people who are not evaluating the reconstruction on its technical merits.
+Post-processing can make a scene easier to present, but it does not improve reconstruction accuracy. Keep details clear enough for the intended review.

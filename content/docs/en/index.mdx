@@ -4,19 +4,13 @@ description: WORLD BUILDER turns reconstructed 3D assets into interactive digita
 ---
 import { ShotGrid } from '@/components/docs'
 
-WORLD BUILDER turns a finished 3D reconstruction into an application a customer opens from a link.
-No 3D engineering team, no engine licence, no release cycle.
+WORLD BUILDER lets you turn a 3D reconstruction into an interactive scene and share it with a browser link.
 
-It helps to know what you are starting from.
-A **reconstruction** is the 3D model produced by scanning something real, such as a building, a site, or a product.
-It is accurate to the centimetre, and on its own it is difficult to use.
-Viewing it needs specialist software, editing it needs specialist skills,
-and putting it in front of a customer needs a developer.
+A **reconstruction** is a 3D model created by scanning a real place or object, such as a building, site, or product. WORLD BUILDER provides tools to arrange that model, add context, and prepare it for viewers.
 
-WORLD BUILDER sits on top of VIZZIO's reconstruction pipeline and removes those three requirements.
+WORLD BUILDER works with assets from VIZZIO's reconstruction pipeline.
 You bring a reconstruction in, arrange it, explain it, and publish it as a link.
-Anyone you send that link to opens it in a normal browser, on a laptop or a phone,
-with no software to install.
+Viewers with access can open the link in a browser on a laptop or phone without installing the editor.
 
 <ShotGrid images={['/demos/project-center/Overview.png']} />
 
@@ -50,8 +44,7 @@ WORLD BUILDER assumes a team. Each role owns an area and finishes where the next
 | Reviewer or customer | Opens a link, explores, gives feedback | Preview and share links |
 | Developer | Embeds the published Viewer into an existing product | WebUI Open API |
 
-One consequence is worth stating plainly: the person who understands the business problem no longer has to be the person who can operate 3D software.
-A solution engineer can add markers, build a guided walkthrough, and publish it without touching the reconstruction.
+A solution engineer can add markers, build a guided walkthrough, and publish the scene using the existing reconstruction.
 
 ## Where it gets used
 
@@ -68,21 +61,21 @@ The platform stays the same. What changes is the asset level you start from.
   - Visibility toggles reveal internal components
   - Audio narration lets the scene run as a demonstration without anyone presenting it
 
-Across all three, the outcome is the same: fewer site visits, fewer scheduled demonstrations, less context lost between capture and use.
+These scenes give teams a way to share spatial context remotely for inspection, explanation, and review.
 
 ## Platform capabilities
 
-Four capabilities, each addressing a specific way 3D projects fail.
+The platform supports four parts of the workflow.
 
 - **One pipeline, end to end**
   - VIZZIO handles capture, reconstruction, and asset generation as a single workflow
-  - Assets arrive ready to use, skipping a conversion and cleanup pass that often outlasts the capture
+  - The generated assets feed into the authoring workflow
 - **Every asset level in one framework**
   - A campus, a building inside it, and equipment inside that are the same class of object
   - Teams at different scales share one set of conventions instead of three toolchains
 - **Authoring in one place**
   - Scene configuration, asset placement, annotation, and interface design in the same editor
-  - Replaces the usual split across a 3D tool, a document, and a developer
+  - Keeps scene configuration and supporting information together
 - **Publishing inside the workflow**
   - Preview, share, and access control belong to authoring, not a separate deployment
   - A project moves from edit to reviewable link without leaving the platform
@@ -102,8 +95,7 @@ Use it when you want a published Viewer running inside a product you already own
 
 Where a project becomes a scene. The 3D viewport, four feature panels, and publishing controls sit in one browser-based workspace.
 
-The panel split is deliberate.
-Scene configuration, model management, marker interaction, and UI design each own a layer, which is what keeps a complex project workable as it grows.
+Separate panels organize scene configuration, models, markers, and UI design, making settings easier to find as a project grows.
 
 <ShotGrid images={['/demos/project-center/0.2在线编辑器.jpg']} />
 

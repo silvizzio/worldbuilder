@@ -8,9 +8,7 @@ import { ShotGrid } from '@/components/docs'
 
 <ShotGrid images={['/demos/project-center/screens/model-panel-settings.png']} />
 
-A reconstructed model takes a moment to load. Without an animation it appears
-abruptly, which reads as a glitch rather than as loading. The animation covers
-that moment and tells the viewer that something is arriving.
+A loading animation controls how a model appears when the scene opens.
 
 ## The fields
 
@@ -24,16 +22,13 @@ that moment and tells the viewer that something is arriving.
 
 ## Setting it
 
-Use **Preview** rather than reloading. A loading animation only plays once per
-load, so checking it by refreshing means waiting for the whole scene each time
-and comparing from memory. Preview replays it on demand, which is the only
-practical way to judge Speed against Glow Strength.
+Use **Preview** to replay the animation without reloading the scene. Adjust Speed and Glow Strength, then preview again to compare the result.
 
 Speed is a judgement about the viewer, not the model. Too fast and the animation
 finishes before anyone registers it, which defeats the purpose. Too slow and it
 delays a scene that has already loaded.
 
-Glow Strength is the setting most often pushed too far. It is measured against
+Keep Glow Strength low enough that model details remain visible. It is measured against
 the scene background, so a value that looks right on a dark background will bloom
 on a light one. Check it against the background colour set in
 [Configure Project Settings](/worldbuilder/en/docs/step-by-step-workflow/2-project-settings).

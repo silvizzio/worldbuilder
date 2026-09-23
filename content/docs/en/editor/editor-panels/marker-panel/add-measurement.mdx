@@ -8,9 +8,7 @@ import { ShotGrid } from '@/components/docs'
 
 <ShotGrid images={['/demos/project-center/screens/measurement-segment.png', '/demos/project-center/screens/measurement-polyline.png', '/demos/project-center/screens/measurement-area.png']} />
 
-A reconstruction is built to real-world scale, so distances taken from it are
-real distances. Measuring in the browser means a question about clearance or
-span can be answered without a site visit.
+The measurement tools estimate distances and areas from the reconstructed model. Their accuracy depends on the scan, its scale, and the collision proxy used to place the points.
 
 ## The three tools
 
@@ -40,8 +38,7 @@ the proxy rather than where you aimed.
 
 Turn on
 [Show collision proxy](/worldbuilder/en/docs/editor/editor-panels/model-panel/collision-proxy)
-to see the shape you are actually clicking. That explains the behaviour in almost
-every case.
+to see the shape your clicks are hitting and check whether it matches the visible surface.
 
 Accuracy also depends on the reconstruction itself. Measurements are as good as
 the scan, so treat them as close rather than as survey data.
