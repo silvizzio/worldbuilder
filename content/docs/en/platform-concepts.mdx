@@ -2,9 +2,7 @@
 title: Platform Concepts
 description: The six objects a WORLD BUILDER project is built from, how they contain each other, and which panel configures each one.
 ---
-WORLD BUILDER projects use six main concepts. Understanding their relationships helps you find the right panel and check what an edit may affect.
-
-As a project grows, models, markers, and interface actions depend on one another. Moving a model may mean checking its markers and saved viewpoints.
+A WORLD BUILDER project holds the scene, model assets, markers, interface and publishing state. Understanding how these parts depend on each other helps you choose the right panel and check what else an edit may affect. For example, moving a model may mean repositioning its markers or adjusting a saved viewpoint.
 
 Each concept has a defined place in the project and a panel where you configure it. Use the reference below when editing or handing over a project.
 
@@ -39,10 +37,7 @@ Change something low in the order and everything above it may need checking.
 | Whether a model exists | Marker attachments, and UI interactions targeting that model |
 | A UI page's name, or whether it exists | Marker interactions that show or hide that page |
 
-The chain runs one way:
-
-- **Build along it**: scene settings, then assets, then markers, then UI. Each layer is placed against something already settled.
-- **Build against it**: and you redo work you have already finished.
+Configure the scene and place its assets before adding markers and UI interactions. Each later task refers to something already positioned or created, so changing that earlier work may require updates to its dependants.
 
 ## Asset levels
 
@@ -66,7 +61,7 @@ The level determines which controls carry weight:
 | Solution engineer | Markers, UI, and interactions | Marker Panel, UI Panel | A configured, interactive experience |
 | Reviewer | The saved or published output | Preview and share links | Feedback against a specific saved version |
 
-Read the handoff column closely. Each role concludes where the next begins, so work moves through the team in one direction.
+Use the handoff column to check what the next team member needs: a configured project, correctly placed assets or an interactive version ready for review.
 
 ## Why it matters
 

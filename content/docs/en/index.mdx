@@ -4,13 +4,11 @@ description: WORLD BUILDER turns reconstructed 3D assets into interactive digita
 ---
 import { ShotGrid } from '@/components/docs'
 
-WORLD BUILDER lets you turn a 3D reconstruction into an interactive scene and share it with a browser link.
+A reconstructed 3D model records a place or object, but viewers also need a way to explore it and understand what they are seeing. WORLD BUILDER provides the tools to arrange those assets, attach information and build an interactive scene that can be shared through a browser link.
 
 A **reconstruction** is a 3D model created by scanning a real place or object, such as a building, site, or product. WORLD BUILDER provides tools to arrange that model, add context, and prepare it for viewers.
 
-WORLD BUILDER works with assets from VIZZIO's reconstruction pipeline.
-You bring a reconstruction in, arrange it, explain it, and publish it as a link.
-Viewers with access can open the link in a browser on a laptop or phone without installing the editor.
+Assets from VIZZIO's reconstruction pipeline can be brought into a project, positioned and prepared for viewing in the editor. Viewers with access can open the published link on a laptop or phone without installing the editor.
 
 <ShotGrid images={['/demos/project-center/Overview.png']} />
 
@@ -24,17 +22,11 @@ Viewers with access can open the link in a browser on a laptop or phone without 
 | Annotations and context in a separate document | Information attached to the position it describes |
 | One asset, one use, rebuilt each time | A project structure that duplicates and adapts |
 
-Treating the scan as a starting point rather than a finished file changes what happens next:
-
-- **Before**: a one-off deliverable, finished once and rarely updated
-- **After**: a foundation, where new versions start from a copy rather than a rebuild
-  - Alternate versions for a review
-  - Customer-specific variants
-  - Updated captures of the same site
+A project can be duplicated when you need another version, keeping the existing scene as a starting point. This is useful for customer variants, alternate review versions and updated captures of the same site.
 
 ## Who this is for
 
-WORLD BUILDER assumes a team. Each role owns an area and finishes where the next person starts.
+Different team members can take responsibility for the project, 3D assets, annotations and interface. The table below shows where each role works and how reviewers or developers use the finished scene.
 
 | Role | What they do here | Where they work |
 | --- | --- | --- |
@@ -103,9 +95,7 @@ Separate panels organize scene configuration, models, markers, and UI design, ma
 
 ### Project Center
 
-Manages projects as objects rather than contents.
-Each project carries its own identity, type, cover image, scene configuration, and publishing state.
-That keeps a growing portfolio navigable when several scenarios run at once.
+The Project Center keeps the project list organised by identity, type, cover image and publishing state. Use it to find and manage the right project when the workspace contains several customers, sites or review versions.
 
 <ShotGrid images={['/demos/project-center/0.1项目管理.jpg']} />
 

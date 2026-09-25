@@ -15,9 +15,7 @@ A **collision proxy** is a simplified shape that sits invisibly over a model and
 catches clicks on its behalf. It arrives as a `.collision.glb` file generated
 alongside the model.
 
-You need one because of how reconstructed models are stored. A scan is not a
-solid object with surfaces. It is a cloud of points, and a click passing through
-it has nothing definite to hit. The proxy gives it something.
+The reconstructed point cloud does not provide a solid surface for clicks to hit. The proxy supplies that surface for picking, measurements and marker placement, while the point cloud provides the visible model.
 
 The panel describes the behaviour precisely: the proxy follows the Gaussian
 transform, is hidden by default, and is used for picking, measuring, and the
@@ -32,13 +30,7 @@ debug view.
 
 ## When you need it
 
-Three symptoms point here.
-
-A marker will not land where you click, or lands somewhere behind the surface.
-
-A measurement snaps to a point that is not on the model.
-
-Clicks on part of a model do nothing at all, while other parts respond.
+Check the collision proxy if a marker lands behind the surface, a measurement snaps away from the model or clicks work on some parts but not others.
 
 In each case the proxy is either missing, set to None, or shaped differently from
 the model you can see. Turn on **Show collision proxy (debug)** and the mismatch

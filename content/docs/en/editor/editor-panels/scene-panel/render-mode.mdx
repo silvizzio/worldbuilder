@@ -4,8 +4,7 @@ description: Choose whether scene lighting affects the models, or they keep the 
 ---
 import { ShotGrid } from '@/components/docs'
 
-**Render Mode** is the first control under **Base Mode** in the Scene Panel. It
-decides one thing: whether the lights you set up actually reach the model.
+**Render Mode**, under **Base Mode** in the Scene Panel, determines whether scene lights affect the model or it retains the appearance captured in its textures.
 
 <ShotGrid images={['/demos/project-center/screens/render-lit.png', '/demos/project-center/screens/render-unlit.png']} />
 
@@ -23,9 +22,7 @@ reconstruction, the sun, the sky, and every lamp in the room are recorded into
 the surface colours. That is called **baked lighting**, meaning the light is part
 of the texture rather than something calculated as you view it.
 
-Turn on scene lighting over baked lighting and you get two sets of shadows on the
-same surface. Highlights land in places the original never had them, and the
-result reads as muddy rather than brighter.
+Adding scene lighting over baked lighting can create overlapping shadows and highlights that were not present in the scan. If the result looks muddy, compare it with Unlit before adjusting the lights further.
 
 The panel says as much: Unlit suits scanned or baked-texture assets.
 

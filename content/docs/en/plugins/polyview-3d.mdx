@@ -4,9 +4,7 @@ description: Reconstruct a 3D model from video, without leaving the editor.
 ---
 import { ShotGrid } from '@/components/docs'
 
-**POLYVIEW 3D** builds a model from footage you upload. It matters because it
-removes a handoff: instead of sending video to a reconstruction team and waiting
-for a file to come back, you produce the asset in the project that will use it.
+**POLYVIEW 3D** reconstructs a model from video uploaded in the editor. You can produce the asset in the project that will use it, then position the finished model alongside the other scene assets.
 
 Open **Plugins** in the top bar, then select **POLYVIEW 3D**. The panel has four
 tabs down its left edge: **Upload**, **Tasks**, **Results**, and **Account**.
@@ -17,10 +15,7 @@ tabs down its left edge: **Upload**, **Tasks**, **Results**, and **Account**.
 
 Click or drag to upload. Supported formats are MP4 and MOV.
 
-What you film determines what you get. Walk around the subject rather than
-panning from one spot, keep it in frame throughout, and move slowly enough that
-frames are not blurred. Reconstruction works by matching features between frames,
-so anything that makes two frames hard to match costs you detail.
+Walk around the subject while filming, keep it in frame and move slowly enough to avoid blurred frames. Reconstruction matches features between frames, so clear views from different positions help it recover detail; panning from a single spot does not provide the same coverage.
 
 ## Reconstruction Settings
 
@@ -31,9 +26,7 @@ so anything that makes two frames hard to match costs you detail.
 | Output Type | For example SPLAT | The format of the generated model |
 | Task Title | Optional | A name to find the job by later |
 
-**Remove Background** is the setting worth thinking about. Turn it on for a
-single object, where the room around it is not the point. Leave it off for a
-space or a site, where the surroundings are the subject.
+Turn on **Remove Background** when capturing a single object and the surroundings are not needed. Leave it off for a room or site, where those surroundings are part of the scene you want to reconstruct.
 
 Give the job a **Task Title**. The Tasks list fills up quickly, and untitled jobs
 are identified only by a timestamp and an id.
